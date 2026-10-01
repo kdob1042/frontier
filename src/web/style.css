@@ -25,6 +25,7 @@ a:hover {
 }
 button,
 input,
+select,
 textarea {
   font: inherit;
 }
@@ -44,12 +45,14 @@ button:disabled {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
+select:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
   outline: 3px solid #477660;
   outline-offset: 5px;
 }
 input,
+select,
 textarea {
   width: 100%;
   color: inherit;

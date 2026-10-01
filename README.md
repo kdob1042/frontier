@@ -7,14 +7,14 @@ React / Vite / Hono / Cloudflare Workers / D1 / Workflows。mainが本番正本�
 
 - ホームの推薦1本、1カラムの本文、原文の段落参照、短い知見・問い・AIの見方案。
 - 全文翻訳・無料部分の翻訳・日本語要約・原文リンクのみを区別した表示。
-- 原資料、派生版、Claim / Concept / Question、本人の採用したViewを分離したD1保存。
-- 日本語検索、読んだ位置の自動保存、明示採用、版の競合検出、JSON書き出し、削除後の再取り込み拒否。
+- 原資料、派生版、Claim / Concept / Question、本人の採用したViewを分離したD1保存。根拠付きRelation・既存Viewの改訂案も別に保持する。
+- 日本語検索、読んだ位置の自動保存、明示採用、版の競合検出、JSON / Markdown書き出し、本人のメモと編集履歴、削除後の再取り込み拒否。非表示は再取得・再解析でも維持する。
 - 利用可能な原資料から日本語化・Harvestを行うResponses adapterとWorkflows。通常の読書ではAIを呼ばない。
 - 日次/月次予算の原子的な予約、実usageの精算、成否不明の送信は保守的に費用予約を維持。無条件の再送はしない。
 - Cloudflare Accessの署名 / issuer / audience / exp / owner検証。HTML・静的アセット・API・検索・原文・書き出しを保護。
-- 9媒体の候補台帳。全媒体は利用条件未確認または禁止のため初期無効。現在は自動本文取得を行わない。
+- 9媒体の候補台帳。全媒体は利用条件未確認または禁止のため初期無効。許可が揃ったRSS / Atomの指定フィールドのみ自動取得できる。リンク先の記事本文は取得しない。
 
-保存・閲覧の入口は完成、日本語化ジョブはfixtureによる検証済み。**実媒体への自動接続、日次Cron、実APIの品質・原価測定、本番デプロイは未完了。**
+保存・日本語化・横断接続・日次Editionまでfixtureで検証済み。**実媒体の許諾と公式フィード設定、実APIの品質・原価、実Cron・Access・本番デプロイは未確認。** 未設定の媒体や課金処理を自動で有効化しない。
 
 ## 起動
 
@@ -53,7 +53,7 @@ API障害時は再読み込みを残す。根拠リンクを押すと原文の�
 ## データと更新
 
 `sources → captures → renderings → claims / concepts / questions / view_drafts`。
-本人が採用した時だけ`view_revisions`を作る。同じ案の再送は二重採用しない。
+本人が採用・編集・メモ保存した時だけ`view_revisions`を作る。同じ案の再送は二重採用しない。`view_heads`は現在版を指し、文章を上書きせず履歴を追加する。AIの既存View改訂案は`view_proposals`に保存し、明示採用と本人版の競合確認が済むまで現在版を変更しない。
 
 原資料版と処理版のhashを安定IDとし、同一取り込みは再保存しない。修正時は`If-Match`に現在のrevisionを指定する。日本語化前の原資料を削除する場合は`If-Match: pending`を使う。
 write guardのCHECK制約とD1 batchを使い、削除・版更新と競合した書き込みを原子的に拒否する。
@@ -64,26 +64,37 @@ write guardのCHECK制約とD1 batchを使い、削除・版更新と競合し�
 WorkflowsのcheckpointにはID/フラグだけを保存し、原文・訳文を複製しない。
 
 概念名と文脈上の意味が一致する場合のみ、過去の記録へのナビゲーションを作る。
-これは支持・反証・因果の判定ではない。型付きRelationや既存Viewの改訂提案は次段階。
+型付きRelationは最大3件。支持・異なる結果・条件限定・類似をAIの解釈として保持し、両側のClaimと原文段落、条件を検証する。単なる共起を因果とは扱わない。原資料の独立性は未確認として扱い、転載や同じ発表を独立した裏付けに数えない。旧日本語版は`?revision=...`で当時のCaptureに戻れる。Editionも推薦時の版へ固定する。
 
 ## インポートとAPI
 
 管理のJSON取り込みは補助経路。原資料形式は`src/shared/model.ts`のbundleから`rendering`と`processingVersion`を除いた形。
 日本語化済み記録には両項目を含める。自作の例は`src/shared/demo.ts`。
 
-| API                               | 動作                                      |
-| --------------------------------- | ----------------------------------------- |
-| `GET /api/home`                   | 保存済みの推薦と少数の過去記録            |
-| `GET /api/stories?q=...`          | 本文・知見・本人Viewの検索                |
-| `GET /api/stories/:slug`          | 原文・日本語・知見・本人View              |
-| `PUT /api/stories/:slug/progress` | 既読位置。古い時刻の更新は無視            |
-| `POST /api/views/adopt`           | `draftId`, `revision`の明示採用           |
-| `GET /api/export`                 | 出典・全版・知見・本人ViewのJSON          |
-| `POST /api/admin/import`          | 日本語化済みrecord、変更時は`If-Match`    |
-| `POST /api/admin/captures`        | 許可された原資料の保存                    |
-| `POST /api/admin/jobs`            | `captureId`, `expectedRevision`で日本語化 |
-| `DELETE /api/admin/stories/:slug` | `If-Match`で原資料とAI派生版を削除        |
-| `GET /api/admin/status`           | 台帳とジョブの状態                        |
+| API                                       | 動作                                        |
+| ----------------------------------------- | ------------------------------------------- |
+| `GET /api/home`                           | 保存済みの推薦と少数の過去記録              |
+| `GET /api/stories?q=...`                  | 本文・知見・本人Viewの検索                  |
+| `GET /api/stories/:slug`                  | 原文・日本語・知見・本人View                |
+| `PUT /api/stories/:slug/progress`         | 既読位置。古い時刻の更新は無視              |
+| `POST /api/views/adopt`                   | `draftId`, `revision`の明示採用             |
+| `GET /api/export`                         | 出典・全版・知見・本人ViewのJSON            |
+| `GET /api/export?format=markdown`         | 最新100記事と出典・知見・本人履歴のMarkdown |
+| `GET /api/views/:root/history`            | 本人の文章の履歴                            |
+| `PUT /api/views/:root`                    | `expectedRevision`, `text`で本人版を追加    |
+| `POST /api/stories/:slug/notes`           | `revision`, `text`で本人のメモを保存        |
+| `POST /api/views/proposals/:id/adopt`     | 既存ViewのAI改訂案を明示採用                |
+| `POST /api/admin/import`                  | 日本語化済みrecord、変更時は`If-Match`      |
+| `POST /api/admin/captures`                | 許可された原資料の保存                      |
+| `POST /api/admin/jobs`                    | `captureId`, `expectedRevision`で日本語化   |
+| `DELETE /api/admin/stories/:slug`         | `If-Match`で原資料とAI派生版を削除          |
+| `GET /api/admin/status`                   | 台帳、日次段階・件数・費用・ジョブ          |
+| `PUT /api/admin/sources/:id`              | 許可確認済みのフィードと条件を設定          |
+| `POST /api/admin/sources/:id/ingest`      | 設定済みフィードを取得                      |
+| `POST /api/admin/daily`                   | JST当日の処理開始。`resume:true`で再開      |
+| `POST /api/admin/jobs/:id/stop`           | 新しい送信・保存を止める                    |
+| `POST /api/admin/jobs/:id/retry`          | 既存結果・分割receiptを再利用した安全な再開 |
+| `PUT /api/admin/stories/:slug/visibility` | `revision`, `hidden`で表示状態を変更        |
 
 状態変更は同一OriginのJSONのみ。HTMLを挿入せずテキストとして描画し、原典URLはHTTPSに限定する。
 API・HTMLに`private, no-store`とCSPを付け、私的な本文やSecretsを通常ログへ出さない。
@@ -103,13 +114,49 @@ OpenAI Docsの[Structured Outputs](https://developers.openai.com/api/docs/guides
 localでは`.dev.vars`にSecretsを入れる。`.dev.vars`はGit管理外。
 最初はpreviewの小さな許諾済み原資料でAPI・翻訳品質・usageを確認してから有効化する。
 
-入力は最大32KB、80段落、出力は最大6000トークン。上限超過は長文分割が必要として停止する。
-構造・根拠ID・訳の段落順・数値の欠落を検証してから保存する。**否定・引用主体・意味の忠実性は自動検証だけでは保証しない。** 実記事の照合は#9で行う。
+入力は最大32KB、80段落。短文は翻訳・Harvest・接続を1回で生成する。長い全文/部分訳は段落対応を保って最大4分割し、別のHarvestと合わせて最大5回、各6000出力トークンまで。各分割のreceipt・使用量をD1へ保存し、原文の文字列・段落順・分割IDを照合して再結合する。32KBや4分割を超える資料は開始前に拒否する。
+構造・根拠ID・訳の段落順・数値の欠落を検証してから保存する。明らかな否定・引用主体の脱落は照合待ちとして止める。**否定・引用主体・意味の忠実性は自動検証だけでは保証しない。** 実記事の照合は#9で行う。
 数値の日本語表記が変わる正しい翻訳も保守的に止まる場合がある。
 
 呼び出し前に入力全payloadのUTF-8 bytesと最大出力から費用を多めに予約し、usageで精算する。
-不明な送信・usage欠落は0円にせず予約を維持する。429の自動バックオフ、ownerの停止/再試行、長文分割は未実装。
+不明な送信・usage欠落は0円にせず予約を維持する。429はRetry-Afterを上限60秒で尊重し、各呼び出し最大3回。同時に予約・送信するジョブは最大2つ。不明な送信は自動再送しない。owner停止後は送信/保存のCASで遅着結果を拒否する。既知の拒否や保存済みreceiptだけ安全に再開でき、分割途中の再開は同じJST日付に限る。日付を跨いだ費用不明の操作は未確認として停止する。
 通常のAPIキー課金はChatGPT購読と別。閲覧・再読込・位置保存・採用でAIを呼ばない。
+
+## フィードと日次実行
+
+取得は登録済み媒体の確認済みHTTPSホストのみ。取得前の公開DNS確認、各redirectの再確認、最大3redirect、20秒・256KB、XML深度64、HTMLのテキスト化、60分以上の頻度制御を行う。記事URLへはfetchしない。ログイン・非XML応答・取得拒否は停止する。原文が短すぎる候補や更新のないフィードは正常skip、取得障害はfailed、費用上限はbudget_stoppedとして残す。
+
+管理の媒体設定例（URLと権利は例示であり、有効化の根拠にはならない）：
+
+```json
+{
+  "enabled": false,
+  "feedUrl": "https://example.com/official-feed.xml",
+  "reason": "公式URLと4つの許可を確認してから有効化する",
+  "policy": {
+    "acquire": false,
+    "store": false,
+    "ai": false,
+    "translate": false,
+    "basis": ["https://example.com/licensing"],
+    "checkedAt": "2026-10-01T00:00:00Z",
+    "validUntil": "2026-10-31T00:00:00Z",
+    "allowedHosts": ["example.com"],
+    "scope": "feed_excerpt",
+    "contentField": "description",
+    "mode": "partial_translation",
+    "frequencyMinutes": 1440
+  }
+}
+```
+
+許可レビューの有効期間は最大90日。全文訳は`feed_full`と許可された全文フィールドが必要。RSSならdescription/content:encoded、Atomならsummary/contentから指定された1フィールドのみ読む。公開/更新/取得日時、フィードID、canonical URL、原文hash、選定理由を記録する。同じ原文の転載と追跡パラメータは重複扱い。別記事が同じイベントを扱うかは自動で断定せず、関係の独立性も未確認とする。
+
+`DAILY_ENABLED=true`・AI設定・許可が揃った場合だけ、Cron→DailyWorkflow→取り込み→最大2本のHarvestWorkflow→1本のEditionへ進む。本番CronはUTC 23:00（JST翌朝8:00）、previewはCronなし。コードの初期値はDAILY_ENABLED=false / AI_ENABLED=false。
+
+JST当日の候補登録は全媒体合計最大10件。日次では媒体ごと最大2件を取り込み、直近14日から上限10候補を見て原文重複と媒体偏りを抑える。機構・導入・数値に関する明示的な語句を選定の補助に使うが、内容の真偽の評価とは扱わない。弱い日は推薦を作らず、前回の保存済み記録を読む。完成した推薦外の記事も記録へ残す。
+
+同日の実行ID・選定結果・子ジョブIDを再利用する。再開で新しい翻訳枠を追加しない。子ジョブ失敗は管理詳細で安全に再試行してから日次処理を再開する。成否不明の送信は手動再開でも再送しない。Workflowsが10分以内に完了しない場合はawaitingを残し、後から既存子ジョブを確認してEditionだけ確定できる。
 
 ## Cloudflareへ接続するための設定
 
@@ -152,13 +199,11 @@ npm run test:browser
 QAは自作記事のみ。`artifacts/`へ画面証跡を出力する。`BROWSER_EXECUTABLE`で既存Chromiumを指定可能。
 iPhone Safari実機、実媒体3本、実トリガー、実API原価・品質、本番URLは未確認。
 
-## 次の実装
+## 未確認の実環境項目
 
-- #3：本人Viewの編集履歴、Markdown出力、バックアップ復元の実環境確認。
-- #4：429の有限バックオフ、安全なowner再開/停止、実API疎通。
-- #7：確認済みソースの公式配信接続、安全なHTTP取得、選定・重複排除。
-- #14：長文分割、支持/反証/条件限定のRelation、本人View改訂案。
-- #8：JST日次Cron→取得→日本語化→知見保存→Edition。
-- #9：2媒体・3実記事、API・運用・Safariの最終E2E。
+- 2媒体以上の許諾、公式フィードURLと利用範囲。全候補媒体は初期無効。Contraryの自動取得は禁止状態を維持する。
+- 許諾済みの3実記事による忠実性・関係の妥当性、実Responses APIのusageと単価、実Cronの発火。
+- Cloudflare Accessのowner/別ユーザー、preview/productionの鍵・DB分離、本番URL、iPhone Safari実機。
+- 本番D1のバックアップ復元。localの実D1 export→空DBへのrestoreは統合検証済み。
 
-今回のPRだけでP0全件を完了扱いにしない。
+P0のコードを実装したことと、実媒体・実API・本番で受入済みであることは区別する。実環境設定がない項目を完了扱いにはしない。P1の追加調査・独自特集は通常の読書・日次処理には混ぜない。

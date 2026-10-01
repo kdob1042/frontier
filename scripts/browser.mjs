@@ -70,6 +70,72 @@ await withServer(8796, async (origin) => {
     await page.waitForTimeout(900);
     await page.reload();
     await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(350);
+    // Owner notes and edits are explicit writes and never trigger inference.
+    await page.locator('.reader-note summary').click();
+    await page.getByLabel('あなたのメモ').fill('読者本人のメモを残す');
+    await page.getByRole('button', { name: 'メモを残す', exact: true }).click();
+    await expect(page.getByText('あなたの文章として保存しました。')).toBeVisible();
+    await page.goto(`${origin}/archive`);
+    const personal = page
+      .locator('section.harvest > div')
+      .filter({ hasText: demoBundle.rendering.viewDraft.text });
+    await personal.getByText('自分の文章を編集・履歴を読む').click();
+    await personal.getByLabel('あなたの文章').fill('本人が編集した見方');
+    await personal.getByRole('button', { name: '新しい版として保存' }).click();
+    await expect(page.getByText('本人が編集した見方', { exact: true })).toBeVisible();
+    const views = await (await request(origin, '/api/views')).json();
+    const view = views.views.find((v) => v.text === '本人が編集した見方');
+    const original = await (await request(origin, `/api/stories/${demoBundle.slug}`)).json();
+    const connected = structuredClone(demoBundle);
+    connected.slug = 'connections-fixture';
+    connected.source.url = 'https://example.com/connections-fixture';
+    connected.rendering.title = '記事間の関係と見方の改訂を確認する';
+    connected.rendering.viewDraft = null;
+    connected.rendering.relations = [
+      {
+        toRevision: original.revision,
+        fromClaim: 'c1',
+        toClaim: 'c1',
+        kind: 'analogous_to',
+        reason: '工程学習の仕組みを比べる',
+        conditions: '自作の架空事例。独立した実証ではない。',
+        fromEvidence: ['p1'],
+        toEvidence: ['p1'],
+      },
+    ];
+    connected.rendering.viewProposal = {
+      rootId: view.root_id,
+      expectedRevision: view.id,
+      text: '条件を限定して更新する本人の見方案',
+      evidence: ['p1'],
+    };
+    const imported = await request(origin, '/api/admin/import', {
+      method: 'POST',
+      body: connected,
+    });
+    assert.equal(imported.status, 200);
+    await page.goto(`${origin}/stories/${connected.slug}`);
+    await expect(page.getByText('過去とのつながり', { exact: true })).toBeVisible();
+    const priorLink = page.locator(`a.evidence[href*="revision=${original.revision}"]`);
+    await priorLink.click();
+    await expect(page.locator('.original')).toHaveAttribute('open', '');
+    await expect(page.locator('#source-p1')).toBeVisible();
+    await page.goto(`${origin}/stories/${connected.slug}`);
+    await page.locator('.view-draft summary').click();
+    await expect(page.getByRole('button', { name: 'この案で自分の見方を更新' })).toBeVisible();
+    await page.screenshot({ path: 'artifacts/mobile-connections.png', fullPage: true });
+    await page.getByRole('button', { name: 'この案で自分の見方を更新' }).click();
+    await expect(page.locator('.adopted')).toContainText('条件を限定して更新する本人の見方案');
+    await page.goto(`${origin}/admin`);
+    await page.getByText('媒体の利用条件と状態', { exact: true }).click();
+    await page.getByText('確認済みの媒体設定を変更', { exact: true }).click();
+    await page.getByLabel('媒体', { exact: true }).selectOption('contrary');
+    await expect(page.getByLabel('確認内容JSON')).toHaveValue(/"enabled": false/);
+    assert.equal(
+      await page.evaluate(() => document.documentElement.scrollWidth > innerWidth),
+      false,
+    );
+    await page.screenshot({ path: 'artifacts/mobile-admin.png', fullPage: true });
     for (const width of [390, 1280]) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(origin);
@@ -93,11 +159,17 @@ await withServer(8796, async (origin) => {
     }
     assert.equal(errors.length, 0, errors.join('\n'));
     assert.ok(
-      writes.every((u) => u.includes('/progress') || u.includes('/views/adopt')),
+      writes.every(
+        (u) =>
+          u.includes('/progress') ||
+          u.includes('/views/adopt') ||
+          u.includes('/notes') ||
+          (u.includes('/api/views/') && !u.includes('/admin/')),
+      ),
       'Reading must not start generation.',
     );
     console.log(
-      'Browser QA passed: 390/1280px, home→reader→citations→adoption→search, reload/progress, one primary action, no overflow, no generation on reading.',
+      'Browser QA passed: 390/1280px, reading/citations, note/edit history, relation/version evidence, explicit proposal adoption, owner media settings, no overflow or AI generation from reading.',
     );
   } finally {
     await context.close();

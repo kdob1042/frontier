@@ -9,9 +9,15 @@ import {
   importBundle,
   listStories,
   StoreError,
+  setVisibility,
 } from './storage';
-import { createJob, saveCapture } from './jobs';
+import { createJob, saveCapture, stopJob, retryJob, aiConfig } from './jobs';
+import { startDaily } from './daily';
+import { configureRegistry, ingestFeed } from './feeds';
+import { listViews, editView, viewHistory, addNote, adoptProposal } from './views';
+import { exportMarkdown } from './markdown';
 export { HarvestWorkflow } from './workflow';
+export { DailyWorkflow } from './daily';
 
 const app = new Hono<{ Bindings: Env }>();
 app.use('*', async (c, next) => {
@@ -64,11 +70,25 @@ async function body(request: Request): Promise<unknown> {
 app.get('/api/home', async (c) => {
   const day = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' });
   const edition = await c.env.DB.prepare(
-    'SELECT s.slug,e.day,e.status FROM editions e LEFT JOIN sources s ON s.id=e.source_id AND s.deleted_at IS NULL ORDER BY e.day DESC LIMIT 1',
-  ).first<{ slug: string | null; day: string; status: string }>();
+    'SELECT s.slug,e.day,e.status,e.rendering_id FROM editions e LEFT JOIN sources s ON s.id=e.source_id AND s.deleted_at IS NULL ORDER BY e.day DESC LIMIT 1',
+  ).first<{ slug: string | null; day: string; status: string; rendering_id: string }>();
   const rows = await listStories(c.env.DB);
+  const pinned = edition?.slug
+    ? await getStory(c.env.DB, edition.slug, edition.rendering_id)
+    : null;
   const recommended =
-    (edition?.slug && rows.find((s) => s.slug === edition.slug)) ||
+    (pinned &&
+      !pinned.hidden && {
+        slug: pinned.slug,
+        revision: pinned.revision,
+        title: pinned.title,
+        intro: pinned.intro,
+        publisher: pinned.publisher,
+        publishedAt: pinned.publishedAt,
+        mode: pinned.mode,
+        minutes: pinned.minutes,
+        progress: pinned.currentRevision === pinned.revision ? pinned.progress : 0,
+      }) ||
     rows.find((s) => s.mode !== 'link_only') ||
     rows[0] ||
     null;
@@ -76,14 +96,16 @@ app.get('/api/home', async (c) => {
     recommended,
     recent: rows.filter((s) => s.slug !== recommended?.slug).slice(0, 3),
     day,
-    edition: edition || null,
+    edition: pinned && !pinned.hidden ? edition : null,
   });
 });
 app.get('/api/stories', async (c) =>
   c.json({ stories: await listStories(c.env.DB, c.req.query('q') || '') }),
 );
 app.get('/api/stories/:slug', async (c) => {
-  const story = await getStory(c.env.DB, c.req.param('slug'));
+  const revision = c.req.query('revision');
+  if (revision && !/^[a-f0-9]{64}$/.test(revision)) throw new StoreError('invalid_revision', 400);
+  const story = await getStory(c.env.DB, c.req.param('slug'), revision);
   return story ? c.json(story) : c.json({ error: 'not_found' }, 404);
 });
 app.put('/api/stories/:slug/progress', async (c) => {
@@ -106,16 +128,29 @@ app.post('/api/views/adopt', async (c) => {
     .parse(await body(c.req.raw));
   return c.json(await adoptDraft(c.env.DB, p.draftId, p.revision));
 });
-app.get('/api/views', async (c) =>
-  c.json({
-    views: (
-      await c.env.DB.prepare(
-        'SELECT v.id,v.text,v.created_at,v.evidence_missing,s.slug FROM view_revisions v JOIN sources s ON s.id=v.source_id ORDER BY v.created_at DESC LIMIT 100',
-      ).all()
-    ).results,
-  }),
+app.get('/api/views', async (c) => c.json({ views: await listViews(c.env.DB) }));
+app.get('/api/views/:root/history', async (c) =>
+  c.json({ revisions: await viewHistory(c.env.DB, c.req.param('root')) }),
 );
+app.put('/api/views/:root', async (c) =>
+  c.json(await editView(c.env.DB, c.req.param('root'), await body(c.req.raw))),
+);
+app.post('/api/stories/:slug/notes', async (c) =>
+  c.json(await addNote(c.env.DB, c.req.param('slug'), await body(c.req.raw))),
+);
+app.post('/api/views/proposals/:id/adopt', async (c) => {
+  const p = z
+    .object({ revision: z.string().length(64) })
+    .strict()
+    .parse(await body(c.req.raw));
+  return c.json(await adoptProposal(c.env.DB, c.req.param('id'), p.revision));
+});
 app.get('/api/export', async (c) => {
+  if (c.req.query('format') === 'markdown') {
+    c.header('Content-Disposition', 'attachment; filename="frontier-records.md"');
+    c.header('Content-Type', 'text/markdown; charset=utf-8');
+    return c.body(await exportMarkdown(c.env.DB));
+  }
   c.header('Content-Disposition', 'attachment; filename="frontier-records.json"');
   return c.json(await exportRecords(c.env.DB));
 });
@@ -142,22 +177,50 @@ app.post('/api/admin/jobs', async (c) => {
     .parse(await body(c.req.raw));
   return c.json(await createJob(c.env, input));
 });
+app.post('/api/admin/jobs/:id/stop', async (c) => c.json(await stopJob(c.env, c.req.param('id'))));
+app.post('/api/admin/jobs/:id/retry', async (c) =>
+  c.json(await retryJob(c.env, c.req.param('id'))),
+);
 app.delete('/api/admin/stories/:slug', async (c) => {
   const rev = c.req.header('If-Match');
   if (!rev) return c.json({ error: 'revision_required' }, 400);
   await deleteSource(c.env.DB, c.req.param('slug'), rev === 'pending' ? null : rev);
   return c.json({ deleted: true });
 });
+app.put('/api/admin/stories/:slug/visibility', async (c) => {
+  const p = z
+    .object({ revision: z.string().length(64).nullable(), hidden: z.boolean() })
+    .strict()
+    .parse(await body(c.req.raw));
+  return c.json(await setVisibility(c.env.DB, c.req.param('slug'), p.revision, p.hidden));
+});
 app.get('/api/admin/status', async (c) =>
   c.json({
     environment: c.env.ENVIRONMENT,
     aiEnabled: c.env.AI_ENABLED === 'true',
-    aiConfigured: !!c.env.OPENAI_MODEL,
-    sources: (
+    aiConfigured: (() => {
+      try {
+        aiConfig(c.env);
+        return true;
+      } catch {
+        return false;
+      }
+    })(),
+    dailyEnabled: c.env.DAILY_ENABLED === 'true',
+    dailyLimits: { candidates: 10, translations: 2, recommendations: 1 },
+    records: (
       await c.env.DB.prepare(
-        'SELECT id,name,homepage,enabled,reason,checked_at FROM source_registry ORDER BY name',
+        "SELECT s.slug,s.current_revision AS revision,s.hidden,COALESCE(r.title,json_extract(s.metadata_json,'$.title')) AS title FROM sources s LEFT JOIN renderings r ON r.id=s.current_revision WHERE s.deleted_at IS NULL ORDER BY s.created_at DESC LIMIT 100",
       ).all()
     ).results,
+    dailyRuns: (await c.env.DB.prepare('SELECT * FROM daily_runs ORDER BY day DESC LIMIT 14').all())
+      .results,
+    spending: (
+      await c.env.DB.prepare(
+        'SELECT budget_day,SUM(COALESCE(actual_micro_usd,reserved_micro_usd)) AS micro_usd FROM jobs GROUP BY budget_day ORDER BY budget_day DESC LIMIT 14',
+      ).all()
+    ).results,
+    sources: (await c.env.DB.prepare('SELECT * FROM source_registry ORDER BY name').all()).results,
     jobs: (
       await c.env.DB.prepare(
         'SELECT id,status,error_code,input_tokens,output_tokens,reserved_micro_usd,actual_micro_usd,created_at,updated_at FROM jobs ORDER BY created_at DESC LIMIT 30',
@@ -165,6 +228,28 @@ app.get('/api/admin/status', async (c) =>
     ).results,
   }),
 );
+app.put('/api/admin/sources/:id', async (c) =>
+  c.json(await configureRegistry(c.env.DB, c.req.param('id'), await body(c.req.raw))),
+);
+app.post('/api/admin/sources/:id/ingest', async (c) =>
+  c.json(await ingestFeed(c.env.DB, c.req.param('id'))),
+);
+app.post('/api/admin/daily', async (c) => {
+  const p = z
+    .object({ resume: z.boolean().default(false) })
+    .strict()
+    .parse(await body(c.req.raw));
+  return c.json(await startDaily(c.env, undefined, p.resume));
+});
 app.get('/api/*', (c) => c.json({ error: 'not_found' }, 404));
 app.all('*', (c) => c.env.ASSETS.fetch(c.req.raw));
-export default { fetch: app.fetch } satisfies ExportedHandler<Env>;
+export default {
+  fetch: app.fetch,
+  async scheduled(event, env) {
+    if (env.DAILY_ENABLED === 'true')
+      await startDaily(
+        env,
+        new Date(event.scheduledTime).toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' }),
+      );
+  },
+} satisfies ExportedHandler<Env>;

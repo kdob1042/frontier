@@ -1,5 +1,6 @@
 import { bundleSchema, type Bundle } from '../shared/model';
 import { hash, StoreError } from './storage';
+import { externalSourceStillPermitted } from './feeds';
 
 export const captureInputSchema = bundleSchema.omit({ rendering: true, processingVersion: true });
 export type CaptureInput = ReturnType<typeof captureInputSchema.parse>;
@@ -7,7 +8,7 @@ export interface JobParams {
   captureId: string;
   expectedRevision: string | null;
 }
-export const processingVersion = 'harvest-v1';
+export const processingVersion = 'harvest-v3';
 export async function saveCapture(db: D1Database, input: unknown) {
   const b = captureInputSchema.parse(input);
   if (
@@ -71,7 +72,7 @@ export async function saveCapture(db: D1Database, input: unknown) {
 export async function loadCapture(db: D1Database, id: string): Promise<CaptureInput> {
   const row = await db
     .prepare(
-      'SELECT c.*,s.slug FROM captures c JOIN sources s ON s.id=c.source_id WHERE c.id=? AND s.deleted_at IS NULL',
+      'SELECT c.*,s.slug FROM captures c JOIN sources s ON s.id=c.source_id WHERE c.id=? AND s.deleted_at IS NULL AND s.hidden=0',
     )
     .bind(id)
     .first<{
@@ -83,6 +84,7 @@ export async function loadCapture(db: D1Database, id: string): Promise<CaptureIn
       permissions_json: string;
     }>();
   if (!row) throw new StoreError('capture_missing', 404);
+  await externalSourceStillPermitted(db, JSON.parse(row.metadata_json).url);
   return {
     slug: row.slug,
     source: JSON.parse(row.metadata_json),
@@ -123,9 +125,9 @@ export async function createJob(env: Env, params: JobParams) {
   const id = await hash([params.captureId, version]);
   const now = new Date().toISOString();
   await env.DB.prepare(
-    'INSERT INTO jobs(id,capture_id,processing_version,status,created_at,updated_at) VALUES(?,?,?,?,?,?) ON CONFLICT(capture_id,processing_version) DO NOTHING',
+    'INSERT INTO jobs(id,capture_id,processing_version,status,created_at,updated_at,expected_revision) VALUES(?,?,?,?,?,?,?) ON CONFLICT(capture_id,processing_version) DO NOTHING',
   )
-    .bind(id, params.captureId, version, 'queued', now, now)
+    .bind(id, params.captureId, version, 'queued', now, now, params.expectedRevision)
     .run();
   const job = await env.DB.prepare('SELECT status FROM jobs WHERE id=?')
     .bind(id)
@@ -137,7 +139,16 @@ export async function createJob(env: Env, params: JobParams) {
     instance = await env.HARVEST_WORKFLOW.get(id);
     await instance.status();
   } catch {
-    instance = await env.HARVEST_WORKFLOW.create({ id, params });
+    try {
+      instance = await env.HARVEST_WORKFLOW.create({ id, params });
+    } catch (error) {
+      instance = await env.HARVEST_WORKFLOW.get(id);
+      try {
+        await instance.status();
+      } catch {
+        throw error;
+      }
+    }
   }
   return { id, status: (await instance.status()).status, duplicate: false };
 }
@@ -146,7 +157,7 @@ export async function reserveBudget(env: Env, jobId: string, reservation: number
   const day = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' }),
     month = day.slice(0, 7);
   const result = await env.DB.prepare(
-    `UPDATE jobs SET status='reserved',reserved_micro_usd=?,budget_day=?,budget_month=?,updated_at=? WHERE id=? AND status='queued' AND (SELECT COALESCE(SUM(COALESCE(actual_micro_usd,reserved_micro_usd)),0) FROM jobs WHERE budget_day=?)+?<=? AND (SELECT COALESCE(SUM(COALESCE(actual_micro_usd,reserved_micro_usd)),0) FROM jobs WHERE budget_month=?)+?<=?`,
+    `UPDATE jobs SET status='reserved',actual_micro_usd=NULL,reserved_micro_usd=?,budget_day=?,budget_month=?,updated_at=? WHERE id=? AND status='queued' AND (SELECT COUNT(*) FROM jobs WHERE status IN('reserved','sending','submission_unknown'))<2 AND (SELECT COALESCE(SUM(COALESCE(actual_micro_usd,reserved_micro_usd)),0) FROM jobs WHERE budget_day=?)+?<=? AND (SELECT COALESCE(SUM(COALESCE(actual_micro_usd,reserved_micro_usd)),0) FROM jobs WHERE budget_month=?)+?<=?`,
   )
     .bind(
       reservation,
@@ -167,10 +178,114 @@ export async function reserveBudget(env: Env, jobId: string, reservation: number
     .bind(jobId)
     .first<{ status: string }>();
   if (job?.status === 'reserved') return;
+  const active = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM jobs WHERE status IN('reserved','sending','submission_unknown')",
+  ).first<{ n: number }>();
+  const code = (active?.n || 0) >= 2 ? 'concurrency_limit' : 'budget_limit';
   await env.DB.prepare(
-    "UPDATE jobs SET status='budget_stopped',error_code='budget_limit',updated_at=? WHERE id=? AND status='queued'",
+    "UPDATE jobs SET status='budget_stopped',error_code=?,updated_at=? WHERE id=? AND status='queued'",
   )
-    .bind(new Date().toISOString(), jobId)
+    .bind(code, new Date().toISOString(), jobId)
     .run();
   throw new StoreError('budget_stopped');
+}
+export async function stopJob(env: Env, id: string) {
+  await env.DB.prepare(
+    "UPDATE jobs SET status=CASE WHEN status='sending' THEN 'submission_unknown' ELSE 'cancelled' END,error_code='owner_stopped',actual_micro_usd=CASE WHEN status IN('queued','reserved') THEN 0 ELSE actual_micro_usd END,updated_at=? WHERE id=? AND status IN('queued','reserved','sending','received')",
+  )
+    .bind(new Date().toISOString(), id)
+    .run();
+  const row = await env.DB.prepare('SELECT status FROM jobs WHERE id=?')
+    .bind(id)
+    .first<{ status: string }>();
+  if (!row) throw new StoreError('not_found', 404);
+  try {
+    const instance = await env.HARVEST_WORKFLOW.get(id);
+    const state = await instance.status();
+    if (['queued', 'running', 'waiting', 'paused'].includes(state.status))
+      await instance.terminate();
+  } catch {
+    /* D1 cancellation still blocks all future submissions. */
+  }
+  return { status: row.status };
+}
+export async function retryJob(env: Env, id: string) {
+  aiConfig(env);
+  const row = await env.DB.prepare(
+    'SELECT capture_id,status,result_json,reserved_micro_usd,actual_micro_usd,attempts,expected_revision,budget_day FROM jobs WHERE id=?',
+  )
+    .bind(id)
+    .first<{
+      capture_id: string;
+      status: string;
+      result_json: string | null;
+      reserved_micro_usd: number;
+      actual_micro_usd: number | null;
+      attempts: number;
+      expected_revision: string | null;
+      budget_day: string | null;
+    }>();
+  if (!row) throw new StoreError('not_found', 404);
+  if (!['failed', 'budget_stopped', 'cancelled'].includes(row.status))
+    throw new StoreError('job_not_retryable', 400);
+  const capture = await loadCapture(env.DB, row.capture_id);
+  const head = await env.DB.prepare(
+    'SELECT current_revision FROM sources WHERE canonical_url=? AND deleted_at IS NULL',
+  )
+    .bind(capture.source.url)
+    .first<{ current_revision: string | null }>();
+  if (head?.current_revision !== row.expected_revision) throw new StoreError('revision_conflict');
+  if (row.result_json) {
+    await env.DB.prepare(
+      "UPDATE jobs SET status='received',error_code=NULL WHERE id=? AND status=?",
+    )
+      .bind(id, row.status)
+      .run();
+    const instance = await env.HARVEST_WORKFLOW.get(id);
+    await instance.restart({ from: { name: 'validate and commit immutable rendering' } });
+    return { status: 'validating_saved_result' };
+  }
+  const parts = (
+    await env.DB.prepare('SELECT status,attempts,actual_micro_usd FROM job_parts WHERE job_id=?')
+      .bind(id)
+      .all<{ status: string; attempts: number; actual_micro_usd: number | null }>()
+  ).results;
+  if (parts.length) {
+    if (row.budget_day !== new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' }))
+      throw new StoreError('same_day_retry_required', 400);
+    if (
+      parts.some(
+        (p) =>
+          ['sending', 'submission_unknown'].includes(p.status) ||
+          (p.status === 'received' && p.actual_micro_usd === null),
+      )
+    )
+      throw new StoreError('submission_unknown_do_not_retry', 400);
+    if (parts.some((p) => p.status !== 'received' && p.attempts >= 3))
+      throw new StoreError('retry_limit', 400);
+    await env.DB.prepare("UPDATE jobs SET status='queued',error_code=NULL WHERE id=? AND status=?")
+      .bind(id, row.status)
+      .run();
+    await reserveBudget(env, id, row.reserved_micro_usd);
+    await env.DB.prepare(
+      "UPDATE job_parts SET status='queued' WHERE job_id=? AND status='failed' AND actual_micro_usd=0",
+    )
+      .bind(id)
+      .run();
+    const instance = await env.HARVEST_WORKFLOW.get(id);
+    await instance.restart();
+    return { status: 'resuming_saved_parts' };
+  }
+  if (row.attempts >= 3) throw new StoreError('retry_limit', 400);
+  if (row.actual_micro_usd !== 0 && row.reserved_micro_usd > 0)
+    throw new StoreError('submission_unknown_do_not_retry', 400);
+  const updated = await env.DB.prepare(
+    "UPDATE jobs SET status='queued',error_code=NULL,actual_micro_usd=NULL,reserved_micro_usd=0,budget_day=NULL,budget_month=NULL,updated_at=? WHERE id=? AND status=?",
+  )
+    .bind(new Date().toISOString(), id, row.status)
+    .run();
+  if (!updated.meta.changes) throw new StoreError('revision_conflict');
+  const instance = await env.HARVEST_WORKFLOW.get(id);
+  await instance.restart();
+  return { status: 'queued' };
 }

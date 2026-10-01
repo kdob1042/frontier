@@ -1,4 +1,7 @@
 import assert from 'node:assert/strict';
+import { mkdtemp, rm, mkdir, writeFile, symlink } from 'node:fs/promises';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
 import { demoBundle } from '../src/shared/demo.ts';
 import { withServer, request, command } from './server.mjs';
 await withServer(8793, async (origin, state) => {
@@ -186,8 +189,107 @@ await withServer(8793, async (origin, state) => {
     '--json',
   ]);
   assert.equal(JSON.parse(db)[0].results[0].n, 1);
+  // User edits append immutable revisions, including after the article was removed.
+  const root = afterDelete.view_revisions[0].id;
+  const edited = await request(origin, `/api/views/${root}`, {
+    method: 'PUT',
+    body: { expectedRevision: root, text: '本人による履歴付きの訂正' },
+  });
+  assert.equal(edited.status, 200);
+  assert.equal(
+    (
+      await request(origin, `/api/views/${root}`, {
+        method: 'PUT',
+        body: { expectedRevision: root, text: '競合する古い訂正' },
+      })
+    ).status,
+    409,
+  );
+  assert.equal(
+    (await (await request(origin, `/api/views/${root}/history`)).json()).revisions.length,
+    2,
+  );
+  const raceRevision = afterRace.sources.find((s) => s.slug === 'race-fixture').current_revision;
+  assert.equal(
+    (
+      await request(origin, '/api/stories/race-fixture/notes', {
+        method: 'POST',
+        body: { revision: raceRevision, text: '<script>自分のメモ</script>' },
+      })
+    ).status,
+    200,
+  );
+  const md = await request(origin, '/api/export?format=markdown');
+  assert.equal(md.status, 200);
+  const text = await md.text();
+  assert.ok(text.includes('本人による履歴付きの訂正'));
+  assert.ok(text.includes('&lt;script&gt;'));
+  assert.ok(!text.includes('<script>'));
+  const old = await (
+    await request(origin, `/api/stories/race-fixture?revision=${first.revision}`)
+  ).json();
+  assert.equal(old.revision, first.revision);
+  assert.equal(old.currentRevision, raceRevision);
+  assert.equal(
+    (await request(origin, '/api/admin/sources/contrary/ingest', { method: 'POST', body: {} }))
+      .status,
+    400,
+  );
+  // Run the actual local Workflow with AI disabled, then deduplicate its JST day.
+  assert.equal(
+    (await request(origin, '/api/admin/daily', { method: 'POST', body: {} })).status,
+    200,
+  );
+  let status;
+  for (let attempt = 0; attempt < 20; attempt++) {
+    status = await (await request(origin, '/api/admin/status')).json();
+    if (status.dailyRuns[0]?.status === 'skipped') break;
+    await new Promise((resolve) => setTimeout(resolve, 100));
+  }
+  assert.equal(status.dailyRuns[0].reason, 'daily_disabled');
+  assert.equal(
+    (await (await request(origin, '/api/admin/daily', { method: 'POST', body: {} })).json())
+      .duplicate,
+    true,
+  );
+  // Export and restore the actual D1 database into a fresh disposable state directory.
+  const restore = await mkdtemp(join(tmpdir(), 'frontier-restore-'));
+  try {
+    const file = join(restore, 'backup.sql'),
+      target = join(restore, 'state');
+    const source = join(restore, 'source'),
+      config = join(source, 'wrangler.json');
+    await mkdir(join(source, '.wrangler'), { recursive: true });
+    await symlink(state, join(source, '.wrangler', 'state'), 'dir');
+    await writeFile(
+      config,
+      JSON.stringify({
+        name: 'frontier-local',
+        compatibility_date: '2026-10-01',
+        d1_databases: [{ binding: 'DB', database_name: 'frontier-local' }],
+      }),
+    );
+    await command(['d1', 'export', 'DB', '--local', '--config', config, '--output', file]);
+    await command(['d1', 'execute', 'DB', '--local', '--persist-to', target, '--file', file]);
+    const restored = JSON.parse(
+      await command([
+        'd1',
+        'execute',
+        'DB',
+        '--local',
+        '--persist-to',
+        target,
+        '--command',
+        'SELECT COUNT(*) AS n FROM view_revisions',
+        '--json',
+      ]),
+    );
+    assert.equal(restored[0].results[0].n, 3);
+  } finally {
+    await rm(restore, { recursive: true, force: true });
+  }
   console.log(
-    'D1 integration: import, dedup, citations, Japanese search, progress, explicit adoption, revisions, export, deletion, CSRF, AI-off passed.',
+    'D1 integration passed: revisions, citations, search/progress, adoption/edit/note, JSON/Markdown, deletion, CAS/CSRF, AI-off daily Workflow, export→empty-DB restore.',
   );
 });
 await withServer(

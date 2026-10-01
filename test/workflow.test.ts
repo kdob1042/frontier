@@ -141,3 +141,128 @@ test('concurrent reservations obey daily/monthly caps and unknown submissions ho
     sqlite.close();
   }
 });
+
+test('429 has at most three submissions; timeout, malformed output and stop do not cause a second charged request', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'frontier-failures-')),
+    originalFetch = globalThis.fetch;
+  try {
+    const stub = join(dir, 'cloudflare.mjs');
+    await writeFile(stub, 'export class WorkflowEntrypoint {constructor(ctx,env){this.env=env;}}');
+    await build({
+      entryPoints: ['src/worker/workflow.ts'],
+      outfile: join(dir, 'workflow.mjs'),
+      bundle: true,
+      platform: 'node',
+      format: 'esm',
+      alias: { 'cloudflare:workers': stub },
+      logLevel: 'silent',
+    });
+    const { HarvestWorkflow } = await import(pathToFileURL(join(dir, 'workflow.mjs')).href);
+    const { stopJob } = await import('../src/worker/jobs');
+    for (const scenario of [
+      '429-success',
+      '429-exhausted',
+      'timeout',
+      'invalid-json',
+      'stop',
+      'budget',
+    ]) {
+      const { db, env, sqlite } = sqliteRuntime();
+      let requests = 0;
+      try {
+        const capture = await saveCapture(db, {
+          slug: demoBundle.slug,
+          source: demoBundle.source,
+          capture: demoBundle.capture,
+        });
+        const id = await hash(scenario),
+          now = new Date().toISOString();
+        await db
+          .prepare(
+            "INSERT INTO jobs(id,capture_id,processing_version,status,created_at,updated_at) VALUES(?,?,?,'queued',?,?)",
+          )
+          .bind(id, capture.captureId, scenario, now, now)
+          .run();
+        if (scenario === 'budget') env.DAILY_BUDGET_MICRO_USD = '1';
+        globalThis.fetch = async () => {
+          requests++;
+          if (scenario.startsWith('429') && (scenario === '429-exhausted' || requests < 3))
+            return new Response(null, { status: 429, headers: { 'Retry-After': '1' } });
+          if (scenario === 'timeout') throw Error('network timeout');
+          if (scenario === 'stop') await stopJob(env, id);
+          return Response.json({
+            id: 'resp_failure_fixture',
+            status: 'completed',
+            output: [
+              {
+                type: 'message',
+                content: [
+                  {
+                    type: 'output_text',
+                    text:
+                      scenario === 'invalid-json'
+                        ? 'not json'
+                        : JSON.stringify(demoBundle.rendering),
+                  },
+                ],
+              },
+            ],
+            usage: { input_tokens: 100, output_tokens: 200 },
+          });
+        };
+        const step = {
+          async do(_name: string, options: unknown, callback?: () => Promise<unknown>) {
+            const fn = typeof options === 'function' ? options : callback;
+            if (!fn) throw Error('callback');
+            const limit =
+              typeof options === 'object'
+                ? (options as { retries?: { limit: number } }).retries?.limit || 0
+                : 0;
+            for (let attempt = 0; ; attempt++) {
+              try {
+                return await fn();
+              } catch (e) {
+                if (attempt >= limit) throw e;
+              }
+            }
+          },
+        };
+        const run = new HarvestWorkflow({}, env).run(
+          { instanceId: id, payload: { captureId: capture.captureId, expectedRevision: null } },
+          step,
+        );
+        if (scenario === '429-success') await run;
+        else await assert.rejects(() => run);
+        const job = sqlite.prepare('SELECT * FROM jobs WHERE id=?').get(id)!;
+        assert.equal(
+          requests,
+          scenario.startsWith('429') ? 3 : scenario === 'budget' ? 0 : 1,
+          scenario,
+        );
+        if (scenario === '429-success') {
+          assert.equal(job.status, 'completed');
+          assert.equal(job.actual_micro_usd, 500);
+        }
+        if (scenario === '429-exhausted') {
+          assert.equal(job.status, 'failed');
+          assert.equal(job.actual_micro_usd, 0);
+        }
+        if (['timeout', 'stop'].includes(scenario)) {
+          assert.equal(job.status, 'submission_unknown');
+          assert.equal(job.actual_micro_usd, null);
+          assert.ok(Number(job.reserved_micro_usd) > 0);
+        }
+        if (scenario === 'invalid-json') {
+          assert.equal(job.status, 'failed');
+          assert.equal(job.actual_micro_usd, 500);
+        }
+        if (scenario === 'budget') assert.equal(job.status, 'budget_stopped');
+      } finally {
+        sqlite.close();
+      }
+    }
+  } finally {
+    globalThis.fetch = originalFetch;
+    await rm(dir, { recursive: true, force: true });
+  }
+});

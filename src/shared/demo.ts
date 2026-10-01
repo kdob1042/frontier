@@ -83,12 +83,16 @@ export const demoBundle: Bundle = {
       text: '製造業のAI活用では、自律化の度合いより、判断の根拠を引き継げるかを見たい。',
       evidence: ['p1', 'p3', 'p4'],
     },
+    relations: [],
+    viewProposal: null,
   },
   processingVersion: 'demo-v1',
 };
 export function demoStory(): Story {
   const b = demoBundle;
   return {
+    currentRevision: 'demo-v1',
+    hidden: false,
     slug: b.slug,
     revision: 'demo-v1',
     title: b.rendering.title,
@@ -111,6 +115,8 @@ export function demoStory(): Story {
       },
     ],
     views: [],
+    proposals: [],
     connections: [],
+    relations: [],
   };
 }

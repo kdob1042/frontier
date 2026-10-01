@@ -1,12 +1,6 @@
 import { z } from 'zod';
 
 export const modes = ['full_translation', 'partial_translation', 'summary', 'link_only'] as const;
-export const modeLabels = {
-  full_translation: '全文翻訳',
-  partial_translation: '無料公開部分の翻訳',
-  summary: '日本語要約',
-  link_only: '原文リンクのみ',
-};
 const short = z.string().trim().min(1).max(500);
 const text = z.string().trim().min(1).max(12000);
 export const idSchema = z.string().regex(/^[a-zA-Z0-9_-]{1,100}$/);
@@ -20,6 +14,18 @@ export const safeUrl = z
   }, 'HTTPS URL required');
 const paragraph = z.object({ id: idSchema, text }).strict();
 const evidence = z.array(idSchema).min(1).max(12);
+export const relationSchema = z
+  .object({
+    toRevision: z.string().length(64),
+    fromClaim: idSchema,
+    toClaim: idSchema,
+    kind: z.enum(['supports', 'challenges', 'qualifies', 'analogous_to']),
+    reason: short,
+    conditions: z.string().min(1).max(1000),
+    fromEvidence: evidence,
+    toEvidence: evidence,
+  })
+  .strict();
 export const claimSchema = z
   .object({
     id: idSchema,
@@ -38,6 +44,12 @@ export const generatedSchema = z
     concepts: z.array(z.object({ name: short, meaning: short }).strict()).max(8),
     questions: z.array(z.object({ text: short, evidence }).strict()).max(3),
     viewDraft: z.object({ text: short, evidence }).strict().nullable(),
+    viewProposal: z
+      .object({ rootId: idSchema, expectedRevision: idSchema, text: short, evidence })
+      .strict()
+      .nullable()
+      .default(null),
+    relations: z.array(relationSchema).max(3).default([]),
   })
   .strict();
 export const bundleSchema = z
@@ -51,6 +63,7 @@ export const bundleSchema = z
         author: short,
         language: short,
         publishedAt: z.string().datetime({ offset: true }),
+        updatedAt: z.string().datetime({ offset: true }).optional(),
         capturedAt: z.string().datetime({ offset: true }),
       })
       .strict(),
@@ -64,7 +77,7 @@ export const bundleSchema = z
             store: z.boolean(),
             ai: z.boolean(),
             translate: z.boolean(),
-            basis: short,
+            basis: z.string().min(1).max(12000),
             checkedAt: z.string().datetime({ offset: true }),
           })
           .strict(),
@@ -88,7 +101,9 @@ export function validateBundle(input: unknown): Bundle {
       b.rendering.claims.length ||
       b.rendering.concepts.length ||
       b.rendering.questions.length ||
-      b.rendering.viewDraft)
+      b.rendering.viewDraft ||
+      b.rendering.viewProposal ||
+      b.rendering.relations.length)
   )
     throw new Error('link_only_has_content');
   if (b.capture.mode !== 'link_only' && !ids.size) throw new Error('missing_source');
@@ -99,8 +114,14 @@ export function validateBundle(input: unknown): Bundle {
     ...b.rendering.claims.flatMap((c) => c.evidence),
     ...b.rendering.questions.flatMap((q) => q.evidence),
     ...(b.rendering.viewDraft?.evidence || []),
+    ...(b.rendering.viewProposal?.evidence || []),
   ];
   if (refs.some((r) => !ids.has(r))) throw new Error('invalid_evidence');
+  for (const r of b.rendering.relations) {
+    const claim = b.rendering.claims.find((c) => c.id === r.fromClaim);
+    if (!claim || r.fromEvidence.some((e) => !claim.evidence.includes(e)))
+      throw new Error('invalid_relation_evidence');
+  }
   if (new Set(b.rendering.claims.map((c) => c.id)).size !== b.rendering.claims.length)
     throw new Error('duplicate_claim');
   if (b.capture.mode === 'full_translation' || b.capture.mode === 'partial_translation') {
@@ -124,17 +145,40 @@ export interface StorySummary {
   progress: number;
 }
 export interface Story extends StorySummary {
+  currentRevision: string;
+  hidden: boolean;
   source: Bundle['source'];
   capture: Bundle['capture'];
   rendering: Generated;
   capturedAt: string;
   drafts: Array<{ id: string; text: string; adopted: boolean; evidence: string[] }>;
-  views: Array<{ id: string; text: string; createdAt: string; evidenceMissing: boolean }>;
+  proposals: Array<{
+    id: string;
+    text: string;
+    previousText: string;
+    evidence: string[];
+    rootId: string;
+    expectedRevision: string;
+    adopted: boolean;
+    stale: boolean;
+  }>;
+  views: Array<{
+    id: string;
+    rootId: string;
+    kind: 'adoption' | 'edit' | 'note';
+    text: string;
+    createdAt: string;
+    evidenceMissing: boolean;
+  }>;
   connections: Array<{ slug: string; title: string; concept: string }>;
+  relations: Array<
+    z.infer<typeof relationSchema> & {
+      id: string;
+      slug: string;
+      title: string;
+      independent: boolean;
+    }
+  >;
 }
-export const kindLabels = {
-  reported_fact: '記事の報告',
-  company_claim: '企業の自己申告',
-  author_interpretation: '著者の解釈',
-  ai_inference: 'AIの推論',
-};
+
+export { modeLabels, relationLabels, kindLabels } from './labels';

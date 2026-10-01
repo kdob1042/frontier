@@ -67,6 +67,13 @@ test('numeric omissions and unfunded AI cannot silently pass', () => {
   const wrong = structuredClone(demoBundle.rendering);
   wrong.paragraphs[1].text = '不良率は低下しました。';
   assert.throws(() => verifyNumbers(demoBundle, wrong), /number_or_paragraph/);
+  const negation = structuredClone(demoBundle.rendering);
+  negation.paragraphs[3].text = '他の条件にも一般化できる。';
+  assert.throws(() => verifyNumbers(demoBundle, negation), /negation_review/);
+  const attribution = structuredClone(demoBundle.rendering);
+  attribution.paragraphs[1].text =
+    '3か月で不良率は8%から5%へ改善した。独立に検証された結果ではない。';
+  assert.throws(() => verifyNumbers(demoBundle, attribution), /attribution_review/);
   assert.throws(
     () =>
       aiConfig({

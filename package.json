@@ -19,7 +19,9 @@
     "deploy": "node scripts/deploy.mjs"
   },
   "dependencies": {
+    "fast-xml-parser": "^5.11.2",
     "hono": "^4.0.0",
+    "htmlparser2": "^12.0.0",
     "jose": "^6.0.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
