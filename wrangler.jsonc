@@ -1,0 +1,90 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "frontier-local",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true,
+  },
+  "observability": { "enabled": true },
+  "vars": {
+    "ENVIRONMENT": "local",
+    "ACCESS_TEAM_DOMAIN": "",
+    "ACCESS_AUD": "",
+    "OWNER_EMAIL": "",
+    "AI_ENABLED": "false",
+    "OPENAI_MODEL": "",
+    "DAILY_BUDGET_MICRO_USD": "0",
+    "MONTHLY_BUDGET_MICRO_USD": "0",
+    "INPUT_MICRO_USD_PER_TOKEN": "0",
+    "OUTPUT_MICRO_USD_PER_TOKEN": "0",
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "frontier-local", "migrations_dir": "migrations" },
+  ],
+  "workflows": [
+    {
+      "binding": "HARVEST_WORKFLOW",
+      "name": "frontier-harvest-local",
+      "class_name": "HarvestWorkflow",
+    },
+  ],
+  "env": {
+    "preview": {
+      "name": "frontier-preview",
+      "workers_dev": false,
+      "vars": {
+        "ENVIRONMENT": "preview",
+        "ACCESS_TEAM_DOMAIN": "",
+        "ACCESS_AUD": "",
+        "OWNER_EMAIL": "",
+        "AI_ENABLED": "false",
+        "OPENAI_MODEL": "",
+        "DAILY_BUDGET_MICRO_USD": "0",
+        "MONTHLY_BUDGET_MICRO_USD": "0",
+        "INPUT_MICRO_USD_PER_TOKEN": "0",
+        "OUTPUT_MICRO_USD_PER_TOKEN": "0",
+      },
+      "d1_databases": [
+        { "binding": "DB", "database_name": "frontier-preview", "migrations_dir": "migrations" },
+      ],
+      "workflows": [
+        {
+          "binding": "HARVEST_WORKFLOW",
+          "name": "frontier-harvest-preview",
+          "class_name": "HarvestWorkflow",
+        },
+      ],
+    },
+    "production": {
+      "name": "frontier",
+      "workers_dev": false,
+      "vars": {
+        "ENVIRONMENT": "production",
+        "ACCESS_TEAM_DOMAIN": "",
+        "ACCESS_AUD": "",
+        "OWNER_EMAIL": "",
+        "AI_ENABLED": "false",
+        "OPENAI_MODEL": "",
+        "DAILY_BUDGET_MICRO_USD": "0",
+        "MONTHLY_BUDGET_MICRO_USD": "0",
+        "INPUT_MICRO_USD_PER_TOKEN": "0",
+        "OUTPUT_MICRO_USD_PER_TOKEN": "0",
+      },
+      "d1_databases": [
+        { "binding": "DB", "database_name": "frontier-production", "migrations_dir": "migrations" },
+      ],
+      "workflows": [
+        {
+          "binding": "HARVEST_WORKFLOW",
+          "name": "frontier-harvest",
+          "class_name": "HarvestWorkflow",
+        },
+      ],
+    },
+  },
+}
