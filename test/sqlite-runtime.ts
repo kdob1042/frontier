@@ -9,6 +9,7 @@ export function sqliteRuntime() {
     '0004_user_view_history.sql',
     '0005_bounded_parts.sql',
     '0006_view_proposals_and_visibility.sql',
+    '0007_listening_progress.sql',
   ])
     sqlite.exec(readFileSync(new URL(`../migrations/${name}`, import.meta.url), 'utf8'));
   class Statement {

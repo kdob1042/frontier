@@ -4,6 +4,7 @@ import { demoStory } from '../shared/demo';
 import { kindLabels, modeLabels, relationLabels } from '../shared/labels';
 import type { Story, StorySummary } from '../shared/model';
 import './style.css';
+import { Listen } from './listen';
 
 const demo = location.pathname.startsWith('/demo');
 const base = demo ? '/demo' : '';
@@ -336,6 +337,7 @@ function Reader({ slug }: { slug: string }) {
           原文を読む ↗
         </a>
       </p>
+      <Listen key={s.revision} story={s} demo={demo} />
       <p className="scope">
         {s.capture.scope}
         {s.mode !== 'link_only' && (

@@ -416,3 +416,38 @@ label textarea {
     line-height: 1.8;
   }
 }
+.listen {
+  margin: 16px 0;
+}
+.listen-trigger {
+  color: #375b45;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.listen-controls {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.listen-controls details {
+  flex: 1;
+  min-width: 0;
+}
+.listen-controls summary {
+  padding: 10px 0;
+  min-height: 44px;
+  font-size: 13px;
+}
+.listen label {
+  display: block;
+  font-size: 12px;
+  margin: 14px 0;
+}
+.listen select {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+}

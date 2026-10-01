@@ -12,6 +12,7 @@ React / Vite / Hono / Cloudflare Workers / D1 / Workflows。mainが本番正本�
 - 利用可能な原資料から日本語化・Harvestを行うResponses adapterとWorkflows。通常の読書ではAIを呼ばない。
 - 日次/月次予算の原子的な予約、実usageの精算、成否不明の送信は保守的に費用予約を維持。無条件の再送はしない。
 - Cloudflare Accessの署名 / issuer / audience / exp / owner検証。HTML・静的アセット・API・検索・原文・書き出しを保護。
+- 保存済み日本語版のブラウザ読み上げ。端末内の日本語音声のみを使い、速度・段落移動・一時停止・版ごとの位置保存に対応。
 - 9媒体の候補台帳。全媒体は利用条件未確認または禁止のため初期無効。許可が揃ったRSS / Atomの指定フィールドのみ自動取得できる。リンク先の記事本文は取得しない。
 
 保存・日本語化・横断接続・日次Editionまでfixtureで検証済み。**実媒体の許諾と公式フィード設定、実APIの品質・原価、実Cron・Access・本番デプロイは未確認。** 未設定の媒体や課金処理を自動で有効化しない。
@@ -39,16 +40,28 @@ local認証省略は`ENVIRONMENT=local`かつloopbackホストに限定。previe
 
 ## UI
 
-| 画面           | 主操作                  | 補助操作                     |
-| -------------- | ----------------------- | ---------------------------- |
-| ホーム         | 記事全体を開く1リンク   | フッターの記録・管理         |
-| 本文           | 通常は読むだけ          | 原典、根拠、原文対応の詳細   |
-| AI見方案の詳細 | 自分の見方にする1ボタン | 根拠、未採用/採用済みの表示  |
-| 記録           | 自動検索する入力欄1つ   | 記事・採用した見方へのリンク |
-| 管理           | 取り込み詳細内の1ボタン | 台帳、処理履歴、JSON書き出し |
+| 画面           | 主操作                  | 補助操作                         |
+| -------------- | ----------------------- | -------------------------------- |
+| ホーム         | 記事全体を開く1リンク   | フッターの記録・管理             |
+| 本文           | 通常は読むだけ          | 聴く、原典、根拠、原文対応の詳細 |
+| AI見方案の詳細 | 自分の見方にする1ボタン | 根拠、未採用/採用済みの表示      |
+| 記録           | 自動検索する入力欄1つ   | 記事・採用した見方へのリンク     |
+| 管理           | 取り込み詳細内の1ボタン | 台帳、処理履歴、JSON書き出し     |
 
 常設の保存・翻訳・解析・分類・評価ボタン、サイドバー、追従ツールバーはない。
 API障害時は再読み込みを残す。根拠リンクを押すと原文の詳細が開き、対象段落へ移動する。
+
+## 保存済み記事を聴く
+
+端末に日本語音声があるときだけ、記事冒頭の「聴く」から開始する。基本操作は再生/一時停止と詳細。詳細に速度、音声、段落移動、終了をまとめ、Escでも終了して元の操作へフォーカスを戻す。
+
+原著者・媒体・取得範囲・機械翻訳の説明、日本語本文、AI抽出と重要な留保を順に読む。新しい文章や音声ファイルを生成しない。原文URLを長々と読み上げない。端末外の音声サービスは選ばない。
+
+位置はimmutableな日本語revisionごとに自動保存する。再読込・中断後は短い文の先頭から再開し、新しい版に古い音声位置を適用しない。記事削除時は音声位置も消去する。デモだけはブラウザ内に保存する。
+
+画面消灯・別アプリへの移動時は停止する。自動再開やバックグラウンド再生は行わない。日本語音声がない場合は短い説明を出し、本文は読める。ブラウザテストは音声APIを制御した操作検証で、iPhone Safari実機、実音声の品質・割込み挙動は未確認。
+
+参照：[SpeechSynthesis](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) / [SpeechSynthesisUtterance](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance)
 
 ## データと更新
 
@@ -71,30 +84,31 @@ WorkflowsのcheckpointにはID/フラグだけを保存し、原文・訳文を�
 管理のJSON取り込みは補助経路。原資料形式は`src/shared/model.ts`のbundleから`rendering`と`processingVersion`を除いた形。
 日本語化済み記録には両項目を含める。自作の例は`src/shared/demo.ts`。
 
-| API                                       | 動作                                        |
-| ----------------------------------------- | ------------------------------------------- |
-| `GET /api/home`                           | 保存済みの推薦と少数の過去記録              |
-| `GET /api/stories?q=...`                  | 本文・知見・本人Viewの検索                  |
-| `GET /api/stories/:slug`                  | 原文・日本語・知見・本人View                |
-| `PUT /api/stories/:slug/progress`         | 既読位置。古い時刻の更新は無視              |
-| `POST /api/views/adopt`                   | `draftId`, `revision`の明示採用             |
-| `GET /api/export`                         | 出典・全版・知見・本人ViewのJSON            |
-| `GET /api/export?format=markdown`         | 最新100記事と出典・知見・本人履歴のMarkdown |
-| `GET /api/views/:root/history`            | 本人の文章の履歴                            |
-| `PUT /api/views/:root`                    | `expectedRevision`, `text`で本人版を追加    |
-| `POST /api/stories/:slug/notes`           | `revision`, `text`で本人のメモを保存        |
-| `POST /api/views/proposals/:id/adopt`     | 既存ViewのAI改訂案を明示採用                |
-| `POST /api/admin/import`                  | 日本語化済みrecord、変更時は`If-Match`      |
-| `POST /api/admin/captures`                | 許可された原資料の保存                      |
-| `POST /api/admin/jobs`                    | `captureId`, `expectedRevision`で日本語化   |
-| `DELETE /api/admin/stories/:slug`         | `If-Match`で原資料とAI派生版を削除          |
-| `GET /api/admin/status`                   | 台帳、日次段階・件数・費用・ジョブ          |
-| `PUT /api/admin/sources/:id`              | 許可確認済みのフィードと条件を設定          |
-| `POST /api/admin/sources/:id/ingest`      | 設定済みフィードを取得                      |
-| `POST /api/admin/daily`                   | JST当日の処理開始。`resume:true`で再開      |
-| `POST /api/admin/jobs/:id/stop`           | 新しい送信・保存を止める                    |
-| `POST /api/admin/jobs/:id/retry`          | 既存結果・分割receiptを再利用した安全な再開 |
-| `PUT /api/admin/stories/:slug/visibility` | `revision`, `hidden`で表示状態を変更        |
+| API                                       | 動作                                                             |
+| ----------------------------------------- | ---------------------------------------------------------------- |
+| `GET /api/home`                           | 保存済みの推薦と少数の過去記録                                   |
+| `GET /api/stories?q=...`                  | 本文・知見・本人Viewの検索                                       |
+| `GET /api/stories/:slug`                  | 原文・日本語・知見・本人View                                     |
+| `GET/PUT /api/stories/:slug/listening`    | 日本語revisionごとの音声位置。別記事参照・範囲外・古い時刻を拒否 |
+| `PUT /api/stories/:slug/progress`         | 既読位置。古い時刻の更新は無視                                   |
+| `POST /api/views/adopt`                   | `draftId`, `revision`の明示採用                                  |
+| `GET /api/export`                         | 出典・全版・知見・本人ViewのJSON                                 |
+| `GET /api/export?format=markdown`         | 最新100記事と出典・知見・本人履歴のMarkdown                      |
+| `GET /api/views/:root/history`            | 本人の文章の履歴                                                 |
+| `PUT /api/views/:root`                    | `expectedRevision`, `text`で本人版を追加                         |
+| `POST /api/stories/:slug/notes`           | `revision`, `text`で本人のメモを保存                             |
+| `POST /api/views/proposals/:id/adopt`     | 既存ViewのAI改訂案を明示採用                                     |
+| `POST /api/admin/import`                  | 日本語化済みrecord、変更時は`If-Match`                           |
+| `POST /api/admin/captures`                | 許可された原資料の保存                                           |
+| `POST /api/admin/jobs`                    | `captureId`, `expectedRevision`で日本語化                        |
+| `DELETE /api/admin/stories/:slug`         | `If-Match`で原資料とAI派生版を削除                               |
+| `GET /api/admin/status`                   | 台帳、日次段階・件数・費用・ジョブ                               |
+| `PUT /api/admin/sources/:id`              | 許可確認済みのフィードと条件を設定                               |
+| `POST /api/admin/sources/:id/ingest`      | 設定済みフィードを取得                                           |
+| `POST /api/admin/daily`                   | JST当日の処理開始。`resume:true`で再開                           |
+| `POST /api/admin/jobs/:id/stop`           | 新しい送信・保存を止める                                         |
+| `POST /api/admin/jobs/:id/retry`          | 既存結果・分割receiptを再利用した安全な再開                      |
+| `PUT /api/admin/stories/:slug/visibility` | `revision`, `hidden`で表示状態を変更                             |
 
 状態変更は同一OriginのJSONのみ。HTMLを挿入せずテキストとして描画し、原典URLはHTTPSに限定する。
 API・HTMLに`private, no-store`とCSPを付け、私的な本文やSecretsを通常ログへ出さない。

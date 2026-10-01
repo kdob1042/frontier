@@ -56,6 +56,59 @@ await withServer(8793, async (origin, state) => {
     body: { fraction: 0.1, updatedAt: 1 },
   });
   assert.equal((await (await request(origin, `/api/stories/${input.slug}`)).json()).progress, 0.45);
+  const listeningUrl = `/api/stories/${input.slug}/listening`;
+  const listenTime = Date.now();
+  assert.equal(
+    (
+      await request(origin, listeningUrl, {
+        method: 'PUT',
+        body: {
+          revision: story.revision,
+          chunk: 1,
+          updatedAt: listenTime,
+        },
+      })
+    ).status,
+    200,
+  );
+  await request(origin, listeningUrl, {
+    method: 'PUT',
+    body: {
+      revision: story.revision,
+      chunk: 0,
+      updatedAt: 1,
+    },
+  });
+  assert.equal(
+    (await (await request(origin, `${listeningUrl}?revision=${story.revision}`)).json()).chunk,
+    1,
+  );
+  assert.equal(
+    (
+      await request(origin, listeningUrl, {
+        method: 'PUT',
+        body: {
+          revision: story.revision,
+          chunk: 1000,
+          updatedAt: listenTime + 1,
+        },
+      })
+    ).status,
+    400,
+  );
+  assert.equal(
+    (
+      await request(origin, `/api/stories/link-only/listening`, {
+        method: 'PUT',
+        body: {
+          revision: story.revision,
+          chunk: 0,
+          updatedAt: listenTime + 1,
+        },
+      })
+    ).status,
+    404,
+  );
   const adopt = { draftId: story.drafts[0].id, revision: story.revision };
   assert.equal(
     (await request(origin, '/api/views/adopt', { method: 'POST', body: adopt })).status,
@@ -81,6 +134,14 @@ await withServer(8793, async (origin, state) => {
   ).json();
   assert.ok(updated.revision);
   const newer = await (await request(origin, `/api/stories/${input.slug}`)).json();
+  assert.equal(
+    (await (await request(origin, `${listeningUrl}?revision=${newer.revision}`)).json()).chunk,
+    0,
+  );
+  assert.equal(
+    (await (await request(origin, `${listeningUrl}?revision=${story.revision}`)).json()).chunk,
+    1,
+  );
   assert.equal(newer.views.length, 1);
   assert.equal(newer.drafts[0].adopted, false);
   const invalid = structuredClone(input);
@@ -123,6 +184,20 @@ await withServer(8793, async (origin, state) => {
     200,
   );
   assert.equal((await request(origin, `/api/stories/${input.slug}`)).status, 404);
+  assert.equal(
+    (
+      await request(origin, listeningUrl, {
+        method: 'PUT',
+        body: {
+          revision: story.revision,
+          chunk: 1,
+          updatedAt: Date.now(),
+        },
+      })
+    ).status,
+    404,
+  );
+  assert.equal((await (await request(origin, '/api/export')).json()).listening_progress.length, 0);
   assert.equal(
     (await request(origin, '/api/admin/import', { method: 'POST', body: input })).status,
     409,

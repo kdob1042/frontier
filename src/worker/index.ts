@@ -1,3 +1,4 @@
+import { makeSpeechPlan } from '../shared/speech';
 import { Hono } from 'hono';
 import { z } from 'zod';
 import { authorize, validOrigin } from './auth';
@@ -118,6 +119,43 @@ app.put('/api/stories/:slug/progress', async (c) => {
     `INSERT INTO reading_progress(source_id,fraction,updated_at) SELECT id,?,? FROM sources WHERE slug=? AND deleted_at IS NULL ON CONFLICT(source_id) DO UPDATE SET fraction=excluded.fraction,updated_at=excluded.updated_at WHERE excluded.updated_at>reading_progress.updated_at`,
   )
     .bind(p.fraction, p.updatedAt, c.req.param('slug'))
+    .run();
+  return c.json({ saved: !!result.meta.changes });
+});
+app.get('/api/stories/:slug/listening', async (c) => {
+  const revision = c.req.query('revision');
+  if (!revision || !/^[a-f0-9]{64}$/.test(revision)) throw new StoreError('invalid_revision', 400);
+  const story = await getStory(c.env.DB, c.req.param('slug'), revision);
+  if (!story) throw new StoreError('not_found', 404);
+  const progress = await c.env.DB.prepare(
+    'SELECT chunk FROM listening_progress WHERE rendering_id=?',
+  )
+    .bind(revision)
+    .first<{ chunk: number }>();
+  return c.json({ chunk: progress?.chunk ?? 0 });
+});
+app.put('/api/stories/:slug/listening', async (c) => {
+  const p = z
+    .object({
+      revision: z.string().regex(/^[a-f0-9]{64}$/),
+      chunk: z.number().int().min(0).max(10000),
+      updatedAt: z.number().int().nonnegative(),
+    })
+    .strict()
+    .parse(await body(c.req.raw));
+  if (p.updatedAt > Date.now() + 60000) return c.json({ error: 'invalid_timestamp' }, 400);
+  const story = await getStory(c.env.DB, c.req.param('slug'), p.revision);
+  if (!story) throw new StoreError('not_found', 404);
+  const plan = makeSpeechPlan(story);
+  if (!plan.length || p.chunk > plan.length) throw new StoreError('invalid_input', 400);
+  const result = await c.env.DB.prepare(
+    `INSERT INTO listening_progress(rendering_id,chunk,updated_at)
+     SELECT r.id,?,? FROM renderings r JOIN captures c ON c.id=r.capture_id
+     JOIN sources s ON s.id=c.source_id WHERE s.slug=? AND s.deleted_at IS NULL AND r.id=?
+     ON CONFLICT(rendering_id) DO UPDATE SET chunk=excluded.chunk,updated_at=excluded.updated_at
+     WHERE excluded.updated_at>listening_progress.updated_at`,
+  )
+    .bind(p.chunk, p.updatedAt, story.slug, p.revision)
     .run();
   return c.json({ saved: !!result.meta.changes });
 });

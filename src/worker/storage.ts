@@ -486,6 +486,7 @@ export async function deleteSource(db: D1Database, slug: string, expected: strin
     'view_drafts',
     'view_proposals',
     'rendering_concepts',
+    'listening_progress',
   ])
     stmts.push(
       db
@@ -562,6 +563,7 @@ export async function exportRecords(db: D1Database) {
     'view_heads',
     'view_proposals',
     'reading_progress',
+    'listening_progress',
     'editions',
     'source_registry',
     'feed_candidates',
