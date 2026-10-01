@@ -314,7 +314,7 @@ export async function adoptDraft(db: D1Database, id: string, revision: string) {
   if (!view) throw new StoreError('draft_missing_or_stale');
   return { view, duplicate: !result.meta.changes };
 }
-export async function deleteSource(db: D1Database, slug: string, expected: string) {
+export async function deleteSource(db: D1Database, slug: string, expected: string | null) {
   const head = await db
     .prepare('SELECT id,slug,current_revision,deleted_at FROM sources WHERE slug=?')
     .bind(slug)
@@ -323,7 +323,7 @@ export async function deleteSource(db: D1Database, slug: string, expected: strin
   if (head.current_revision !== expected) throw new StoreError('revision_conflict');
   // All operations are conditionally guarded by the same revision. Tombstone is kept for re-import protection.
   const guard =
-    'EXISTS(SELECT 1 FROM sources WHERE id=? AND current_revision=? AND deleted_at IS NULL)';
+    'EXISTS(SELECT 1 FROM sources WHERE id=? AND current_revision IS ? AND deleted_at IS NULL)';
   const renderings =
     'SELECT r.id FROM renderings r JOIN captures c ON c.id=r.capture_id WHERE c.source_id=?';
   const stmts = [
@@ -363,7 +363,7 @@ export async function deleteSource(db: D1Database, slug: string, expected: strin
   stmts.push(
     db
       .prepare(
-        'UPDATE sources SET deleted_at=?,current_revision=NULL,metadata_json=? WHERE id=? AND current_revision=? AND deleted_at IS NULL',
+        'UPDATE sources SET deleted_at=?,current_revision=NULL,metadata_json=? WHERE id=? AND current_revision IS ? AND deleted_at IS NULL',
       )
       .bind(new Date().toISOString(), '{}', head.id, expected),
   );

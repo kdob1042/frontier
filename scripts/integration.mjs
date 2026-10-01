@@ -129,6 +129,28 @@ await withServer(8793, async (origin, state) => {
   assert.equal(afterDelete.captures.length, 1);
   assert.equal(afterDelete.renderings.length, 1);
   assert.equal(afterDelete.claims.length, 0);
+  // Captured material can also be removed before translation has finished.
+  const pending = structuredClone(demoBundle);
+  pending.slug = 'pending-fixture';
+  pending.source.url = 'https://example.com/pending-fixture';
+  const raw = { slug: pending.slug, source: pending.source, capture: pending.capture };
+  assert.equal(
+    (await request(origin, '/api/admin/captures', { method: 'POST', body: raw })).status,
+    200,
+  );
+  assert.equal(
+    (
+      await request(origin, '/api/admin/stories/pending-fixture', {
+        method: 'DELETE',
+        headers: { 'If-Match': 'pending' },
+      })
+    ).status,
+    200,
+  );
+  assert.equal(
+    (await request(origin, '/api/admin/captures', { method: 'POST', body: raw })).status,
+    409,
+  );
   // Two competing updates must leave exactly one new rendering, with no orphan private output.
   const race = structuredClone(demoBundle);
   race.slug = 'race-fixture';

@@ -145,7 +145,7 @@ app.post('/api/admin/jobs', async (c) => {
 app.delete('/api/admin/stories/:slug', async (c) => {
   const rev = c.req.header('If-Match');
   if (!rev) return c.json({ error: 'revision_required' }, 400);
-  await deleteSource(c.env.DB, c.req.param('slug'), rev);
+  await deleteSource(c.env.DB, c.req.param('slug'), rev === 'pending' ? null : rev);
   return c.json({ deleted: true });
 });
 app.get('/api/admin/status', async (c) =>

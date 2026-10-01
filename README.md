@@ -55,7 +55,7 @@ API障害時は再読み込みを残す。根拠リンクを押すと原文の�
 `sources → captures → renderings → claims / concepts / questions / view_drafts`。
 本人が採用した時だけ`view_revisions`を作る。同じ案の再送は二重採用しない。
 
-原資料版と処理版のhashを安定IDとし、同一取り込みは再保存しない。修正時は`If-Match`に現在のrevisionを指定する。
+原資料版と処理版のhashを安定IDとし、同一取り込みは再保存しない。修正時は`If-Match`に現在のrevisionを指定する。日本語化前の原資料を削除する場合は`If-Match: pending`を使う。
 write guardのCHECK制約とD1 batchを使い、削除・版更新と競合した書き込みを原子的に拒否する。
 旧版の失敗中も現在の完成版を読むことができる。
 
