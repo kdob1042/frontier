@@ -41,3 +41,15 @@ RSS/Atom発見と原資料取得を分離。明示設定した公開HTML本文�
 - ブラウザ変換テストはffmpegの自作2秒WebMを用い、実decode → mono 16kHz PCMと4JPEGの時間位置を検査する。ローカルではChromium配布zipが不完全でinstall失敗したため、今回のブラウザ確認はCI結果を参照する。iPhone Safari、公開実動画のコーデック、実APIのOCR/文字起こし/日本語化の品質は未確認。
 - 直接の音声/動画の上限は3分・12MB。PDFは2MB。映像は4代表フレームで、全場面の観察ではない。動画前処理はブラウザ実行のため、直接動画のCron取り込みは未対応。配信字幕付き公開HTMLは日次取得に接続。
 - デプロイにはprivate R2とMediaWorkflowも追加で必要。R2原資料はD1/JSON/Markdown exportに含まれず、別途objectのバックアップが必要。実API/Cloudflare設定と認証の不足により、本番デプロイは引き続き未完了。
+
+## 2026-10-02 production deployment
+
+Deployed through the connected Cloudflare API to https://frontier.mashstock.workers.dev/.
+Separate production D1 (all eight migrations), private R2, and three Workflow resources were created.
+A dedicated Access application protects the entire Worker, including alternate routes; only the existing owner email plus Cloudflare account membership is allowed. Preview URLs are disabled. The signed CF_Authorization cookie is accepted with the same issuer/audience/expiry/email checks as the assertion header.
+
+The account has no custom DNS zone. This deployment therefore uses Worker-bound Access on workers.dev instead of a custom domain. Deployment configuration is kept outside the public repository; deployment operators must verify the actual Access policy before changing it.
+
+The connector deployment bundles the compiled UTF-8 HTML/CSS/JS into the Worker via scripts/build-connector.mjs, supplying the existing ASSETS interface behind authorization. Build normally, then run this script and upload dist-worker/connector.js as worker.js with the production D1/R2/plain_text/workflow bindings. This avoids requiring an unrelated Wrangler login or asset-upload bearer credential in the connector. Normal Wrangler deployment can continue using native assets.
+
+Unauthenticated GET / returns HTTP 302 to the expected Access login with the production audience. The cloud browser reaches Cloudflare sign-in but encounters a human-verification challenge; authenticated production UI/API and iPhone checks remain unverified. Local build and all 30 tests passed. AI_ENABLED and DAILY_ENABLED remain false, with no Cron schedule or API key configured. No real article translation or collection is claimed; the protected /demo remains available for the self-authored reader sample.
