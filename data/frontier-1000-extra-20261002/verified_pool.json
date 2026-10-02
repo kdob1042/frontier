@@ -1,0 +1,72 @@
+[
+  {
+    "url": "https://www.bbc.com/future/article/20260930-metas-new-ai-is-about-to-break-the-internet",
+    "publisher": "BBC Future / Innovation / Worklife",
+    "publisher_id": "bbc",
+    "discovery_url": "https://www.bbc.com/innovation",
+    "checked_at": "2026-10-02T13:14:03.569772+00:00",
+    "title": "'Things may get ugly': Meta's new AI Muse is about to make the internet more annoying",
+    "word_count": 1763,
+    "paragraph_count": 45,
+    "extraction_method": "trafilatura_precision",
+    "id": "frontier-c5bbfd58b9bd01dcac67",
+    "canonical_url": "https://www.bbc.com/future/article/20260930-metas-new-ai-is-about-to-break-the-internet",
+    "authors": [
+      "Thomas Germain"
+    ],
+    "published_at": "2026-10-01",
+    "topics": [
+      "技術と社会・教育・制度"
+    ],
+    "reading_minutes": 9,
+    "screening_score": 83.0,
+    "attribution_signals": 35,
+    "quote_signals": 26,
+    "numeric_signals": 7,
+    "body_sha256": "b30e479dbc55cf586e10914566ff531d5ebc1c58aff8796e69c495e7c672cc51",
+    "title_key": "thingsmaygetuglymetasnewaimuseisabouttomaketheinternetmoreannoying",
+    "publisher_excerpt": "Someday we'll redesign the internet for tools like this.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,763語・45段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及35箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 1
+  },
+  {
+    "url": "https://www.bbc.com/future/article/20260928-a-virtual-power-plant-hidden-in-vermont-homes-is-keeping-the-lights-on-during-storms",
+    "publisher": "BBC Future / Innovation / Worklife",
+    "publisher_id": "bbc",
+    "discovery_url": "https://www.bbc.com/future",
+    "checked_at": "2026-10-02T13:14:03.571062+00:00",
+    "title": "The US state replacing power plants with home batteries",
+    "word_count": 1734,
+    "paragraph_count": 41,
+    "extraction_method": "trafilatura_precision",
+    "id": "frontier-fe5dbb54cb0e3b38e62b",
+    "canonical_url": "https://www.bbc.com/future/article/20260928-a-virtual-power-plant-hidden-in-vermont-homes-is-keeping-the-lights-on-during-storms",
+    "authors": [
+      "Jack Carroll"
+    ],
+    "published_at": "2026-09-29",
+    "topics": [
+      "エネルギー・環境・インフラ"
+    ],
+    "reading_minutes": 9,
+    "screening_score": 85.8,
+    "attribution_signals": 32,
+    "quote_signals": 16,
+    "numeric_signals": 26,
+    "body_sha256": "1b411b42846f85054c90d181e3db4855f880ae9807f4452bc43a7999c619ca54",
+    "title_key": "theusstatereplacingpowerplantswithhomebatteries",
+    "publisher_excerpt": "Spread across thousands of ordinary homes, Vermont's virtual power plant has become its largest power source.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,734語・41段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及32箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 2
+  }
+]

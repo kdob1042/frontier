@@ -1,0 +1,384 @@
+[
+  {
+    "publisher": "BBC Future / Innovation / Worklife",
+    "candidate_count": 9,
+    "log": [
+      {
+        "method": "robots_sitemaps",
+        "urls": [
+          "https://www.bbc.com/afrique/sitemap.xml",
+          "https://www.bbc.com/arabic/sitemap.xml",
+          "https://www.bbc.com/bbcx/audio_archive_sitemap.xml",
+          "https://www.bbc.com/bbcx/content_index_sitemap.xml",
+          "https://www.bbc.com/bbcx/index_sitemap.xml",
+          "https://www.bbc.com/bbcx/video_documentaries_sitemap.xml",
+          "https://www.bbc.com/bengali/sitemap.xml",
+          "https://www.bbc.com/burmese/sitemap.xml",
+          "https://www.bbc.com/gahuza/sitemap.xml",
+          "https://www.bbc.com/hausa/sitemap.xml",
+          "https://www.bbc.com/hindi/sitemap.xml",
+          "https://www.bbc.com/indonesia/sitemap.xml",
+          "https://www.bbc.com/mundo/sitemap.xml",
+          "https://www.bbc.com/pashto/sitemap.xml",
+          "https://www.bbc.com/persian/sitemap.xml",
+          "https://www.bbc.com/portuguese/sitemap.xml",
+          "https://www.bbc.com/russian/sitemap.xml",
+          "https://www.bbc.com/sitemaps/https-index-com-archive_video.xml",
+          "https://www.bbc.com/sitemaps/https-index-com-archive.xml",
+          "https://www.bbc.com/sitemaps/https-index-com-mundo-archive_video.xml",
+          "https://www.bbc.com/sitemaps/https-index-com-mundo-archive.xml",
+          "https://www.bbc.com/sitemaps/https-index-com-mundo-news.xml",
+          "https://www.bbc.com/sitemaps/https-index-com-mundo-video.xml",
+          "https://www.bbc.com/sitemaps/https-index-com-news.xml",
+          "https://www.bbc.com/sitemaps/https-index-com-video.xml",
+          "https://www.bbc.com/sitemaps/sitemap-com-ws-topics.xml",
+          "https://www.bbc.com/sitemaps/sitemap-com-ws-topics.xml",
+          "https://www.bbc.com/sitemaps/world-service-homepages.xml",
+          "https://www.bbc.com/sport/sitemap.xml",
+          "https://www.bbc.com/swahili/sitemap.xml",
+          "https://www.bbc.com/tajik/sitemap.xml",
+          "https://www.bbc.com/turkce/sitemap.xml",
+          "https://www.bbc.com/ukchina/simp/sitemap.xml",
+          "https://www.bbc.com/ukrainian/sitemap.xml",
+          "https://www.bbc.com/urdu/sitemap.xml",
+          "https://www.bbc.com/uzbek/sitemap.xml",
+          "https://www.bbc.com/vietnamese/sitemap.xml",
+          "https://www.bbc.com/zhongwen/simp/sitemap.xml",
+          "https://www.bbc.com/zhongwen/trad/sitemap.xml"
+        ]
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/future/sitemap.xml",
+        "status": "http_404"
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/worklife/sitemap.xml",
+        "status": "http_404"
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/innovation/sitemap.xml",
+        "status": "http_404"
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/sitemaps/https-sitemap-com-future.xml",
+        "status": "http_404"
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/sitemaps/https-sitemap-com-archive.xml",
+        "status": "http_404"
+      },
+      {
+        "method": "final",
+        "found": 9
+      }
+    ]
+  },
+  {
+    "publisher": "Ars Technica",
+    "candidate_count": 7000,
+    "log": [
+      {
+        "method": "robots_sitemaps",
+        "urls": [
+          "https://arstechnica.com/sitemap.xml"
+        ]
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/sitemap.xml",
+        "locs": 189,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap122.xml",
+        "locs": 533,
+        "found": 538
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap121.xml",
+        "locs": 1000,
+        "found": 1533
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap120.xml",
+        "locs": 1000,
+        "found": 2533
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap119.xml",
+        "locs": 1000,
+        "found": 3533
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap118.xml",
+        "locs": 1000,
+        "found": 4533
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap117.xml",
+        "locs": 1000,
+        "found": 5533
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap116.xml",
+        "locs": 1000,
+        "found": 6533
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap115.xml",
+        "locs": 1000,
+        "found": 7533
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap114.xml",
+        "locs": 1000,
+        "found": 8533
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap113.xml",
+        "locs": 1000,
+        "found": 9533
+      },
+      {
+        "method": "final",
+        "found": 9533
+      }
+    ]
+  },
+  {
+    "publisher": "TechCrunch",
+    "candidate_count": 1470,
+    "log": [
+      {
+        "method": "robots_sitemaps",
+        "urls": [
+          "https://techcrunch.com/sitemap.xml",
+          "https://techcrunch.com/news-sitemap.xml"
+        ]
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap_index.xml",
+        "locs": 2060,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2060.xml",
+        "locs": 65,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2059.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2058.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2057.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2056.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2055.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2054.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2053.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2052.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2051.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2050.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2049.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2048.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2047.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2046.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2045.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2044.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2043.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2042.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2041.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2040.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2039.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2038.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2037.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2036.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2035.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2034.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2033.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2032.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap-page-2031.xml",
+        "locs": 200,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/sitemap.xml",
+        "locs": 2060,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/wp-sitemap.xml",
+        "locs": 2060,
+        "found": 105
+      },
+      {
+        "method": "sitemap",
+        "url": "https://techcrunch.com/news-sitemap.xml",
+        "locs": 46,
+        "found": 123
+      },
+      {
+        "method": "final",
+        "found": 1470
+      }
+    ]
+  }
+]
