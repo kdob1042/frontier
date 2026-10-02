@@ -1,0 +1,457 @@
+[
+  {
+    "id": "frontier-813cb28887e71134efae",
+    "url": "https://www.wired.com/story/uncanny-valley-podcase-apple-sued-openai-new-york-data-center-moratorium-cyclosporiasis-outbreak/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-716ba068c7ce8da87ad0",
+    "url": "https://arstechnica.com/tech-policy/2026/09/man-told-chatgpt-he-was-feeling-delusional-chatgpt-insisted-he-was-jesus/",
+    "reason": "cross_batch_duplicate"
+  },
+  {
+    "id": "frontier-dd1d7b8aac92021facfd",
+    "url": "https://arstechnica.com/science/2024/12/rocket-report-waiting-for-new-glenn-spacex-takes-a-launch-from-ula/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-9c951d951671f6fa5d86",
+    "url": "https://www.wired.com/story/ice-dna-collection-increases-spacex-rocket-crashes-into-the-moon-and-the-ai-backlash-grows/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-ee569100156bb6b0bd72",
+    "url": "https://arstechnica.com/space/2025/11/rocket-report-spacexs-next-gen-booster-fails-pegasus-will-fly-again/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-a987502a8011383efbc0",
+    "url": "https://arstechnica.com/space/2025/05/rocket-report-spacexs-expansion-at-vandenberg-indias-pslv-fails-in-flight/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-64ce89aeab1bfa2947e7",
+    "url": "https://arstechnica.com/space/2026/03/rocket-report-spacex-launch-prices-are-going-up-russia-fixes-broken-launch-pad/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-1d624ffe2830b1e0876e",
+    "url": "https://arstechnica.com/space/2024/09/rocket-report-spacex-salvages-starship-wreckage-pessimism-for-virgin-galactic/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-6bb2e6cb0e51c0bd9079",
+    "url": "https://arstechnica.com/space/2024/06/rocket-report-china-tests-reusable-rocket-tech-spacex-booster-flies-22nd-time/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-b668f9fc7608f07285c3",
+    "url": "https://arstechnica.com/space/2025/06/rocket-report-spacexs-500th-falcon-launch-why-did-uks-reaction-engines-fail/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-20ff5c53f4fdb6efada4",
+    "url": "https://arstechnica.com/space/2025/07/rocket-report-starbase-propellant-plant-wins-approval-vulcan-nears-key-launch/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-42c48356cf87cc140955",
+    "url": "https://arstechnica.com/space/2025/02/rocket-report-spacex-lands-in-the-bahamas-ula-tests-modified-booster/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-03bb04527d2dbc839e8c",
+    "url": "https://arstechnica.com/space/2026/02/rocket-report-say-cheerio-to-orbex-china-is-getting-good-at-booster-landings/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-0d2a04b6f1c99caebc43",
+    "url": "https://arstechnica.com/space/2026/01/rocket-report-rocket-lab-reports-neutron-setback-australia-backs-launch-startup/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-2fa212e62ccaa8f71f0d",
+    "url": "https://arstechnica.com/space/2025/08/rocket-report-spacex-achieved-daily-launch-this-week-ula-recovers-booster/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-e8509f947adf09a1060c",
+    "url": "https://arstechnica.com/space/2026/06/rocket-report-rebuild-begins-at-blue-origin-launch-pad-relativity-targets-mars/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-6592f699f635f34437d3",
+    "url": "https://arstechnica.com/features/2026/09/the-ai-data-center-boom-is-causing-new-accountability-problems/",
+    "reason": "cross_batch_duplicate"
+  },
+  {
+    "id": "frontier-66db8e3daf7572e7eef6",
+    "url": "https://arstechnica.com/space/2026/06/rocket-report-blue-origin-explosion-still-making-headlines-impulse-raises-money/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-6f69db7ee601761c890d",
+    "url": "https://arstechnica.com/space/2026/07/rocket-report-big-deals-for-us-launch-firms-rfa-one-debut-is-delayed/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-6ecb3f1365692ee4fdc1",
+    "url": "https://arstechnica.com/space/2026/08/rocket-report-spacex-makes-a-mark-on-the-moon-ula-names-new-boss/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-8bd9d13309365b26cc16",
+    "url": "https://arstechnica.com/space/2026/05/rocket-report-blue-origin-suffers-setback-spacexs-falcon-9-wins-new-business/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-3005a31797400954e3e5",
+    "url": "https://arstechnica.com/space/2025/06/rocket-report-two-big-asian-reuse-milestones-vandenberg-becomes-spacex-west/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-e45a18608564dd88a669",
+    "url": "https://www.wired.com/story/nvidias-open-source-alliance-snubs-openai-and-anthropic/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-af2be13b22cc899b2375",
+    "url": "https://arstechnica.com/tech-policy/2026/09/microsoft-goes-quiet-after-church-groups-ask-for-1-of-data-center-costs/",
+    "reason": "cross_batch_duplicate"
+  },
+  {
+    "id": "frontier-8e6ae5c3309424ccd229",
+    "url": "https://arstechnica.com/space/2025/10/rocket-report-china-tests-falcon-9-lookalike-nasas-moon-rocket-fully-stacked/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-2423e990d4a0ee114575",
+    "url": "https://arstechnica.com/space/2026/02/rocket-report-neutron-launch-date-is-delayed-again-vector-launch-is-back-sort-of/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-5f989326380a7bfb1167",
+    "url": "https://arstechnica.com/space/2026/01/rocket-report-spacex-and-china-led-the-way-in-2025-vandenberg-has-room-to-grow/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-493064aee49d78724636",
+    "url": "https://arstechnica.com/space/2025/12/rocket-report-openais-launch-overture-south-korea-making-progress-in-space/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-1ef35dae747749814b74",
+    "url": "https://arstechnica.com/space/2025/07/rocket-report-japans-workhorse-booster-takes-a-bow-you-can-invest-in-spacex-now/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-63ae8bbfcd66cdf66824",
+    "url": "https://arstechnica.com/science/2025/02/rocket-report-starship-will-soon-fly-again-gilmour-has-a-launch-date/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-adc74777b2449a973cae",
+    "url": "https://arstechnica.com/space/2026/09/rocket-report-ula-flies-into-uncertain-future-falcon-9-family-hits-700-launches/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-769944f50985655b3f4e",
+    "url": "https://arstechnica.com/space/2026/04/rocket-report-starship-v3-test-fired-esas-tentative-step-toward-crew-launch/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-e7579bb55ebacb680e4b",
+    "url": "https://arstechnica.com/space/2025/08/rocket-report-firefly-lights-the-markets-up-spacex-starts-selling-ships-to-mars/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-c3e6092d3f2d64fa7213",
+    "url": "https://arstechnica.com/space/2025/11/rocket-report-canada-invests-in-sovereign-launch-india-flexes-rocket-muscles/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-5553cf2e321812919530",
+    "url": "https://arstechnica.com/space/2025/01/rocket-report-spacex-tosses-away-a-falcon-9-a-somalian-spaceport/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-fe5dbb54cb0e3b38e62b",
+    "url": "https://www.bbc.com/future/article/20260928-a-virtual-power-plant-hidden-in-vermont-homes-is-keeping-the-lights-on-during-storms",
+    "reason": "cross_batch_duplicate"
+  },
+  {
+    "id": "frontier-fe5dbb54cb0e3b38e62b",
+    "url": "https://www.bbc.com/future/article/20260928-a-virtual-power-plant-hidden-in-vermont-homes-is-keeping-the-lights-on-during-storms",
+    "reason": "cross_batch_duplicate"
+  },
+  {
+    "id": "frontier-d11b22d54b1ef1823386",
+    "url": "https://arstechnica.com/space/2026/04/rocket-report-price-parity-between-ariane-6-and-falcon-9-isar-stands-down/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-ea47552aecda8cd75687",
+    "url": "https://arstechnica.com/space/2025/10/rocket-report-bezos-firm-will-package-satellites-for-launch-starship-on-deck/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-22a3bd2f9bb2ea380169",
+    "url": "https://arstechnica.com/science/2025/06/rocket-report-spacexs-dustup-on-the-border-northrop-has-a-nozzle-problem/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-1dc4de73844d3756b106",
+    "url": "https://arstechnica.com/space/2024/10/rocket-report-bloomberg-calls-for-sls-cancellation-spacex-hits-century-mark/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-9b5bff2aaa96ad50f73a",
+    "url": "https://arstechnica.com/space/2026/08/rocket-report-rocket-lab-shows-off-its-flexibility-blue-origins-two-pad-plan/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-548329a9ced2dbc0ace9",
+    "url": "https://arstechnica.com/space/2026/09/rocket-report-era-of-cheap-launch-is-over-astra-sets-early-2027-target-for-return/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-a59042eea40d3656a75f",
+    "url": "https://arstechnica.com/space/2024/05/rocket-report-spacex-focused-on-starship-reentry-firefly-may-be-for-sale/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-9f37ae455a1a9ebc23da",
+    "url": "https://arstechnica.com/space/2026/02/rocket-report-spacex-probes-upper-stage-malfunction-starship-testing-resumes/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-ee2c137f489e5572a473",
+    "url": "https://arstechnica.com/space/2026/05/rocket-report-russia-claims-success-with-new-icbm-spaceplane-deja-vu-in-europe/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-9b5eb49e18496d424045",
+    "url": "https://arstechnica.com/space/2026/09/there-are-now-17000-satellites-in-orbit-and-growing-should-we-be-concerned/",
+    "reason": "cross_batch_duplicate"
+  },
+  {
+    "id": "frontier-4a238cd0ecb964b7c250",
+    "url": "https://arstechnica.com/space/2026/03/rocket-report-russian-megaconstellation-takes-off-isar-preps-for-second-launch/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-794483a0c834a615f9a8",
+    "url": "https://arstechnica.com/space/2026/09/rocket-report-europe-joins-the-commercial-launch-club-a-ravn-x-sighting/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-d37236c43dd00b120a68",
+    "url": "https://arstechnica.com/space/2026/01/rocket-report-how-a-5-ton-satellite-fell-off-a-booster-will-spacex-and-xai-merge/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-9853255e42aed3b82fc0",
+    "url": "https://arstechnica.com/space/2025/12/rocket-report-neutrons-hungry-hippo-is-deemed-ready-whither-orbex/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-c5bbfd58b9bd01dcac67",
+    "url": "https://www.bbc.com/future/article/20260930-metas-new-ai-is-about-to-break-the-internet",
+    "reason": "cross_batch_duplicate"
+  },
+  {
+    "id": "frontier-c5bbfd58b9bd01dcac67",
+    "url": "https://www.bbc.com/future/article/20260930-metas-new-ai-is-about-to-break-the-internet",
+    "reason": "cross_batch_duplicate"
+  },
+  {
+    "id": "frontier-ad6aa11a675fbc93dfbb",
+    "url": "https://arstechnica.com/tech-policy/2026/09/lawsuit-demands-openai-pay-for-new-school-after-chatgpt-used-in-shooting/",
+    "reason": "cross_batch_duplicate"
+  },
+  {
+    "id": "frontier-768dc13c916a45e39ace",
+    "url": "https://www.wired.com/story/china-is-strapping-digital-bombs-to-civilian-infrastructure-is-the-us-ready/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-8ace9ae57929f5679850",
+    "url": "https://arstechnica.com/space/2025/11/rocket-report-blue-origins-stunning-success-vive-le-baguette-one/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-a8facac5809883dffc00",
+    "url": "https://arstechnica.com/space/2024/08/rocket-report-faa-seeks-answers-from-spacex-falcon-9-is-back-in-a-big-way/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-dbb366493719afe29247",
+    "url": "https://arstechnica.com/space/2026/05/rocket-report-falcon-heavy-is-back-russias-soyuz-5-finally-debuts/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-93fcee45c6de2b3f7f66",
+    "url": "https://arstechnica.com/space/2026/08/rocket-report-europe-splashes-some-cash-on-launch-startups-pallas-1-nears-debut/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-39112929098e7c20eed5",
+    "url": "https://arstechnica.com/space/2026/07/rocket-report-indias-vikram-1-nears-debut-flight-ast-to-become-rocket-company/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-48e276ca71b3dbc211cd",
+    "url": "https://arstechnica.com/space/2025/12/rocket-report-russia-pledges-quick-fix-for-soyuz-launch-pad-ariane-6-aims-high/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-d054d5e2855da72950da",
+    "url": "https://arstechnica.com/space/2025/07/rocket-report-channeling-the-future-at-wallops-spacex-recovers-rocket-wreckage/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-67173892261960005bf3",
+    "url": "https://arstechnica.com/science/2025/03/rocket-report-ula-confirms-cause-of-booster-anomaly-crew-10-launch-on-tap/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-d77809c61d156ecb0bd0",
+    "url": "https://arstechnica.com/space/2026/07/rocket-report-panic-over-transporter-availability-isar-to-launch-from-canada/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-4faa6b89e6d8bbb0f000",
+    "url": "https://arstechnica.com/tech-policy/2026/09/nvidia-may-sell-more-chips-in-china-as-jensen-huangs-influence-over-trump-grows/",
+    "reason": "cross_batch_duplicate"
+  },
+  {
+    "id": "frontier-ddf771551c83e169c94b",
+    "url": "https://arstechnica.com/space/2026/06/rocket-report-china-may-soon-attempt-booster-landing-rocket-lab-does-rapid-response/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-1bed5498fb888f067164",
+    "url": "https://arstechnica.com/space/2024/07/rocket-report-fireflys-ceo-steps-down-artemis-ii-core-stage-leaves-factory/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-2efd343765ac6835b389",
+    "url": "https://arstechnica.com/space/2026/06/rocket-report-nova-moving-through-test-campaign-spacex-ipo-launches-friday/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-a238a88827245fce0106",
+    "url": "https://arstechnica.com/space/2025/10/rocket-report-alpha-explodes-on-test-stand-europe-wants-a-mini-starship/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-7f30a9b84bd266ec275e",
+    "url": "https://arstechnica.com/space/2025/06/rocket-report-new-delay-for-europes-reusable-rocket-spacex-moves-in-at-slc-37/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-a6c5fb09691b8d8770ed",
+    "url": "https://arstechnica.com/space/2025/04/rocket-report-daytona-rocket-delayed-again-bahamas-tells-spacex-to-hold-up/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-253a207c62ece1658bd1",
+    "url": "https://arstechnica.com/space/2026/01/rocket-report-ariane-64-to-debut-soon-india-has-a-falcon-9-clone-too/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-43fb7087d75e246c6efa",
+    "url": "https://arstechnica.com/space/2026/03/rocket-report-canada-makes-a-major-move-us-space-force-says-actually-lets-be-hasty/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-77b2509cad42ee7515aa",
+    "url": "https://arstechnica.com/space/2026/07/rocket-report-lightning-strikes-in-china-starship-launch-on-deck/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-c44d1ef4fee16a6f93c0",
+    "url": "https://arstechnica.com/space/2025/10/rocket-report-chinas-moon-rocket-to-debut-soon-arcaspace-is-back-sort-of/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-88a05d9eb95744a75943",
+    "url": "https://arstechnica.com/space/2026/02/rocket-report-chinese-launch-firm-raises-big-money-falcon-9-back-to-the-bahamas/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-e3dde795e8bc68e6672b",
+    "url": "https://arstechnica.com/space/2025/09/rocket-report-neutrons-pad-opens-for-business-spacex-gets-falcon-9-green-light/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-59f5c85a9392c7e7a66c",
+    "url": "https://arstechnica.com/space/2026/03/rocket-report-pentagon-needs-more-missile-interceptors-artemis-ii-clears-review/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-a88c0462a3be9447472e",
+    "url": "https://arstechnica.com/space/2025/10/rocket-report-a-nearly-perfect-flight-for-starship-chinas-surprise-launch/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-c592cab75e861d708252",
+    "url": "https://arstechnica.com/space/2025/07/rocket-report-avio-celebrates-independence-pld-outlines-grand-ambitions/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-8148750f2162d86b967b",
+    "url": "https://arstechnica.com/space/2026/07/rocket-report-indian-startup-nears-first-launch-spacexs-millenary-milestone/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-527f565ff2d5333b8b51",
+    "url": "https://arstechnica.com/space/2026/04/rocket-report-some-canadians-dont-want-a-spaceport-falcon-hits-600-landings/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-2f59ce6d5909ff10e072",
+    "url": "https://arstechnica.com/space/2026/05/rocket-report-flying-past-peak-falcon-9-rocket-lab-revenue-soars/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-e402e59677c92c3b5419",
+    "url": "https://arstechnica.com/space/2024/10/rocket-report-europa-clipper-on-hold-for-milton-spanish-startups-big-ambitions/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-3a185e405c2c2d0054cd",
+    "url": "https://arstechnica.com/space/2024/04/rocket-report-sls-workforce-cuts-new-glenn-launch-to-launch-in-the-early-fall/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-8fa8744371d5c8c47620",
+    "url": "https://arstechnica.com/space/2026/09/rocket-report-china-debuts-yet-another-new-rocket-nasa-considers-bulk-buys/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-8f75a7c2114acd17281d",
+    "url": "https://arstechnica.com/space/2026/09/some-satellite-companies-still-have-an-appetite-for-boutique-launch-services/",
+    "reason": "cross_batch_duplicate"
+  },
+  {
+    "id": "frontier-42d2fb17f7f67e76fcef",
+    "url": "https://arstechnica.com/space/2026/05/rocket-report-starship-launch-delayed-german-launch-company-may-aid-canada/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-d089ffbefce2120e9549",
+    "url": "https://arstechnica.com/space/2025/01/rocket-report-dot-may-review-spacex-fines-did-chinas-reusable-rocket-work/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-19d36e0be3740b096bad",
+    "url": "https://arstechnica.com/science/2026/09/contrary-to-some-reports-you-dont-have-two-brains/",
+    "reason": "roundup_or_excluded_format"
+  },
+  {
+    "id": "frontier-19d36e0be3740b096bad",
+    "url": "https://arstechnica.com/science/2026/09/contrary-to-some-reports-you-dont-have-two-brains/",
+    "reason": "roundup_or_excluded_format"
+  }
+]
