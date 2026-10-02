@@ -472,6 +472,18 @@ export async function deleteSource(db: D1Database, slug: string, expected: strin
   stmts.push(
     db
       .prepare(
+        `UPDATE jobs SET error_code='source_deleted',actual_micro_usd=CASE WHEN status IN('queued','reserved') THEN 0 ELSE actual_micro_usd END,status=CASE WHEN status='sending' THEN 'submission_unknown' ELSE 'source_deleted' END WHERE id IN(SELECT job_id FROM investment_runs i WHERE EXISTS(SELECT 1 FROM json_each(i.snapshot_json) ref WHERE json_extract(ref.value,'$.slug')=?)) AND ${guard}`,
+      )
+      .bind(slug, head.id, expected),
+    db
+      .prepare(
+        `UPDATE investment_runs SET output_json=NULL WHERE EXISTS(SELECT 1 FROM json_each(investment_runs.snapshot_json) ref WHERE json_extract(ref.value,'$.slug')=?) AND ${guard}`,
+      )
+      .bind(slug, head.id, expected),
+  );
+  stmts.push(
+    db
+      .prepare(
         `DELETE FROM relations WHERE (from_revision IN (${renderings}) OR to_revision IN (${renderings})) AND ${guard}`,
       )
       .bind(head.id, head.id, head.id, expected),
