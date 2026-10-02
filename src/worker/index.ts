@@ -1,3 +1,4 @@
+import { investmentState, extractInvestment } from './investment';
 import { makeSpeechPlan } from '../shared/speech';
 import { Hono } from 'hono';
 import { z } from 'zod';
@@ -71,6 +72,10 @@ async function body(request: Request, limit = 256000): Promise<unknown> {
   }
   return JSON.parse(new TextDecoder().decode(all));
 }
+app.get('/api/investment', async (c) => c.json(await investmentState(c.env)));
+app.post('/api/investment', async (c) =>
+  c.json(await extractInvestment(c.env, await body(c.req.raw))),
+);
 app.get('/api/home', async (c) => {
   const day = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Tokyo' });
   const edition = await c.env.DB.prepare(
@@ -322,8 +327,10 @@ app.get('/api/admin/intake/asset', async (c) => {
 });
 app.get('/api/*', (c) => c.json({ error: 'not_found' }, 404));
 app.all('*', async (c) => {
-  if (c.env.ENVIRONMENT === 'production' &&
-      (c.req.path === '/demo' || c.req.path.startsWith('/demo/')))
+  if (
+    c.env.ENVIRONMENT === 'production' &&
+    (c.req.path === '/demo' || c.req.path.startsWith('/demo/'))
+  )
     return c.redirect('/', 302);
   return c.env.ASSETS.fetch(c.req.raw);
 });
