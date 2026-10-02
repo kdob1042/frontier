@@ -1,32 +1,33 @@
 {
   "requested": 700,
-  "selected": 167,
+  "selected": 191,
   "target_reached": false,
-  "verified_pool": 167,
-  "article_attempts": 2201,
+  "verified_pool": 191,
+  "article_attempts": 2505,
   "publishers": {
     "BBC Future / Innovation / Worklife": 2,
-    "Ars Technica": 165
+    "Ars Technica": 189
   },
   "primary_topics": {
-    "技術と社会・教育・制度": 11,
+    "技術と社会・教育・制度": 14,
     "エネルギー・環境・インフラ": 10,
-    "AI・計算・半導体": 36,
-    "ロボット・産業・宇宙": 98,
+    "AI・計算・半導体": 41,
+    "ロボット・産業・宇宙": 114,
     "生命科学・医療技術・材料": 10,
     "事業モデル・経済・生産性": 2
   },
   "rejection_reasons": {
-    "below_1500_words": 1959,
-    "insufficient_frontier_relevance": 10,
-    "non_original_canonical": 32,
-    "missing_author": 27,
-    "insufficient_reporting_signals": 6
+    "below_1500_words": 2226,
+    "insufficient_frontier_relevance": 12,
+    "non_original_canonical": 34,
+    "missing_author": 32,
+    "insufficient_reporting_signals": 9,
+    "excluded_format": 1
   },
   "word_count_min": 1502,
-  "word_count_median": 2052,
-  "total_words": 368803,
-  "updated_at": "2026-10-02T13:22:29.797067+00:00",
+  "word_count_median": 2062,
+  "total_words": 421638,
+  "updated_at": "2026-10-02T13:23:42.927553+00:00",
   "finished": false,
   "full_text_exported": false,
   "full_translation_completed": false,
