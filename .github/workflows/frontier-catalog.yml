@@ -7,6 +7,7 @@ on:
       - .github/workflows/frontier-catalog.yml
 permissions:
   contents: write
+  actions: read
 concurrency:
   group: frontier-catalog-20261002
   cancel-in-progress: true
@@ -19,29 +20,44 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Restore already-screened results from superseded run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p data/frontier-1000-20261002
+          for attempt in 1 2 3 4 5; do
+            if gh run download 37010897668 --name frontier-1000-catalog --dir /tmp/frontier-resume; then
+              cp /tmp/frontier-resume/*.json* data/frontier-1000-20261002/
+              break
+            fi
+            sleep 5
+          done
+          test -f data/frontier-1000-20261002/verified_pool.json
       - name: Install bounded HTML extraction dependencies
         run: python -m pip install requests==2.32.3 beautifulsoup4==4.13.4 lxml==5.4.0 trafilatura==2.0.0
-      - name: Collect and individually screen public long-form articles
+      - name: Continue collection without weakening the article criteria
         run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           python -u - <<'PY'
-          import importlib.util
-          spec = importlib.util.spec_from_file_location('collector', 'scripts/collect_frontier_catalog.py')
-          collector = importlib.util.module_from_spec(spec)
-          spec.loader.exec_module(collector)
-          # Explicit publisher policy excludes Guardian from this collection.
-          collector.SOURCES = [s for s in collector.SOURCES if s['id'] != 'guardian']
-          collector.main()
+          import importlib.util,time,subprocess,json
+          spec=importlib.util.spec_from_file_location('collector','scripts/collect_frontier_catalog.py')
+          c=importlib.util.module_from_spec(spec);spec.loader.exec_module(c)
+          c.SOURCES=[s for s in c.SOURCES if s['id'] not in ['guardian','mit','verge','techcrunch']]
+          # These outlets remain in the rejection audit; do not spend the run repeatedly fetching paywall stubs.
+          c.POOL_TARGET=1050
+          base_write=c.write_outputs;last=0
+          def save(*args,**kwargs):
+              global last
+              base_write(*args,**kwargs)
+              if time.monotonic()-last>60 or (len(args)>3 and args[3]):
+                  subprocess.run(['git','add',str(c.OUT)],check=True)
+                  subprocess.run(['git','commit','-m','Checkpoint verified Frontier catalog [skip ci]'],check=False,stdout=subprocess.DEVNULL)
+                  subprocess.run(['git','push','origin','HEAD:curation/frontier-1000-20261002'],check=True)
+                  last=time.monotonic()
+          c.write_outputs=save
+          c.main()
           PY
-      - name: Preserve results in the collection branch
-        if: ${{ !cancelled() }}
-        run: |
-          if [ -d data/frontier-1000-20261002 ]; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add data/frontier-1000-20261002
-            git diff --cached --quiet || git commit -m 'Save verified Frontier catalog and rejection audit [skip ci]'
-            git push origin HEAD:curation/frontier-1000-20261002
-          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -49,19 +65,17 @@ jobs:
           path: data/frontier-1000-20261002/
           retention-days: 30
           if-no-files-found: warn
-      - name: Report verified count without claiming completion on shortfall
+      - name: Record actual verified counts
         if: always()
         run: |
           python - <<'PY'
-          import json, os
+          import json,os
           from pathlib import Path
-          p = Path('data/frontier-1000-20261002/report.json')
+          p=Path('data/frontier-1000-20261002/report.json')
           if p.exists():
-              r = json.loads(p.read_text())
-              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              r=json.loads(p.read_text())
+              with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
                   f.write('# Frontier collection\n\n')
                   f.write(f"Selected: **{r['selected']} / 1000**\n\n")
-                  f.write(f"Body-verified pool: {r['verified_pool']}; article attempts: {r['article_attempts']}\n\n")
-                  f.write('No article bodies or full translations are exported. No production records were altered.\n\n')
-                  f.write('```json\n' + json.dumps(r, ensure_ascii=False, indent=2) + '\n```\n')
+                  f.write('```json\n'+json.dumps(r,ensure_ascii=False,indent=2)+'\n```\n')
           PY
