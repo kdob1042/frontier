@@ -1,6 +1,6 @@
 import { bundleSchema, type Bundle } from '../shared/model';
 import { hash, StoreError } from './storage';
-import { externalSourceStillPermitted } from './feeds';
+import { externalSourceStillPermitted, permittedPolicy, type Registry } from './feeds';
 
 export const captureInputSchema = bundleSchema.omit({ rendering: true, processingVersion: true });
 export type CaptureInput = ReturnType<typeof captureInputSchema.parse>;
@@ -8,7 +8,7 @@ export interface JobParams {
   captureId: string;
   expectedRevision: string | null;
 }
-export const processingVersion = 'harvest-v3';
+export const processingVersion = 'harvest-v4';
 export async function saveCapture(db: D1Database, input: unknown) {
   const b = captureInputSchema.parse(input);
   if (
@@ -85,6 +85,17 @@ export async function loadCapture(db: D1Database, id: string): Promise<CaptureIn
     }>();
   if (!row) throw new StoreError('capture_missing', 404);
   await externalSourceStillPermitted(db, JSON.parse(row.metadata_json).url);
+  const permissions = JSON.parse(row.permissions_json);
+  if (permissions.registryId) {
+    const registry = await db
+      .prepare('SELECT * FROM source_registry WHERE id=?')
+      .bind(permissions.registryId)
+      .first<Registry>();
+    if (!registry || (await hash(registry.policy_json)) !== permissions.policyHash)
+      throw new StoreError('source_policy_changed', 400);
+    const p = permittedPolicy(registry);
+    if (!p.ai || !p.translate) throw new StoreError('source_policy_changed', 400);
+  }
   return {
     slug: row.slug,
     source: JSON.parse(row.metadata_json),
@@ -92,7 +103,7 @@ export async function loadCapture(db: D1Database, id: string): Promise<CaptureIn
       scope: row.scope,
       mode: row.mode,
       paragraphs: JSON.parse(row.paragraphs_json),
-      permissions: JSON.parse(row.permissions_json),
+      permissions,
     },
   };
 }
@@ -200,7 +211,10 @@ export async function stopJob(env: Env, id: string) {
     .first<{ status: string }>();
   if (!row) throw new StoreError('not_found', 404);
   try {
-    const instance = await env.HARVEST_WORKFLOW.get(id);
+    const media = await env.DB.prepare('SELECT job_id FROM media_requests WHERE job_id=?')
+      .bind(id)
+      .first();
+    const instance = await (media ? env.MEDIA_WORKFLOW : env.HARVEST_WORKFLOW).get(id);
     const state = await instance.status();
     if (['queued', 'running', 'waiting', 'paused'].includes(state.status))
       await instance.terminate();

@@ -28,6 +28,8 @@ jobs:
       - run: npm run test:integration
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - run: npm run test:media-browser
       - uses: actions/upload-artifact@v7
         if: always()
         with:

@@ -10,6 +10,7 @@ export function sqliteRuntime() {
     '0005_bounded_parts.sql',
     '0006_view_proposals_and_visibility.sql',
     '0007_listening_progress.sql',
+    '0008_media_intake.sql',
   ])
     sqlite.exec(readFileSync(new URL(`../migrations/${name}`, import.meta.url), 'utf8'));
   class Statement {

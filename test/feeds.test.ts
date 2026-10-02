@@ -104,7 +104,7 @@ test('public DNS, every redirect, response size and type are checked before cont
       ? Response.json({ Status: 0, Answer: [{ type: 1, data: '1.1.1.1' }] })
       : new Response('x', { headers: { 'Content-Type': 'text/html' } });
   await assert.rejects(() => fetchFeed(row, p, bad), /not_xml/);
-  await assert.rejects(() => fetchFeed(row, p, feedFetch('x'.repeat(256001))), /too_large/);
+  await assert.rejects(() => fetchFeed(row, p, feedFetch('x'.repeat(2000001))), /too_large/);
 });
 test('ingestion persists candidates once, respects frequency and global daily cap, identifies reprints and major updates', async () => {
   const { db, sqlite } = sqliteRuntime();

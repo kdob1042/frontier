@@ -19,15 +19,19 @@
     "AI_ENABLED": "false",
     "DAILY_ENABLED": "false",
     "OPENAI_MODEL": "",
+    "VISION_INPUT_TOKEN_BOUND": "0",
+    "AUDIO_MICRO_USD_PER_SECOND": "0",
     "DAILY_BUDGET_MICRO_USD": "0",
     "MONTHLY_BUDGET_MICRO_USD": "0",
     "INPUT_MICRO_USD_PER_TOKEN": "0",
     "OUTPUT_MICRO_USD_PER_TOKEN": "0",
   },
+  "r2_buckets": [{ "binding": "MEDIA_BUCKET", "bucket_name": "frontier-media-local" }],
   "d1_databases": [
     { "binding": "DB", "database_name": "frontier-local", "migrations_dir": "migrations" },
   ],
   "workflows": [
+    { "binding": "MEDIA_WORKFLOW", "name": "frontier-media-local", "class_name": "MediaWorkflow" },
     {
       "binding": "HARVEST_WORKFLOW",
       "name": "frontier-harvest-local",
@@ -38,6 +42,7 @@
   "env": {
     "preview": {
       "name": "frontier-preview",
+      "r2_buckets": [{ "binding": "MEDIA_BUCKET", "bucket_name": "frontier-media-preview" }],
       "workers_dev": false,
       "triggers": { "crons": [] },
       "vars": {
@@ -48,6 +53,8 @@
         "AI_ENABLED": "false",
         "DAILY_ENABLED": "false",
         "OPENAI_MODEL": "",
+        "VISION_INPUT_TOKEN_BOUND": "0",
+        "AUDIO_MICRO_USD_PER_SECOND": "0",
         "DAILY_BUDGET_MICRO_USD": "0",
         "MONTHLY_BUDGET_MICRO_USD": "0",
         "INPUT_MICRO_USD_PER_TOKEN": "0",
@@ -57,6 +64,11 @@
         { "binding": "DB", "database_name": "frontier-preview", "migrations_dir": "migrations" },
       ],
       "workflows": [
+        {
+          "binding": "MEDIA_WORKFLOW",
+          "name": "frontier-media-preview",
+          "class_name": "MediaWorkflow",
+        },
         {
           "binding": "HARVEST_WORKFLOW",
           "name": "frontier-harvest-preview",
@@ -71,6 +83,7 @@
     },
     "production": {
       "name": "frontier",
+      "r2_buckets": [{ "binding": "MEDIA_BUCKET", "bucket_name": "frontier-media-production" }],
       "workers_dev": false,
       "triggers": { "crons": ["0 23 * * *"] },
       "vars": {
@@ -81,6 +94,8 @@
         "AI_ENABLED": "false",
         "DAILY_ENABLED": "false",
         "OPENAI_MODEL": "",
+        "VISION_INPUT_TOKEN_BOUND": "0",
+        "AUDIO_MICRO_USD_PER_SECOND": "0",
         "DAILY_BUDGET_MICRO_USD": "0",
         "MONTHLY_BUDGET_MICRO_USD": "0",
         "INPUT_MICRO_USD_PER_TOKEN": "0",
@@ -90,6 +105,11 @@
         { "binding": "DB", "database_name": "frontier-production", "migrations_dir": "migrations" },
       ],
       "workflows": [
+        {
+          "binding": "MEDIA_WORKFLOW",
+          "name": "frontier-media-production",
+          "class_name": "MediaWorkflow",
+        },
         {
           "binding": "HARVEST_WORKFLOW",
           "name": "frontier-harvest",

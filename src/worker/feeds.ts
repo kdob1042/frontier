@@ -23,6 +23,16 @@ export const policySchema = z
     contentField: z.enum(['description', 'content:encoded', 'summary', 'content']),
     mode: z.enum(['partial_translation', 'full_translation', 'summary']),
     frequencyMinutes: z.number().int().min(60).max(10080),
+    article: z
+      .object({
+        selector: z.string().regex(/^(article|main|[.#][a-zA-Z_][a-zA-Z0-9_-]*)$/),
+      })
+      .strict()
+      .optional(),
+    media: z
+      .array(z.enum(['image', 'audio', 'video', 'captions', 'pdf']))
+      .max(5)
+      .optional(),
   })
   .strict()
   .superRefine((p, ctx) => {
@@ -144,7 +154,7 @@ export function publicAddress(address: string) {
   // Only ordinary IPv6 global unicast. Excludes mapped IPv4, loopback, ULA, link-local and documentation.
   return isIP(address) === 6 && /^[23]/i.test(address) && !/^2001:(db8|0:|10:|20:)/i.test(address);
 }
-async function checkDns(host: string, request: typeof fetch, deadline: AbortSignal) {
+export async function checkDns(host: string, request: typeof fetch, deadline: AbortSignal) {
   let found = false;
   for (const type of ['A', 'AAAA']) {
     const r = await request(
@@ -226,14 +236,14 @@ export async function fetchFeed(row: Registry, p: FeedPolicy, request: typeof fe
       throw new StoreError('feed_type_not_xml', 400);
     }
     return {
-      entries: parseFeed(await readTextBounded(response, 256000), row, p),
+      entries: parseFeed(await readTextBounded(response, 2_000_000), row, p),
       etag: response.headers.get('etag')?.slice(0, 500) || null,
       modified: response.headers.get('last-modified')?.slice(0, 200) || null,
     };
   }
   throw new StoreError('feed_redirect_limit', 400);
 }
-function plainHtml(html: string) {
+export function plainHtml(html: string) {
   let text = '',
     hidden = 0;
   const blocked = new Set(['script', 'style', 'iframe', 'noscript', 'svg', 'form']);
@@ -280,6 +290,7 @@ export interface FeedEntry {
   publishedAt: string;
   updatedAt: string;
   paragraphs: string[];
+  extractionReason?: string;
 }
 export function parseFeed(xml: string, row: Registry, p: FeedPolicy): FeedEntry[] {
   if (/<!DOCTYPE|<!ENTITY/i.test(xml) || XMLValidator.validate(xml) !== true)
@@ -310,12 +321,10 @@ export function parseFeed(xml: string, row: Registry, p: FeedPolicy): FeedEntry[
       const text = plainHtml(value(e[p.contentField]));
       // A feed cannot grant access to a paid article. Preserve only its explicitly licensed field.
       const paragraphs = text.split('\n').filter(Boolean);
-      if (
+      const oversized =
         paragraphs.length > 80 ||
         paragraphs.some((t) => t.length > 12000) ||
-        new TextEncoder().encode(text).length > 24000
-      )
-        continue;
+        new TextEncoder().encode(text).length > 24000;
       result.push({
         url,
         feedId: value(atom ? e.id : e.guid) || url,
@@ -327,7 +336,8 @@ export function parseFeed(xml: string, row: Registry, p: FeedPolicy): FeedEntry[
           ) || 'フィード内に著者表記なし',
         publishedAt,
         updatedAt: new Date(updated).toISOString(),
-        paragraphs,
+        paragraphs: oversized ? [] : paragraphs,
+        ...(oversized ? { extractionReason: 'capture_too_large_split_required' } : {}),
       });
     } catch {
       /* Invalid or disallowed entry is never fetched. */
@@ -374,23 +384,11 @@ export async function ingestFeed(
         .bind(e.url)
         .first<{ deleted_at: string | null; hidden: number }>();
       if (tombstone?.deleted_at || tombstone?.hidden) continue;
-      const fingerprint = await hash(
-        e.paragraphs.map((t) => t.normalize('NFKC').replace(/\s+/g, ' ').toLowerCase()),
-      );
-      const candidateId = await hash([id, e.url, fingerprint]);
       const titleKey = e.title
         .normalize('NFKC')
         .toLowerCase()
         .replace(/[^\p{L}\p{N}]/gu, '');
-      const duplicate =
-        e.paragraphs.length &&
-        (await db
-          .prepare(
-            "SELECT id FROM feed_candidates WHERE fingerprint=? AND canonical_url<>? AND status NOT IN('deleted','insufficient') LIMIT 1",
-          )
-          .bind(fingerprint, e.url)
-          .first());
-      const content: CaptureInput = {
+      let content: CaptureInput = {
         slug: `article-${(await hash(e.url)).slice(0, 24)}`,
         source: {
           url: e.url,
@@ -408,7 +406,11 @@ export async function ingestFeed(
               ? '許可済みのフィード全文のみ。リンク先は取得していません。'
               : '許可済みのフィード公開部分のみ。リンク先・有料部分は取得していません。',
           mode: p.mode,
-          paragraphs: e.paragraphs.map((text, i) => ({ id: `p${i + 1}`, text })),
+          paragraphs: e.paragraphs.map((text, i) => ({
+            id: `p${i + 1}`,
+            text,
+            origin: { kind: 'text', method: 'publisher_text', url: e.url },
+          })),
           permissions: {
             store: p.store,
             ai: p.ai,
@@ -418,20 +420,44 @@ export async function ingestFeed(
           },
         },
       };
+      let acquisitionReason = e.extractionReason;
+      if (p.article) {
+        try {
+          content = await (await import('./documents')).acquireArticle(row, p, e.url, request);
+        } catch (error) {
+          content.capture.paragraphs = [];
+          acquisitionReason =
+            error instanceof StoreError ? error.code : 'article_acquisition_failed';
+        }
+      }
+      const originals = content.capture.paragraphs.map((p) => p.text);
+      const fingerprint = await hash(
+        originals.map((t) => t.normalize('NFKC').replace(/\s+/g, ' ').toLowerCase()),
+      );
+      const candidateId = await hash([id, e.url, fingerprint]);
+      const duplicate =
+        originals.length &&
+        (await db
+          .prepare(
+            "SELECT id FROM feed_candidates WHERE fingerprint=? AND canonical_url<>? AND status NOT IN('deleted','insufficient') LIMIT 1",
+          )
+          .bind(fingerprint, e.url)
+          .first());
       const meaningful =
-        e.paragraphs.join(' ').length >= 300 && Date.parse(e.publishedAt) <= now.getTime() + 60000;
-      const canProcess = meaningful && p.ai && p.translate;
+        originals.join(' ').length >= 300 && Date.parse(e.publishedAt) <= now.getTime() + 60000;
+      const withinCaptureLimit = new TextEncoder().encode(JSON.stringify(content)).length <= 32000;
+      const canProcess = meaningful && withinCaptureLimit && p.ai && p.translate;
       const score = meaningful
         ? Math.min(
             5,
             (
-              e.paragraphs
+              originals
                 .join(' ')
                 .match(
                   /\b(cost|scale|process|deploy|trial|manufactur|efficien|experiment|mechanism|production)\w*\b/gi,
                 ) || []
             ).length,
-          ) + (/\d/.test(e.paragraphs.join(' ')) ? 2 : 0)
+          ) + (/\d/.test(originals.join(' ')) ? 2 : 0)
         : 0;
       const inserted = await db
         .prepare(
@@ -455,9 +481,12 @@ export async function ingestFeed(
             ? 'same_original_content'
             : canProcess
               ? `mechanism_signals:${score};licensed_scope:${p.scope}`
-              : meaningful
-                ? 'processing_not_permitted'
-                : 'insufficient_public_text',
+              : acquisitionReason ||
+                (!withinCaptureLimit
+                  ? 'capture_too_large_split_required'
+                  : meaningful
+                    ? 'processing_not_permitted'
+                    : 'insufficient_public_text'),
           score,
           id,
           row.policy_json,

@@ -1,7 +1,7 @@
 # FRONTIER
 
 海外のフロンティア記事を日本語で読み、根拠のある知見を蓄積する個人用Webアプリ。
-React / Vite / Hono / Cloudflare Workers / D1 / Workflows。mainが本番正本。今回の初期実装はドラフトPRで確認する。
+React / Vite / Hono / Cloudflare Workers / D1 / R2 / Workflows。mainが本番正本。今回の初期実装はドラフトPRで確認する。
 
 ## この実装で動くこと
 
@@ -13,11 +13,11 @@ React / Vite / Hono / Cloudflare Workers / D1 / Workflows。mainが本番正本�
 - 日次/月次予算の原子的な予約、実usageの精算、成否不明の送信は保守的に費用予約を維持。無条件の再送はしない。
 - Cloudflare Accessの署名 / issuer / audience / exp / owner検証。HTML・静的アセット・API・検索・原文・書き出しを保護。
 - 保存済み日本語版のブラウザ読み上げ。端末内の日本語音声のみを使い、速度・段落移動・一時停止・版ごとの位置保存に対応。
-- 9媒体の候補台帳。全媒体は利用条件未確認または禁止のため初期無効。許可が揃ったRSS / Atomの指定フィールドのみ自動取得できる。リンク先の記事本文は取得しない。
+- 9媒体の候補台帳。全媒体は利用条件未確認または禁止のため初期無効。RSS / Atomで記事を発見し、設定済みの公開HTML本文・配信字幕を取り込める。URLから画像・音声・動画・PDFも共通の原資料へ変換する。
 
 保存・日本語化・横断接続・日次Editionまでfixtureで検証済み。**実媒体の許諾と公式フィード設定、実APIの品質・原価、実Cron・Access・本番デプロイは未確認。** 未設定の媒体や課金処理を自動で有効化しない。
 
-2026-10-02にTechCrunchの実RSSでDNSチェック・解析・隔離DB保存を確認し、公開IPv4の誤拒否を修正。ただしRSSは89〜268文字の抜粋で翻訳対象0件。実記事の日本語化が動くと確認できた段階ではない。通信transportや本番設定の制約は[確認範囲](docs/verification.md)を参照。
+2026-10-02にTechCrunchの実RSSでDNSチェック・解析・隔離DB保存を確認し、公開IPv4の誤拒否を修正。TechCrunchのRSSは89〜268文字の抜粋だったが、Not Boringの実RSSは20件中17件に本文上限内のテキストを含み、公開記事HAAから55段落・17,363文字を抽出できた。実APIで日本語化まで確認した段階ではない。通信transportや本番設定の制約は[確認範囲](docs/verification.md)を参照。
 
 ## 起動
 
@@ -140,7 +140,7 @@ localでは`.dev.vars`にSecretsを入れる。`.dev.vars`はGit管理外。
 
 ## フィードと日次実行
 
-取得は登録済み媒体の確認済みHTTPSホストのみ。取得前の公開DNS確認、各redirectの再確認、最大3redirect、20秒・256KB、XML深度64、HTMLのテキスト化、60分以上の頻度制御を行う。記事URLへはfetchしない。ログイン・非XML応答・取得拒否は停止する。原文が短すぎる候補や更新のないフィードは正常skip、取得障害はfailed、費用上限はbudget_stoppedとして残す。
+取得は登録済み媒体の確認済みHTTPSホストのみ。取得前の公開DNS確認、各redirectの再確認、最大3redirect、20秒・2MB、XML深度64、HTMLのテキスト化、60分以上の頻度制御を行う。媒体ごとに本文範囲のselectorを設定した場合は、記事URLの公開HTMLも取得する。画像等のホストも明示的に許可する。ログイン・非XML応答・取得拒否は停止する。原文が短すぎる候補や更新のないフィードは正常skip、取得障害はfailed、費用上限はbudget_stoppedとして残す。
 
 管理の媒体設定例（URLと権利は例示であり、有効化の根拠にはならない）：
 
@@ -161,7 +161,9 @@ localでは`.dev.vars`にSecretsを入れる。`.dev.vars`はGit管理外。
     "scope": "feed_excerpt",
     "contentField": "description",
     "mode": "partial_translation",
-    "frequencyMinutes": 1440
+    "frequencyMinutes": 1440,
+    "article": { "selector": "article" },
+    "media": ["image", "audio", "video", "captions", "pdf"]
   }
 }
 ```
@@ -174,14 +176,35 @@ JST当日の候補登録は全媒体合計最大10件。日次では媒体ごと
 
 同日の実行ID・選定結果・子ジョブIDを再利用する。再開で新しい翻訳枠を追加しない。子ジョブ失敗は管理詳細で安全に再試行してから日次処理を再開する。成否不明の送信は手動再開でも再送しない。Workflowsが10分以内に完了しない場合はawaitingを残し、後から既存子ジョブを確認してEditionだけ確定できる。
 
+## 本文・画像・音声・動画の共通取り込み
+
+管理画面の「原資料のURL」から読み取る。媒体設定は`article.selector`（article / main / #id / .class）と`media`で取り込み範囲を指定する。指定した本文範囲に見つかる公開字幕・直接の画像/音声/動画も対象とする。ログインが必要な本文、隠れた有料本文、埋め込みiframeやYouTube等の専用取得は実装していない。
+
+| 原資料              | 共通段落への変換                          | 保持する根拠           |
+| ------------------- | ----------------------------------------- | ---------------------- |
+| 公開HTML / テキスト | 本文のテキスト                            | 公開URL・段落ID        |
+| VTT / SRT字幕       | 配信字幕のテキスト                        | 原資料URL・開始/終了秒 |
+| PNG / JPEG / PDF    | OCRと図のAI説明を分離                     | 原資料URL・PDFページ   |
+| 音声                | 16kHz mono PCMに変換して文字起こし        | 原資料URL・開始/終了秒 |
+| 音声付き動画        | 文字起こし＋4枚の代表フレームのOCR/AI説明 | 原資料URL・秒位置      |
+
+変換した段落は既存の日本語化・Claim / Concept / Question・関係・本人の明示採用へ渡す。OCR/文字起こしは誤読の可能性を表示し、映像のAI説明だけから作るClaimはAI推論として保持する。全動画の場面を見たとは扱わない。公開日を取得できなければ「取得（公開日不明）」を表示する。
+
+直接の音声/動画は3分・12MBまで、PDFは2MBまで。画像はブラウザで長辺1024pxのJPEGへ変換する。コーデックはブラウザがdecode可能なものに限る。長い動画は配信字幕から取り込む。元の圧縮ファイルは保持せず、処理に渡した画像/PCM/代表フレーム/PDFをprivate R2へ保存する。通常の読書・原資料参照で追加AI呼び出しはしない。
+
+画像/PDF/音声の読み取りにはAI設定に加え、`VISION_INPUT_TOKEN_BOUND`（画像またはPDFごとの保守的な入力token予約上限、50,000〜2,000,000）と`AUDIO_MICRO_USD_PER_SECOND`（whisper-1の秒単価）を検証して設定する。既定は0で停止する。visionはOPENAI_MODELに画像・PDFとStructured Outputsを扱えるモデルが必要。公式仕様：[画像入力](https://developers.openai.com/api/docs/guides/images-vision)、[PDF入力](https://developers.openai.com/api/docs/guides/file-inputs)、[文字起こし](https://developers.openai.com/api/docs/guides/speech-to-text)。visionのusageと音声のPCM実長から費用を記録し、日本語化は別ジョブで予約する。
+
+RSS発見と公開HTML/配信字幕取得は日次処理にも接続済み。直接の音声・動画・画像・PDFの前処理は所有者のブラウザで行うため、この経路のCron自動実行は未対応。本文は80段落・Capture 32KBまでで、超過した原文は切り捨てず分割待ちとして残す。
+
 ## Cloudflareへ接続するための設定
 
 preview / productionのDB・Workflow・Secretは別。`workers.dev`を無効にし、Access保護したcustom domainのみ使用する。
 
 1. 環境ごとに`wrangler d1 create frontier-preview` / `frontier-production`を実行し、IDを`wrangler.jsonc`へ設定。
-2. Accessのアプリでownerのメールだけ許可。team domain、AUD、OWNER_EMAIL、custom domain routeを各環境へ設定。
-3. `wrangler d1 migrations apply DB --remote --env preview`を実行。
-4. `npm run deploy -- preview`。本番も同じ手順でproductionを明示する。
+2. 環境ごとに`wrangler r2 bucket create frontier-media-preview` / `frontier-media-production`を実行。R2をpublicにしない。
+3. Accessのアプリでownerのメールだけ許可。team domain、AUD、OWNER_EMAIL、custom domain routeを各環境へ設定。
+4. `wrangler d1 migrations apply DB --remote --env preview`を実行。
+5. `npm run deploy -- preview`。本番も同じ手順でproductionを明示する。
 
 deploy scriptはAccess設定・DB ID・保護したdomain routeがない状態でデプロイを拒否する。
 本番Access設定や既存アカウントの認証情報は、この作業では提供されていない。
@@ -192,6 +215,8 @@ deploy scriptはAccess設定・DB ID・保護したdomain routeがない状態�
 npx wrangler d1 export DB --remote --env preview --output /secure/path/frontier-backup.sql
 npx wrangler d1 execute DB --remote --env preview --file /secure/path/frontier-backup.sql
 ```
+
+D1/JSON/Markdown書き出しにはR2のバイナリが含まれない。原資料も復元する場合はR2の対応objectを別途バックアップし、同じキーで戻す。削除時はDBの原文/receiptを消去してR2も削除する。R2削除が通信失敗した場合は非公開のobjectが残り得るため、削除済みsourceの残存キーを再清掃する必要がある。
 
 復元は空の同一スキーマDBへ。既存DBへの上書きは避ける。訂正/削除後は古いバックアップを破棄または再取得・再解析へ戻さない。
 通常処理の停止は`AI_ENABLED=false`で新規呼び出しを止める。すでに送信した呼び出しの料金は発生し得る。
@@ -205,6 +230,7 @@ npm test
 npm run test:integration
 npx playwright install chromium
 npm run test:browser
+npm run test:media-browser # ffmpegが必要
 ```
 
 - Unit：JWT・Origin、利用範囲、原文/訳/根拠整合、refusal/incomplete、数値、省略、予算。

@@ -12,7 +12,29 @@ export const safeUrl = z
     const u = new URL(v);
     return u.protocol === 'https:' && !u.username && !u.password;
   }, 'HTTPS URL required');
-const paragraph = z.object({ id: idSchema, text }).strict();
+export const originSchema = z
+  .object({
+    kind: z.enum(['text', 'image', 'audio', 'video', 'pdf']),
+    method: z.enum([
+      'publisher_text',
+      'publisher_caption',
+      'ocr',
+      'transcript',
+      'visual_description',
+    ]),
+    url: safeUrl,
+    startSeconds: z.number().nonnegative().optional(),
+    endSeconds: z.number().nonnegative().optional(),
+    page: z.number().int().min(1).optional(),
+  })
+  .strict()
+  .refine(
+    (o) =>
+      o.endSeconds === undefined ||
+      (o.startSeconds !== undefined && o.endSeconds >= o.startSeconds),
+    'Invalid source time range',
+  );
+const paragraph = z.object({ id: idSchema, text, origin: originSchema.optional() }).strict();
 const evidence = z.array(idSchema).min(1).max(12);
 export const relationSchema = z
   .object({
@@ -65,6 +87,7 @@ export const bundleSchema = z
         publishedAt: z.string().datetime({ offset: true }),
         updatedAt: z.string().datetime({ offset: true }).optional(),
         capturedAt: z.string().datetime({ offset: true }),
+        publishedAtBasis: z.enum(['publisher', 'capture_time']).optional(),
       })
       .strict(),
     capture: z
@@ -79,6 +102,8 @@ export const bundleSchema = z
             translate: z.boolean(),
             basis: z.string().min(1).max(12000),
             checkedAt: z.string().datetime({ offset: true }),
+            registryId: idSchema.optional(),
+            policyHash: z.string().length(64).optional(),
           })
           .strict(),
       })
@@ -122,6 +147,16 @@ export function validateBundle(input: unknown): Bundle {
     if (!claim || r.fromEvidence.some((e) => !claim.evidence.includes(e)))
       throw new Error('invalid_relation_evidence');
   }
+  for (const claim of b.rendering.claims) {
+    if (
+      claim.evidence.every(
+        (id) =>
+          b.capture.paragraphs.find((p) => p.id === id)?.origin?.method === 'visual_description',
+      ) &&
+      claim.kind !== 'ai_inference'
+    )
+      throw new Error('visual_interpretation_is_not_reported_fact');
+  }
   if (new Set(b.rendering.claims.map((c) => c.id)).size !== b.rendering.claims.length)
     throw new Error('duplicate_claim');
   if (b.capture.mode === 'full_translation' || b.capture.mode === 'partial_translation') {
@@ -140,11 +175,13 @@ export interface StorySummary {
   intro: string;
   publisher: string;
   publishedAt: string;
+  publishedAtBasis?: 'publisher' | 'capture_time';
   mode: Bundle['capture']['mode'];
   minutes: number;
   progress: number;
 }
 export interface Story extends StorySummary {
+  media?: Array<{ url: string; kind: string; seconds?: number }>;
   currentRevision: string;
   hidden: boolean;
   source: Bundle['source'];

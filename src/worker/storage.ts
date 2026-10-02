@@ -59,6 +59,7 @@ export function summary(row: StoryRow): StorySummary {
     intro: row.intro,
     publisher: meta.publisher,
     publishedAt: meta.publishedAt,
+    publishedAtBasis: meta.publishedAtBasis,
     mode: row.mode,
     minutes: Math.max(1, Math.ceil(ps.reduce((n, p) => n + p.text.length, 0) / 500)),
     progress: row.fraction || 0,
@@ -175,8 +176,25 @@ export async function getStory(
         independent: number;
       }>()
   ).results;
+  const mediaRows = (
+    await db
+      .prepare(
+        'SELECT m.job_id,m.asset_keys_json FROM media_requests m JOIN jobs j ON j.id=m.job_id JOIN renderings r ON r.capture_id=j.capture_id WHERE r.id=? AND m.metadata_json IS NOT NULL',
+      )
+      .bind(row.revision)
+      .all<{ job_id: string; asset_keys_json: string }>()
+  ).results;
   return {
     ...summary(row),
+    media: mediaRows.flatMap((m) =>
+      (JSON.parse(m.asset_keys_json) as Array<{ kind: string; seconds?: number }>).map(
+        (a, index) => ({
+          url: `/api/media/assets/${m.job_id}/${index}`,
+          kind: a.kind,
+          ...(a.seconds === undefined ? {} : { seconds: a.seconds }),
+        }),
+      ),
+    ),
     currentRevision: row.current_revision,
     hidden: !!row.hidden,
     source: parse(row.metadata_json),
@@ -461,6 +479,25 @@ export async function deleteSource(db: D1Database, slug: string, expected: strin
   stmts.push(
     db
       .prepare(
+        `UPDATE jobs SET result_json=NULL,error_code='source_deleted',actual_micro_usd=CASE WHEN status IN('queued','reserved') THEN 0 ELSE actual_micro_usd END,status=CASE WHEN status='sending' THEN 'submission_unknown' ELSE 'source_deleted' END WHERE id IN(SELECT job_id FROM media_requests WHERE source_id=?) AND ${guard}`,
+      )
+      .bind(head.id, head.id, expected),
+  );
+  stmts.push(
+    db
+      .prepare(
+        `UPDATE job_parts SET result_json=NULL WHERE job_id IN(SELECT job_id FROM media_requests WHERE source_id=?) AND ${guard}`,
+      )
+      .bind(head.id, head.id, expected),
+  );
+  stmts.push(
+    db
+      .prepare(`UPDATE media_requests SET metadata_json=NULL WHERE source_id=? AND ${guard}`)
+      .bind(head.id, head.id, expected),
+  );
+  stmts.push(
+    db
+      .prepare(
         `UPDATE feed_candidates SET content_json=NULL,status='deleted',reason='source_deleted' WHERE canonical_url=? AND ${guard}`,
       )
       .bind(
@@ -570,6 +607,7 @@ export async function exportRecords(db: D1Database) {
     'daily_runs',
     'daily_candidates',
     'relations',
+    'media_requests',
   ])
     result[table] = (await db.prepare(`SELECT * FROM ${table}`).all()).results;
   return result;

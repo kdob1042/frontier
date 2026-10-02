@@ -17,8 +17,11 @@ import { startDaily } from './daily';
 import { configureRegistry, ingestFeed } from './feeds';
 import { listViews, editView, viewHistory, addNote, adoptProposal } from './views';
 import { exportMarkdown } from './markdown';
+import { intakeUrl, intakeAsset, parseMediaUpload } from './intake';
+import { createMediaJob, retryMediaJob, removeMediaAssets } from './media-jobs';
 export { HarvestWorkflow } from './workflow';
 export { DailyWorkflow } from './daily';
+export { MediaWorkflow } from './media-workflow';
 
 const app = new Hono<{ Bindings: Env }>();
 app.use('*', async (c, next) => {
@@ -27,7 +30,7 @@ app.use('*', async (c, next) => {
   c.header('Referrer-Policy', 'no-referrer');
   c.header(
     'Content-Security-Policy',
-    "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
+    "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
   );
   if (!(await authorize(c.req.raw, c.env)))
     return c.json({ error: 'authentication_required' }, 401);
@@ -43,8 +46,8 @@ app.onError((error, c) => {
   // Private source content and credentials are not printed to Workers logs.
   return c.json({ error: 'operation_failed' }, 500);
 });
-async function body(request: Request): Promise<unknown> {
-  if (Number(request.headers.get('content-length') || 0) > 256000)
+async function body(request: Request, limit = 256000): Promise<unknown> {
+  if (Number(request.headers.get('content-length') || 0) > limit)
     throw new StoreError('input_too_large', 413);
   const reader = request.body?.getReader();
   if (!reader) throw new StoreError('invalid_input', 400);
@@ -54,7 +57,7 @@ async function body(request: Request): Promise<unknown> {
     const { done, value } = await reader.read();
     if (done) break;
     length += value.length;
-    if (length > 256000) {
+    if (length > limit) {
       await reader.cancel();
       throw new StoreError('input_too_large', 413);
     }
@@ -216,13 +219,20 @@ app.post('/api/admin/jobs', async (c) => {
   return c.json(await createJob(c.env, input));
 });
 app.post('/api/admin/jobs/:id/stop', async (c) => c.json(await stopJob(c.env, c.req.param('id'))));
-app.post('/api/admin/jobs/:id/retry', async (c) =>
-  c.json(await retryJob(c.env, c.req.param('id'))),
-);
+app.post('/api/admin/jobs/:id/retry', async (c) => {
+  const media = await c.env.DB.prepare('SELECT job_id FROM media_requests WHERE job_id=?')
+    .bind(c.req.param('id'))
+    .first();
+  return c.json(await (media ? retryMediaJob : retryJob)(c.env, c.req.param('id')));
+});
 app.delete('/api/admin/stories/:slug', async (c) => {
   const rev = c.req.header('If-Match');
   if (!rev) return c.json({ error: 'revision_required' }, 400);
+  const source = await c.env.DB.prepare('SELECT id FROM sources WHERE slug=?')
+    .bind(c.req.param('slug'))
+    .first<{ id: string }>();
   await deleteSource(c.env.DB, c.req.param('slug'), rev === 'pending' ? null : rev);
+  if (source) await removeMediaAssets(c.env, source.id);
   return c.json({ deleted: true });
 });
 app.put('/api/admin/stories/:slug/visibility', async (c) => {
@@ -278,6 +288,37 @@ app.post('/api/admin/daily', async (c) => {
     .strict()
     .parse(await body(c.req.raw));
   return c.json(await startDaily(c.env, undefined, p.resume));
+});
+app.post('/api/admin/intake', async (c) => c.json(await intakeUrl(c.env, await body(c.req.raw))));
+app.get('/api/media/assets/:id/:index', async (c) => {
+  const id = z
+    .string()
+    .regex(/^[a-f0-9]{64}$/)
+    .parse(c.req.param('id'));
+  const index = z.coerce.number().int().min(0).max(4).parse(c.req.param('index'));
+  const record = await c.env.DB.prepare(
+    'SELECT m.asset_keys_json FROM media_requests m JOIN sources s ON s.id=m.source_id WHERE m.job_id=? AND m.metadata_json IS NOT NULL AND s.deleted_at IS NULL',
+  )
+    .bind(id)
+    .first<{ asset_keys_json: string }>();
+  const asset =
+    record && (JSON.parse(record.asset_keys_json) as Array<{ key: string; mime: string }>)[index];
+  if (!asset) throw new StoreError('not_found', 404);
+  const stored = await c.env.MEDIA_BUCKET.get(asset.key);
+  if (!stored) throw new StoreError('not_found', 404);
+  c.header('Content-Type', asset.mime);
+  c.header('Content-Security-Policy', 'sandbox');
+  return c.body(stored.body);
+});
+app.post('/api/admin/media', async (c) =>
+  c.json(await createMediaJob(c.env, parseMediaUpload(await body(c.req.raw, 12_000_000)))),
+);
+app.get('/api/admin/intake/asset', async (c) => {
+  const id = z.string().min(1).max(100).parse(c.req.query('registryId'));
+  const url = z.string().url().max(2000).parse(c.req.query('url'));
+  const asset = await intakeAsset(c.env, id, url);
+  c.header('Content-Type', asset.mime);
+  return c.body(asset.bytes);
 });
 app.get('/api/*', (c) => c.json({ error: 'not_found' }, 404));
 app.all('*', (c) => c.env.ASSETS.fetch(c.req.raw));

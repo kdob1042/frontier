@@ -5,6 +5,8 @@ import { kindLabels, modeLabels, relationLabels } from '../shared/labels';
 import type { Story, StorySummary } from '../shared/model';
 import './style.css';
 import { Listen } from './listen';
+import { IntakeForm } from './intake';
+import { originLabels, originLink, timeLabel } from '../shared/media';
 
 const demo = location.pathname.startsWith('/demo');
 const base = demo ? '/demo' : '';
@@ -100,6 +102,7 @@ function Metadata({ story }: { story: StorySummary }) {
       {story.publisher}
       <span>／</span>
       {date(story.publishedAt)}
+      {story.publishedAtBasis === 'capture_time' && ' 取得（公開日不明）'}
       <span>／</span>
       {story.minutes}分
     </p>
@@ -534,9 +537,44 @@ function Reader({ slug }: { slug: string }) {
             <br />
             利用範囲：{s.capture.permissions.basis}
           </p>
+          {!!s.media?.length && (
+            <details>
+              <summary>保存した原資料・代表フレーム</summary>
+              <div className="detail-body">
+                {s.media.map((asset, i) => (
+                  <p key={asset.url}>
+                    <a href={asset.url} target="_blank" rel="noreferrer">
+                      {asset.kind === 'frame'
+                        ? `代表フレーム ${timeLabel(asset.seconds!)}`
+                        : asset.kind === 'audio'
+                          ? '文字起こしに使った音声'
+                          : asset.kind === 'pdf'
+                            ? '原資料PDF'
+                            : '原資料画像'}{' '}
+                      ↗
+                    </a>
+                  </p>
+                ))}
+              </div>
+            </details>
+          )}
           {s.capture.paragraphs.map((p) => (
             <p className="source-paragraph" id={`source-${p.id}`} key={p.id}>
               <small>{p.id}</small>
+              {p.origin && (
+                <small>
+                  {' '}
+                  · {originLabels[p.origin.method]} ·{' '}
+                  <a href={originLink(p.origin)} target="_blank" rel="noreferrer">
+                    {p.origin.startSeconds === undefined
+                      ? p.origin.page
+                        ? `${p.origin.page}ページ`
+                        : '原資料'
+                      : timeLabel(p.origin.startSeconds)}{' '}
+                    ↗
+                  </a>
+                </small>
+              )}
               <br />
               {p.text}
             </p>
@@ -687,6 +725,7 @@ function Archive() {
               <span>{s.title}</span>
               <small>
                 {s.publisher} · {modeLabels[s.mode]} · {date(s.publishedAt)}
+                {s.publishedAtBasis === 'capture_time' && ' 取得（公開日不明）'}
               </small>
             </a>
           ))}
@@ -874,21 +913,25 @@ function Admin() {
           </p>
           <details>
             <summary>取り込み・日本語化</summary>
-            <form className="detail-body" onSubmit={(e) => void submit(e)}>
-              <p className="quiet">
-                利用可能な原資料、または日本語化済みの記録をJSONで取り込みます。自動収集は、許可確認済みのフィードと日次設定が揃ったときに実行します。
-              </p>
-              <label>
-                資料・記録JSON
-                <textarea
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  required
-                  rows={8}
-                />
-              </label>
-              <button disabled={busy}>{busy ? '保存しています…' : '取り込む'}</button>
-            </form>
+            <IntakeForm sources={state.data.sources} onSaved={state.retry} />
+            <details>
+              <summary>資料・記録JSONを直接取り込む</summary>
+              <form className="detail-body" onSubmit={(e) => void submit(e)}>
+                <p className="quiet">
+                  利用可能な原資料、または日本語化済みの記録を直接取り込む場合に使います。
+                </p>
+                <label>
+                  資料・記録JSON
+                  <textarea
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    required
+                    rows={8}
+                  />
+                </label>
+                <button disabled={busy}>{busy ? '保存しています…' : '取り込む'}</button>
+              </form>
+            </details>
           </details>
           <details>
             <summary>記録の表示・削除</summary>
