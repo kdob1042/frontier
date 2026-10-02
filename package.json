@@ -13,7 +13,7 @@
     "types": "wrangler types --include-runtime false --strict-vars false",
     "check": "tsc --noEmit",
     "migrate": "wrangler d1 migrations apply DB --local",
-    "test": "node --import tsx --test test/*.test.ts",
+    "test": "node --import tsx --test test/*.test.*",
     "test:integration": "node --import tsx scripts/integration.mjs",
     "test:browser": "node --import tsx scripts/browser.mjs",
     "deploy": "node scripts/deploy.mjs"
@@ -34,6 +34,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "esbuild": "^0.28.2",
+    "jsonc-parser": "^3.3.1",
     "prettier": "^3.9.9",
     "tsx": "^4.0.0",
     "typescript": "^7.0.2",

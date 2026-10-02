@@ -1,6 +1,6 @@
 # 実装と確認範囲
 
-21件のunit / workflow fixture、実workerd / D1統合、本番用ViteビルドのChromium操作を確認。実媒体本文と本人の私的記録はテストや公開リポジトリへ入れていない。
+23件のunit / workflow fixture、実workerd / D1統合、本番用ViteビルドのChromium操作を確認。実媒体本文と本人の私的記録はfixtureや公開リポジトリへ入れていない。2026-10-02にTechCrunchの実RSSを隔離DBで技術検証した範囲と制約は下記のとおり。
 
 | Issue           | 実装と確認した動作                                                                                                               | 実環境で未確認                                                |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -12,6 +12,17 @@
 | #9 画面         | 390/1280px、根拠リンク・旧版、メモ、本人編集、関係、改訂案採用、管理設定、主操作数、横はみ出し、読書で生成しない                 | iPhone Safari実機・本番URL・実記事による確認                  |
 
 SourceRegistryの9媒体は初期無効。AI_ENABLED / DAILY_ENABLEDもfalse、SecretsとAccess / DB IDは未提供。実稼働や課金呼び出しは行っていない。
+
+## 2026-10-02 実RSSとデプロイの確認
+
+- TechCrunch公式RSS `https://techcrunch.com/feed/`：HTTP 200、17,046 bytes。SHA-256 `d3c730b93022555cdcaff7af69889a08167aaf4ecbf3f90853b7457fe280082b`。確認開始は00:32:21 UTC。
+- 実DNS A/AAAAと実RSSをcurlのHTTPS transport経由でアプリの `fetchFeed` / `ingestFeed` に渡した。7 migrationsを適用した隔離SQLiteのD1互換DBへ10件保存、20件解析。取得直後の再実行はfrequency_limit、翌JST日の同一response replayは追加0件。DNS応答はfixtureではない。リンク先本文とAI APIは取得・呼び出ししていない。
+- 配信されたdescriptionは89〜268文字。保存した10件はすべて `insufficient_public_text`、翻訳可能候補0件。短いRSS抜粋だけでは本来の日本語記事・日次推薦を検証できない。
+- [RSS利用条件](https://techcrunch.com/rss-terms-of-use/)には改変制限があるため、翻訳許可とは判断していない。隔離検証はai=false / translate=false。本番台帳の許可・有効状態は変更していない。
+- 実DNS確認で公開IPv4 `192.0.66.220` を拒否する不具合を再現して修正。[IANAの特殊用途IPv4範囲](https://www.iana.org/assignments/iana-ipv4-special-registry)に合わせ、192.0.0/24・192.0.2/24・198.51.100/24・203.0.113/24の拒否を維持し、その周囲の公開アドレスを誤って/16単位で拒否しない。拒否範囲と境界をunitで確認した。
+- Nodeの直接fetchによるDNS照会はこのworkspaceでtimeout。上記の実通信成功はcurl transportであり、デプロイしたCloudflare Workerのfetch/D1/Workflows疎通は未確認。
+- deploy scriptはJSONCの末尾カンマでSyntaxErrorになっていたため、JSONC parserとエラー検査へ修正。未設定時のAccess / D1 / route / workers.dev無効の各拒否をunitで確認。現在のproduction実行はAccess設定不足として停止する。
+- **未デプロイ**。Wranglerは未認証。Cloudflare管理画面は1回の再読み込み後もセキュリティ検証で停止。Access issuer/audience/owner、production D1 ID、保護したdomain routeが未設定。実モデル・原価・実記事の翻訳品質、本番Cronも未確認。
 
 数値・否定・引用主体の検査は保守的な欠落検出で、意味の正しさを証明するものではない。RelationはAIの解釈、原資料の独立性は未確認として表示する。改訂案を生成しても本人の現在版は変えない。
 

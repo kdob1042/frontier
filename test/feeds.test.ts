@@ -51,6 +51,13 @@ test('RSS and Atom preserve only licensed fields, dates and canonical URLs; scri
     '169.254.169.254',
     '172.16.0.1',
     '100.64.0.1',
+    '192.0.0.1',
+    '192.0.2.1',
+    '192.168.0.1',
+    '198.18.0.1',
+    '198.19.255.254',
+    '198.51.100.1',
+    '203.0.113.1',
     '::1',
     '::ffff:127.0.0.1',
     'fc00::1',
@@ -59,6 +66,16 @@ test('RSS and Atom preserve only licensed fields, dates and canonical URLs; scri
   ])
     assert.equal(publicAddress(address), false);
   assert.equal(publicAddress('1.1.1.1'), true);
+  // Reserved /24s must not reject the whole /16 (TechCrunch resolves in 192.0.66.0/24).
+  for (const address of [
+    '192.0.66.220',
+    '192.0.3.1',
+    '198.51.99.1',
+    '198.51.101.1',
+    '203.0.112.1',
+    '203.0.114.1',
+  ])
+    assert.equal(publicAddress(address), true);
 });
 test('public DNS, every redirect, response size and type are checked before content is accepted', async () => {
   const row = fixtureRegistry(),

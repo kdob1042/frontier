@@ -17,6 +17,8 @@ React / Vite / Hono / Cloudflare Workers / D1 / Workflows。mainが本番正本�
 
 保存・日本語化・横断接続・日次Editionまでfixtureで検証済み。**実媒体の許諾と公式フィード設定、実APIの品質・原価、実Cron・Access・本番デプロイは未確認。** 未設定の媒体や課金処理を自動で有効化しない。
 
+2026-10-02にTechCrunchの実RSSでDNSチェック・解析・隔離DB保存を確認し、公開IPv4の誤拒否を修正。ただしRSSは89〜268文字の抜粋で翻訳対象0件。実記事の日本語化が動くと確認できた段階ではない。通信transportや本番設定の制約は[確認範囲](docs/verification.md)を参照。
+
 ## 起動
 
 Node 24以上。
