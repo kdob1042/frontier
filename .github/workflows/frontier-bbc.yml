@@ -1,0 +1,107 @@
+name: Frontier BBC long-form supplement
+on:
+  push:
+    branches: [curation/frontier-bbc-20261002]
+    paths: [.github/workflows/frontier-bbc.yml]
+permissions:
+  contents: write
+concurrency:
+  group: frontier-catalog-bbc-20261002
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests==2.32.3 beautifulsoup4==4.13.4 lxml==5.4.0 trafilatura==2.0.0
+      - name: Discover through official internal links and verify each article
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python -u - <<'PY'
+          import importlib.util,json,re,time,subprocess,concurrent.futures as cf
+          from pathlib import Path
+          from urllib.parse import urljoin
+          from bs4 import BeautifulSoup
+          spec=importlib.util.spec_from_file_location('c','scripts/collect_frontier_catalog.py')
+          c=importlib.util.module_from_spec(spec);spec.loader.exec_module(c)
+          c.OUT=Path('data/frontier-1000-bbc-20261002');c.OUT.mkdir(parents=True,exist_ok=True)
+          c.TARGET=350;c.POOL_TARGET=350
+          s=next(s for s in c.SOURCES if s['id']=='bbc');c.SOURCES=[s]
+          c.robots(s)
+          original_fetch=c.fetch
+          cache={}
+          def fetch(u,robot=False):
+              return cache[u] if u in cache else original_fetch(u,robot=robot)
+          c.fetch=fetch
+          queue={};visited=set();accepted=[];audit=[];seen=set();titles=set();bodyhashes=set();logs=[]
+          def add_links(text,via):
+              soup=BeautifulSoup(text,'lxml')
+              for a in soup.find_all('a',href=True):
+                  u=c.canonical(urljoin(via,a['href']))
+                  if c.same_host(u,s) and re.search(s['pattern'],u) and u not in visited:
+                      queue.setdefault(u,via)
+          for p in s['archives']:
+              u=s['root']+p
+              try:
+                  text,final=original_fetch(u);add_links(text,final)
+              except Exception as e:logs.append({'url':u,'error':str(e)})
+          # Official archive sitemap is a second independent discovery route.
+          u='https://www.bbc.com/sitemaps/https-index-com-archive.xml'
+          try:
+              text,_=original_fetch(u);xml=BeautifulSoup(text,'xml')
+              maps=[n.get_text(strip=True) for n in xml.find_all('loc')]
+              logs.append({'url':u,'children':maps[:20]})
+              candidates=[x for x in maps if any(t in x for t in ['future','worklife','innovation'])]
+              for m in candidates[:10]:
+                  text,_=original_fetch(m)
+                  for x in BeautifulSoup(text,'xml').find_all('loc'):
+                      v=x.get_text(strip=True)
+                      if c.same_host(v,s) and re.search(s['pattern'],v):queue.setdefault(c.canonical(v),m)
+          except Exception as e:logs.append({'url':u,'error':str(e)})
+          last=0
+          while queue and len(accepted)<350 and len(visited)<3000:
+              picked=sorted(queue,key=c.url_priority,reverse=True)[:12]
+              batch=[(u,queue.pop(u)) for u in picked]
+              def one(item):
+                  u,via=item
+                  try:
+                      raw,final=original_fetch(u)
+                      cache[u]=(raw,final)
+                      result=c.assess(s,u,via)
+                      return result,raw,final
+                  except Exception as e:return {'url':u,'publisher':s['name'],'publisher_id':'bbc','status':'rejected','reason':str(e)},'',u
+              with cf.ThreadPoolExecutor(max_workers=6) as pool:
+                  results=list(pool.map(one,batch))
+              for result,raw,final in results:
+                  visited.add(result['url'])
+                  if raw:add_links(raw,final)
+                  if result['status']=='accepted':
+                      if result['canonical_url'] in seen or result['title_key'] in titles or result['body_sha256'] in bodyhashes:
+                          result['status']='rejected';result['reason']='duplicate'
+                      else:
+                          accepted.append(result);seen.add(result['canonical_url']);titles.add(result['title_key']);bodyhashes.add(result['body_sha256'])
+                  audit.append({k:v for k,v in result.items() if k not in ['publisher_excerpt','reason_ja']})
+              cache.clear()
+              c.write_outputs(accepted,audit,[{'publisher':s['name'],'remaining_urls':len(queue),'visited':len(visited),'log':logs}])
+              if time.monotonic()-last>60:
+                  subprocess.run(['git','add',str(c.OUT)],check=True)
+                  subprocess.run(['git','commit','-m','Checkpoint BBC verified catalog [skip ci]'],check=False)
+                  subprocess.run(['git','push','origin','HEAD:curation/frontier-bbc-20261002'],check=True)
+                  last=time.monotonic()
+          c.write_outputs(accepted,audit,logs,True)
+          subprocess.run(['git','add',str(c.OUT)],check=True)
+          subprocess.run(['git','commit','-m','Save BBC long-form catalog and audit [skip ci]'],check=False)
+          subprocess.run(['git','push','origin','HEAD:curation/frontier-bbc-20261002'],check=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: frontier-1000-bbc
+          path: data/frontier-1000-bbc-20261002/
+          retention-days: 30
+          if-no-files-found: warn
