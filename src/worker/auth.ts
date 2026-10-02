@@ -17,7 +17,14 @@ export async function authorize(
     !env.OWNER_EMAIL
   )
     return false;
-  const token = request.headers.get('cf-access-jwt-assertion');
+  const token =
+    request.headers.get('cf-access-jwt-assertion') ||
+    request.headers
+      .get('cookie')
+      ?.split(';')
+      .map((part) => part.trim())
+      .find((part) => part.startsWith('CF_Authorization='))
+      ?.slice('CF_Authorization='.length);
   if (!token) return false;
   try {
     const issuer = `https://${env.ACCESS_TEAM_DOMAIN}`;
