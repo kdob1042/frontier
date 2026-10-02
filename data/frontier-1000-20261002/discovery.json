@@ -1,0 +1,740 @@
+[
+  {
+    "publisher": "Rest of World",
+    "candidate_count": 2200,
+    "log": [
+      {
+        "method": "archive",
+        "url": "https://restofworld.org/latest/",
+        "found": 12
+      },
+      {
+        "method": "archive",
+        "url": "https://restofworld.org/series/ai/",
+        "status": "http_404"
+      },
+      {
+        "method": "archive",
+        "url": "https://restofworld.org/2026/",
+        "found": 12
+      },
+      {
+        "method": "archive",
+        "url": "https://restofworld.org/2025/",
+        "found": 24
+      },
+      {
+        "method": "archive",
+        "url": "https://restofworld.org/2024/",
+        "found": 36
+      },
+      {
+        "method": "sitemap",
+        "url": "https://restofworld.org/sitemap.xml",
+        "locs": 2807,
+        "found": 2464
+      },
+      {
+        "method": "sitemap",
+        "url": "https://restofworld.org/sitemap_index.xml",
+        "locs": 2807,
+        "found": 2464
+      },
+      {
+        "method": "sitemap",
+        "url": "https://restofworld.org/wp-sitemap.xml",
+        "status": "http_404"
+      }
+    ]
+  },
+  {
+    "publisher": "WIRED",
+    "candidate_count": 2200,
+    "log": [
+      {
+        "method": "archive",
+        "url": "https://www.wired.com/category/business/",
+        "found": 75
+      },
+      {
+        "method": "archive",
+        "url": "https://www.wired.com/category/science/",
+        "found": 130
+      },
+      {
+        "method": "archive",
+        "url": "https://www.wired.com/category/security/",
+        "found": 165
+      },
+      {
+        "method": "archive",
+        "url": "https://www.wired.com/tag/artificial-intelligence/",
+        "found": 174
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.wired.com/sitemap.xml",
+        "locs": 60,
+        "found": 174
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.wired.com/sitemap-2026-10.xml",
+        "locs": 47,
+        "found": 207
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.wired.com/sitemap-2026-09.xml",
+        "locs": 497,
+        "found": 519
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.wired.com/sitemap-2026-08.xml",
+        "locs": 354,
+        "found": 802
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.wired.com/sitemap-2026-07.xml",
+        "locs": 380,
+        "found": 1118
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.wired.com/sitemap-2026-06.xml",
+        "locs": 395,
+        "found": 1466
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.wired.com/sitemap-2026-05.xml",
+        "locs": 369,
+        "found": 1782
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.wired.com/sitemap-2026-04.xml",
+        "locs": 376,
+        "found": 2092
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.wired.com/sitemap-2026-03.xml",
+        "locs": 405,
+        "found": 2421
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.wired.com/sitemap-2026-02.xml",
+        "locs": 344,
+        "found": 2706
+      }
+    ]
+  },
+  {
+    "publisher": "Smithsonian Magazine",
+    "candidate_count": 524,
+    "log": [
+      {
+        "method": "archive",
+        "url": "https://www.smithsonianmag.com/science-nature/",
+        "found": 17
+      },
+      {
+        "method": "archive",
+        "url": "https://www.smithsonianmag.com/innovation/",
+        "found": 29
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap.xml",
+        "locs": 399,
+        "found": 29
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2026-10.xml",
+        "locs": 7,
+        "found": 29
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2026-09.xml",
+        "locs": 175,
+        "found": 29
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2026-08.xml",
+        "locs": 177,
+        "found": 34
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2026-07.xml",
+        "locs": 186,
+        "found": 40
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2026-06.xml",
+        "locs": 215,
+        "found": 64
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2026-05.xml",
+        "locs": 176,
+        "found": 76
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2026-04.xml",
+        "locs": 208,
+        "found": 92
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2026-03.xml",
+        "locs": 176,
+        "found": 106
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2026-02.xml",
+        "locs": 173,
+        "found": 121
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2026-01.xml",
+        "locs": 174,
+        "found": 137
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2009-12.xml",
+        "locs": 176,
+        "found": 188
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2009-11.xml",
+        "locs": 138,
+        "found": 227
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2009-10.xml",
+        "locs": 197,
+        "found": 278
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2009-09.xml",
+        "locs": 179,
+        "found": 324
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2009-08.xml",
+        "locs": 211,
+        "found": 374
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2009-07.xml",
+        "locs": 204,
+        "found": 426
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2009-06.xml",
+        "locs": 208,
+        "found": 479
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.smithsonianmag.com/sitemap-articles-2009-05.xml",
+        "locs": 189,
+        "found": 524
+      }
+    ]
+  },
+  {
+    "publisher": "IEEE Spectrum",
+    "candidate_count": 2200,
+    "log": [
+      {
+        "method": "archive",
+        "url": "https://spectrum.ieee.org/artificial-intelligence/",
+        "found": 31
+      },
+      {
+        "method": "archive",
+        "url": "https://spectrum.ieee.org/robotics/",
+        "found": 42
+      },
+      {
+        "method": "archive",
+        "url": "https://spectrum.ieee.org/semiconductors/",
+        "found": 58
+      },
+      {
+        "method": "archive",
+        "url": "https://spectrum.ieee.org/energy/",
+        "found": 69
+      },
+      {
+        "method": "archive",
+        "url": "https://spectrum.ieee.org/computing/",
+        "found": 83
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/sitemap.xml",
+        "locs": 88,
+        "found": 83
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/feeds/sitemaps/sitemap_1.xml",
+        "locs": 807,
+        "found": 332
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/feeds/sitemaps/sitemap_2.xml",
+        "locs": 1045,
+        "found": 581
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/feeds/sitemaps/sitemap_3.xml",
+        "locs": 1039,
+        "found": 830
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/feeds/sitemaps/sitemap_4.xml",
+        "locs": 1042,
+        "found": 1076
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/feeds/sitemaps/sitemap_5.xml",
+        "locs": 667,
+        "found": 1326
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/feeds/sitemaps/sitemap_6.xml",
+        "locs": 958,
+        "found": 1576
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/feeds/sitemaps/sitemap_7.xml",
+        "locs": 1152,
+        "found": 1824
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/feeds/sitemaps/sitemap_8.xml",
+        "locs": 1066,
+        "found": 2073
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/feeds/sitemaps/sitemap_9.xml",
+        "locs": 754,
+        "found": 2320
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/feeds/sitemaps/sitemap_10.xml",
+        "locs": 780,
+        "found": 2570
+      },
+      {
+        "method": "sitemap",
+        "url": "https://spectrum.ieee.org/feeds/sitemaps/sitemap_11.xml",
+        "locs": 940,
+        "found": 2816
+      }
+    ]
+  },
+  {
+    "publisher": "Ars Technica",
+    "candidate_count": 163,
+    "log": [
+      {
+        "method": "archive",
+        "url": "https://arstechnica.com/science/",
+        "found": 40
+      },
+      {
+        "method": "archive",
+        "url": "https://arstechnica.com/ai/",
+        "found": 75
+      },
+      {
+        "method": "archive",
+        "url": "https://arstechnica.com/tech-policy/",
+        "found": 98
+      },
+      {
+        "method": "archive",
+        "url": "https://arstechnica.com/features/",
+        "found": 131
+      },
+      {
+        "method": "archive",
+        "url": "https://arstechnica.com/information-technology/",
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/sitemap.xml",
+        "locs": 189,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap2.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap3.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap4.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap5.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap6.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap7.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap8.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap9.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap10.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap11.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap12.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap13.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap14.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap15.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap16.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap17.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/post-sitemap18.xml",
+        "locs": 1000,
+        "found": 163
+      },
+      {
+        "method": "sitemap",
+        "url": "https://arstechnica.com/sitemap_index.xml",
+        "status": "http_404"
+      }
+    ]
+  },
+  {
+    "publisher": "Quanta Magazine",
+    "candidate_count": 1073,
+    "log": [
+      {
+        "method": "archive",
+        "url": "https://www.quantamagazine.org/archive/",
+        "found": 11
+      },
+      {
+        "method": "archive",
+        "url": "https://www.quantamagazine.org/tag/artificial-intelligence/",
+        "found": 19
+      },
+      {
+        "method": "archive",
+        "url": "https://www.quantamagazine.org/computer-science/",
+        "found": 25
+      },
+      {
+        "method": "archive",
+        "url": "https://www.quantamagazine.org/biology/",
+        "found": 31
+      },
+      {
+        "method": "archive",
+        "url": "https://www.quantamagazine.org/physics/",
+        "found": 35
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.quantamagazine.org/sitemap.xml",
+        "locs": 1179,
+        "found": 1073
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.quantamagazine.org/sitemap_index.xml",
+        "locs": 1179,
+        "found": 1073
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.quantamagazine.org/post-sitemap.xml",
+        "status": "http_404"
+      }
+    ]
+  },
+  {
+    "publisher": "BBC Future / Innovation / Worklife",
+    "candidate_count": 9,
+    "log": [
+      {
+        "method": "archive",
+        "url": "https://www.bbc.com/future",
+        "found": 6
+      },
+      {
+        "method": "archive",
+        "url": "https://www.bbc.com/innovation",
+        "found": 9
+      },
+      {
+        "method": "archive",
+        "url": "https://www.bbc.com/worklife",
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/afrique/sitemap.xml",
+        "locs": 100,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/arabic/sitemap.xml",
+        "locs": 100,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap.xml",
+        "locs": 12,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/0",
+        "locs": 10000,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/1",
+        "locs": 10000,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/2",
+        "locs": 10000,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/3",
+        "locs": 10000,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/4",
+        "locs": 10000,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/5",
+        "locs": 10000,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/6",
+        "locs": 10000,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/7",
+        "locs": 10000,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/8",
+        "locs": 10000,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/9",
+        "locs": 10000,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/10",
+        "locs": 10000,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/audio_archive_sitemap/page/11",
+        "locs": 2397,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/content_index_sitemap.xml",
+        "locs": 5,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/content_index_sitemap/page/0",
+        "locs": 113,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/content_index_sitemap/page/1",
+        "locs": 34922,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/content_index_sitemap/page/2",
+        "locs": 30713,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/content_index_sitemap/page/3",
+        "locs": 41144,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/content_index_sitemap/page/4",
+        "locs": 39010,
+        "found": 9
+      },
+      {
+        "method": "sitemap",
+        "url": "https://www.bbc.com/bbcx/index_sitemap.xml",
+        "locs": 437,
+        "found": 9
+      },
+      {
+        "method": "feed",
+        "url": "https://www.bbc.com/feed/",
+        "status": "http_404"
+      },
+      {
+        "method": "feed",
+        "url": "https://www.bbc.com/rss",
+        "status": "http_404"
+      },
+      {
+        "method": "feed",
+        "url": "https://www.bbc.com/rss.xml",
+        "status": "http_404"
+      },
+      {
+        "method": "feed",
+        "url": "https://www.bbc.com/feed.xml",
+        "status": "http_404"
+      }
+    ]
+  }
+]
