@@ -1,32 +1,32 @@
 {
   "requested": 350,
-  "selected": 317,
+  "selected": 343,
   "target_reached": false,
-  "verified_pool": 317,
-  "article_attempts": 2205,
+  "verified_pool": 343,
+  "article_attempts": 2337,
   "publishers": {
-    "BBC Future / Innovation / Worklife": 317
+    "BBC Future / Innovation / Worklife": 343
   },
   "primary_topics": {
-    "生命科学・医療技術・材料": 81,
-    "技術と社会・教育・制度": 49,
-    "エネルギー・環境・インフラ": 129,
-    "ロボット・産業・宇宙": 39,
-    "AI・計算・半導体": 16,
-    "事業モデル・経済・生産性": 3
+    "生命科学・医療技術・材料": 83,
+    "技術と社会・教育・制度": 53,
+    "エネルギー・環境・インフラ": 141,
+    "ロボット・産業・宇宙": 45,
+    "AI・計算・半導体": 17,
+    "事業モデル・経済・生産性": 4
   },
   "rejection_reasons": {
-    "below_1500_words": 939,
-    "insufficient_frontier_relevance": 886,
+    "below_1500_words": 1013,
+    "insufficient_frontier_relevance": 916,
     "duplicate": 46,
     "insufficient_reporting_signals": 9,
-    "missing_title": 6,
+    "missing_title": 8,
     "http_404": 2
   },
   "word_count_min": 1501,
-  "word_count_median": 1974,
-  "total_words": 656926,
-  "updated_at": "2026-10-02T13:33:26.346982+00:00",
+  "word_count_median": 1965,
+  "total_words": 707070,
+  "updated_at": "2026-10-02T13:34:31.285905+00:00",
   "finished": false,
   "full_text_exported": false,
   "full_translation_completed": false,
