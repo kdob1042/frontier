@@ -1,0 +1,48 @@
+name: Frontier consolidated catalog snapshot
+on:
+  push:
+    branches: [data/frontier-longreads-20261002]
+    paths:
+      - scripts/build_frontier_longreads.py
+      - .github/workflows/frontier-catalog-snapshot.yml
+      - catalog-snapshot-request.json
+permissions:
+  contents: write
+jobs:
+  consolidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests==2.32.3
+      - name: Consolidate latest pinned source snapshots
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/build_frontier_longreads.py
+      - name: Commit the actual selected count and evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/frontier-longreads-20261002
+          git diff --cached --quiet || git commit -m 'Save consolidated Frontier reading catalog [skip ci]'
+          git push origin HEAD:data/frontier-longreads-20261002
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: frontier-longreads
+          path: data/frontier-longreads-20261002/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Show selection totals
+        run: |
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          r=json.loads(Path('data/frontier-longreads-20261002/report.json').read_text())
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as f:
+              f.write(f"# Frontier: {r['selected']} / 1000\n\n")
+              f.write('```json\n'+json.dumps(r,ensure_ascii=False,indent=2)+'\n```\n')
+          PY
