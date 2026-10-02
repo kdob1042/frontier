@@ -321,7 +321,12 @@ app.get('/api/admin/intake/asset', async (c) => {
   return c.body(asset.bytes);
 });
 app.get('/api/*', (c) => c.json({ error: 'not_found' }, 404));
-app.all('*', (c) => c.env.ASSETS.fetch(c.req.raw));
+app.all('*', async (c) => {
+  if (c.env.ENVIRONMENT === 'production' &&
+      (c.req.path === '/demo' || c.req.path.startsWith('/demo/')))
+    return c.redirect('/', 302);
+  return c.env.ASSETS.fetch(c.req.raw);
+});
 export default {
   fetch: app.fetch,
   async scheduled(event, env) {
