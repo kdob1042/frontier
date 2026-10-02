@@ -104,7 +104,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,088語・24段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及9箇所を確認。",
     "status": "accepted",
-    "catalog_number": 16
+    "catalog_number": 31
   },
   {
     "url": "https://arstechnica.com/space/2026/01/rocket-report-how-a-5-ton-satellite-fell-off-a-booster-will-spacex-and-xai-merge/",
@@ -139,7 +139,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,851語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及24箇所を確認。",
     "status": "accepted",
-    "catalog_number": 28
+    "catalog_number": 56
   },
   {
     "url": "https://arstechnica.com/science/2026/07/quantum-computing-roundup-still-more-technologies-making-waves/",
@@ -176,7 +176,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,609語・23段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及8箇所を確認。",
     "status": "accepted",
-    "catalog_number": 13
+    "catalog_number": 28
   },
   {
     "url": "https://arstechnica.com/science/2025/11/new-quantum-computing-hardware-sorts-ions-for-computation/",
@@ -213,7 +213,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,939語・27段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及17箇所を確認。",
     "status": "accepted",
-    "catalog_number": 36
+    "catalog_number": 64
   },
   {
     "url": "https://arstechnica.com/science/2025/06/microsoft-lays-out-its-path-to-useful-quantum-computing/",
@@ -249,7 +249,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,889語・24段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及5箇所を確認。",
     "status": "accepted",
-    "catalog_number": 52
+    "catalog_number": 80
   },
   {
     "url": "https://arstechnica.com/science/2025/06/rocket-report-spacexs-dustup-on-the-border-northrop-has-a-nozzle-problem/",
@@ -286,7 +286,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,558語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及12箇所を確認。",
     "status": "accepted",
-    "catalog_number": 50
+    "catalog_number": 78
   },
   {
     "url": "https://arstechnica.com/science/2024/12/rocket-report-waiting-for-new-glenn-spacex-takes-a-launch-from-ula/",
@@ -323,7 +323,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文3,000語・32段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及28箇所を確認。",
     "status": "accepted",
-    "catalog_number": 72
+    "catalog_number": 100
   },
   {
     "url": "https://arstechnica.com/science/2024/09/ibm-opens-its-quantum-computing-stack-to-third-parties/",
@@ -358,7 +358,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,808語・24段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及12箇所を確認。",
     "status": "accepted",
-    "catalog_number": 83
+    "catalog_number": 111
   },
   {
     "url": "https://arstechnica.com/science/2024/11/nro-chief-you-cant-hide-from-our-new-swarm-of-spacex-built-spy-satellites/",
@@ -395,7 +395,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,554語・32段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及24箇所を確認。",
     "status": "accepted",
-    "catalog_number": 75
+    "catalog_number": 103
   },
   {
     "url": "https://arstechnica.com/science/2024/03/quantum-computing-progress-higher-temps-better-error-correction/",
@@ -432,7 +432,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,641語・25段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及10箇所を確認。",
     "status": "accepted",
-    "catalog_number": 97
+    "catalog_number": 125
   },
   {
     "url": "https://arstechnica.com/science/2024/05/we-get-more-useful-energy-out-of-renewables-than-fossil-fuels/",
@@ -467,7 +467,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,523語・22段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及15箇所を確認。",
     "status": "accepted",
-    "catalog_number": 93
+    "catalog_number": 121
   },
   {
     "url": "https://arstechnica.com/tech-policy/2026/09/lawsuit-demands-openai-pay-for-new-school-after-chatgpt-used-in-shooting/",
@@ -502,7 +502,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,979語・39段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及15箇所を確認。",
     "status": "accepted",
-    "catalog_number": 4
+    "catalog_number": 9
   },
   {
     "url": "https://arstechnica.com/space/2026/08/rocket-report-spacex-makes-a-mark-on-the-moon-ula-names-new-boss/",
@@ -537,7 +537,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,386語・28段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及24箇所を確認。",
     "status": "accepted",
-    "catalog_number": 9
+    "catalog_number": 23
   },
   {
     "url": "https://arstechnica.com/space/2026/08/rocket-report-europe-splashes-some-cash-on-launch-startups-pallas-1-nears-debut/",
@@ -574,7 +574,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,825語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及16箇所を確認。",
     "status": "accepted",
-    "catalog_number": 8
+    "catalog_number": 21
   },
   {
     "url": "https://arstechnica.com/tech-policy/2026/04/school-shooting-lawsuits-accuse-openai-of-hiding-violent-chatgpt-users/",
@@ -609,7 +609,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,108語・44段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及29箇所を確認。",
     "status": "accepted",
-    "catalog_number": 21
+    "catalog_number": 48
   },
   {
     "url": "https://arstechnica.com/space/2026/05/rocket-report-blue-origin-suffers-setback-spacexs-falcon-9-wins-new-business/",
@@ -644,7 +644,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,594語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及15箇所を確認。",
     "status": "accepted",
-    "catalog_number": 18
+    "catalog_number": 34
   },
   {
     "url": "https://arstechnica.com/space/2026/06/rocket-report-nova-moving-through-test-campaign-spacex-ipo-launches-friday/",
@@ -681,7 +681,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,059語・28段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及13箇所を確認。",
     "status": "accepted",
-    "catalog_number": 17
+    "catalog_number": 32
   },
   {
     "url": "https://arstechnica.com/space/2026/07/rocket-developers-used-to-chase-satellite-trends-is-the-inverse-now-true/",
@@ -717,7 +717,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,422語・43段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及25箇所を確認。",
     "status": "accepted",
-    "catalog_number": 15
+    "catalog_number": 30
   },
   {
     "url": "https://arstechnica.com/space/2026/07/this-is-the-worlds-most-advanced-robotic-servicing-satellite-that-we-know-about/",
@@ -753,7 +753,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,035語・38段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及15箇所を確認。",
     "status": "accepted",
-    "catalog_number": 14
+    "catalog_number": 29
   },
   {
     "url": "https://arstechnica.com/space/2026/01/rocket-report-rocket-lab-reports-neutron-setback-australia-backs-launch-startup/",
@@ -790,7 +790,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,310語・24段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及20箇所を確認。",
     "status": "accepted",
-    "catalog_number": 29
+    "catalog_number": 57
   },
   {
     "url": "https://arstechnica.com/ai/2026/02/spacex-acquires-xai-plans-1-million-satellite-constellation-to-power-it/",
@@ -827,7 +827,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,507語・30段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及28箇所を確認。",
     "status": "accepted",
-    "catalog_number": 27
+    "catalog_number": 55
   },
   {
     "url": "https://arstechnica.com/space/2026/02/rocket-report-spacex-probes-upper-stage-malfunction-starship-testing-resumes/",
@@ -864,7 +864,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,354語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及13箇所を確認。",
     "status": "accepted",
-    "catalog_number": 26
+    "catalog_number": 54
   },
   {
     "url": "https://arstechnica.com/space/2026/03/rocket-report-spacex-launch-prices-are-going-up-russia-fixes-broken-launch-pad/",
@@ -900,7 +900,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,568語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及21箇所を確認。",
     "status": "accepted",
-    "catalog_number": 24
+    "catalog_number": 52
   },
   {
     "url": "https://arstechnica.com/culture/2026/04/how-our-digital-devices-are-putting-our-right-to-privacy-at-risk/",
@@ -935,7 +935,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文3,957語・47段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及48箇所を確認。",
     "status": "accepted",
-    "catalog_number": 23
+    "catalog_number": 51
   },
   {
     "url": "https://arstechnica.com/space/2026/01/rocket-report-spacex-and-china-led-the-way-in-2025-vandenberg-has-room-to-grow/",
@@ -972,7 +972,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,745語・28段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及16箇所を確認。",
     "status": "accepted",
-    "catalog_number": 31
+    "catalog_number": 59
   },
   {
     "url": "https://arstechnica.com/space/2025/10/rocket-report-bezos-firm-will-package-satellites-for-launch-starship-on-deck/",
@@ -1009,7 +1009,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,502語・28段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及14箇所を確認。",
     "status": "accepted",
-    "catalog_number": 39
+    "catalog_number": 67
   },
   {
     "url": "https://arstechnica.com/tech-policy/2025/11/us-spy-satellites-built-by-spacex-send-signals-in-the-wrong-direction/",
@@ -1044,7 +1044,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文3,792語・74段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及101箇所を確認。",
     "status": "accepted",
-    "catalog_number": 35
+    "catalog_number": 63
   },
   {
     "url": "https://arstechnica.com/space/2025/11/rocket-report-spacexs-next-gen-booster-fails-pegasus-will-fly-again/",
@@ -1080,7 +1080,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,768語・28段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及24箇所を確認。",
     "status": "accepted",
-    "catalog_number": 34
+    "catalog_number": 62
   },
   {
     "url": "https://arstechnica.com/space/2025/12/rocket-report-openais-launch-overture-south-korea-making-progress-in-space/",
@@ -1117,7 +1117,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,640語・28段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及15箇所を確認。",
     "status": "accepted",
-    "catalog_number": 33
+    "catalog_number": 61
   },
   {
     "url": "https://arstechnica.com/space/2025/12/ten-years-ago-spacex-turned-tragedy-into-triumph-with-a-historic-rocket-landing/",
@@ -1152,7 +1152,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文8,577語・116段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及54箇所を確認。",
     "status": "accepted",
-    "catalog_number": 32
+    "catalog_number": 60
   },
   {
     "url": "https://arstechnica.com/space/2025/06/rocket-report-two-big-asian-reuse-milestones-vandenberg-becomes-spacex-west/",
@@ -1188,7 +1188,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,043語・28段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及20箇所を確認。",
     "status": "accepted",
-    "catalog_number": 51
+    "catalog_number": 79
   },
   {
     "url": "https://arstechnica.com/space/2025/07/rocket-report-japans-workhorse-booster-takes-a-bow-you-can-invest-in-spacex-now/",
@@ -1223,7 +1223,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,873語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及20箇所を確認。",
     "status": "accepted",
-    "catalog_number": 49
+    "catalog_number": 77
   },
   {
     "url": "https://arstechnica.com/space/2025/07/rocket-report-channeling-the-future-at-wallops-spacex-recovers-rocket-wreckage/",
@@ -1260,7 +1260,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,062語・23段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及13箇所を確認。",
     "status": "accepted",
-    "catalog_number": 48
+    "catalog_number": 76
   },
   {
     "url": "https://arstechnica.com/space/2025/08/rocket-report-firefly-lights-the-markets-up-spacex-starts-selling-ships-to-mars/",
@@ -1296,7 +1296,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,791語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及25箇所を確認。",
     "status": "accepted",
-    "catalog_number": 47
+    "catalog_number": 75
   },
   {
     "url": "https://arstechnica.com/tech-policy/2025/08/elon-musk-sues-apple-openai-to-block-exclusive-iphone-chatgpt-integration/",
@@ -1332,7 +1332,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,503語・30段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及9箇所を確認。",
     "status": "accepted",
-    "catalog_number": 45
+    "catalog_number": 73
   },
   {
     "url": "https://arstechnica.com/tech-policy/2025/08/chatgpt-helped-teen-plan-suicide-after-safeguards-failed-openai-admits/",
@@ -1368,7 +1368,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,348語・47段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及27箇所を確認。",
     "status": "accepted",
-    "catalog_number": 44
+    "catalog_number": 72
   },
   {
     "url": "https://arstechnica.com/space/2025/08/rocket-report-spacex-achieved-daily-launch-this-week-ula-recovers-booster/",
@@ -1404,7 +1404,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,438語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及19箇所を確認。",
     "status": "accepted",
-    "catalog_number": 43
+    "catalog_number": 71
   },
   {
     "url": "https://arstechnica.com/space/2025/09/rocket-report-neutrons-pad-opens-for-business-spacex-gets-falcon-9-green-light/",
@@ -1439,7 +1439,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,864語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及12箇所を確認。",
     "status": "accepted",
-    "catalog_number": 42
+    "catalog_number": 70
   },
   {
     "url": "https://arstechnica.com/space/2025/04/rocket-report-daytona-rocket-delayed-again-bahamas-tells-spacex-to-hold-up/",
@@ -1474,7 +1474,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,622語・24段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及15箇所を確認。",
     "status": "accepted",
-    "catalog_number": 59
+    "catalog_number": 87
   },
   {
     "url": "https://arstechnica.com/culture/2025/04/youre-not-going-to-mars-and-you-wont-live-forever-exploding-silicon-valleys-ideology/",
@@ -1511,7 +1511,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,894語・35段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及9箇所を確認。",
     "status": "accepted",
-    "catalog_number": 58
+    "catalog_number": 86
   },
   {
     "url": "https://arstechnica.com/space/2025/05/rocket-report-spacexs-expansion-at-vandenberg-indias-pslv-fails-in-flight/",
@@ -1548,7 +1548,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,698語・28段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及20箇所を確認。",
     "status": "accepted",
-    "catalog_number": 57
+    "catalog_number": 85
   },
   {
     "url": "https://arstechnica.com/space/2025/06/rocket-report-spacexs-500th-falcon-launch-why-did-uks-reaction-engines-fail/",
@@ -1585,7 +1585,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,746語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及17箇所を確認。",
     "status": "accepted",
-    "catalog_number": 55
+    "catalog_number": 83
   },
   {
     "url": "https://arstechnica.com/space/2025/06/rocket-report-new-delay-for-europes-reusable-rocket-spacex-moves-in-at-slc-37/",
@@ -1622,7 +1622,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,235語・22段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及10箇所を確認。",
     "status": "accepted",
-    "catalog_number": 53
+    "catalog_number": 81
   },
   {
     "url": "https://arstechnica.com/space/2025/01/rocket-report-dot-may-review-spacex-fines-did-chinas-reusable-rocket-work/",
@@ -1659,7 +1659,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,715語・20段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及9箇所を確認。",
     "status": "accepted",
-    "catalog_number": 69
+    "catalog_number": 97
   },
   {
     "url": "https://arstechnica.com/space/2025/01/rocket-report-spacex-tosses-away-a-falcon-9-a-somalian-spaceport/",
@@ -1694,7 +1694,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,973語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及18箇所を確認。",
     "status": "accepted",
-    "catalog_number": 68
+    "catalog_number": 96
   },
   {
     "url": "https://arstechnica.com/space/2025/02/rocket-report-spacex-lands-in-the-bahamas-ula-tests-modified-booster/",
@@ -1731,7 +1731,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,818語・29段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及16箇所を確認。",
     "status": "accepted",
-    "catalog_number": 67
+    "catalog_number": 95
   },
   {
     "url": "https://arstechnica.com/information-technology/2024/12/12-days-of-openai-the-ars-technica-recap/",
@@ -1767,7 +1767,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,821語・38段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及17箇所を確認。",
     "status": "accepted",
-    "catalog_number": 73
+    "catalog_number": 101
   },
   {
     "url": "https://arstechnica.com/space/2024/09/rocket-report-spacex-salvages-starship-wreckage-pessimism-for-virgin-galactic/",
@@ -1804,7 +1804,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,958語・32段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及16箇所を確認。",
     "status": "accepted",
-    "catalog_number": 82
+    "catalog_number": 110
   },
   {
     "url": "https://arstechnica.com/space/2024/10/rocket-report-europa-clipper-on-hold-for-milton-spanish-startups-big-ambitions/",
@@ -1839,7 +1839,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,429語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及8箇所を確認。",
     "status": "accepted",
-    "catalog_number": 80
+    "catalog_number": 108
   },
   {
     "url": "https://arstechnica.com/space/2024/10/spacex-catches-returning-rocket-in-mid-air-turning-a-fanciful-idea-into-reality/",
@@ -1875,7 +1875,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,375語・49段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及11箇所を確認。",
     "status": "accepted",
-    "catalog_number": 79
+    "catalog_number": 107
   },
   {
     "url": "https://arstechnica.com/space/2024/10/rocket-report-bloomberg-calls-for-sls-cancellation-spacex-hits-century-mark/",
@@ -1911,7 +1911,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,124語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及16箇所を確認。",
     "status": "accepted",
-    "catalog_number": 78
+    "catalog_number": 106
   },
   {
     "url": "https://arstechnica.com/space/2024/10/after-seeing-hundreds-of-launches-spacexs-rocket-catch-was-a-new-thrill/",
@@ -1946,7 +1946,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,916語・38段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及5箇所を確認。",
     "status": "accepted",
-    "catalog_number": 77
+    "catalog_number": 105
   },
   {
     "url": "https://arstechnica.com/space/2024/10/spacex-has-caught-a-massive-rocket-so-whats-next/",
@@ -1981,7 +1981,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,667語・42段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及6箇所を確認。",
     "status": "accepted",
-    "catalog_number": 76
+    "catalog_number": 104
   },
   {
     "url": "https://arstechnica.com/information-technology/2024/12/new-badram-attack-neuters-security-assurances-in-amd-epyc-processors/",
@@ -2017,7 +2017,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,793語・35段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及22箇所を確認。",
     "status": "accepted",
-    "catalog_number": 74
+    "catalog_number": 102
   },
   {
     "url": "https://arstechnica.com/ai/2024/06/is-generative-ai-really-going-to-wreak-havoc-on-the-power-grid/",
@@ -2054,7 +2054,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,052語・26段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及18箇所を確認。",
     "status": "accepted",
-    "catalog_number": 91
+    "catalog_number": 119
   },
   {
     "url": "https://arstechnica.com/space/2024/06/rocket-report-china-tests-reusable-rocket-tech-spacex-booster-flies-22nd-time/",
@@ -2091,7 +2091,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,487語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及21箇所を確認。",
     "status": "accepted",
-    "catalog_number": 90
+    "catalog_number": 118
   },
   {
     "url": "https://arstechnica.com/space/2024/07/the-unmatched-streak-of-perfection-with-spacexs-falcon-9-rocket-is-over/",
@@ -2126,7 +2126,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,659語・36段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及6箇所を確認。",
     "status": "accepted",
-    "catalog_number": 89
+    "catalog_number": 117
   },
   {
     "url": "https://arstechnica.com/space/2024/07/rocket-report-fireflys-ceo-steps-down-artemis-ii-core-stage-leaves-factory/",
@@ -2163,7 +2163,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,395語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及14箇所を確認。",
     "status": "accepted",
-    "catalog_number": 86
+    "catalog_number": 114
   },
   {
     "url": "https://arstechnica.com/space/2024/08/rocket-report-faa-seeks-answers-from-spacex-falcon-9-is-back-in-a-big-way/",
@@ -2199,7 +2199,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,177語・22段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及19箇所を確認。",
     "status": "accepted",
-    "catalog_number": 84
+    "catalog_number": 112
   },
   {
     "url": "https://arstechnica.com/information-technology/2024/04/the-fine-art-of-human-prompt-engineering-how-to-talk-to-a-person-like-chatgpt/",
@@ -2236,7 +2236,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,426語・39段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及14箇所を確認。",
     "status": "accepted",
-    "catalog_number": 96
+    "catalog_number": 124
   },
   {
     "url": "https://arstechnica.com/space/2024/04/rocket-report-sls-workforce-cuts-new-glenn-launch-to-launch-in-the-early-fall/",
@@ -2272,7 +2272,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,656語・24段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及8箇所を確認。",
     "status": "accepted",
-    "catalog_number": 94
+    "catalog_number": 122
   },
   {
     "url": "https://arstechnica.com/space/2024/05/rocket-report-spacex-focused-on-starship-reentry-firefly-may-be-for-sale/",
@@ -2307,7 +2307,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,962語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及17箇所を確認。",
     "status": "accepted",
-    "catalog_number": 92
+    "catalog_number": 120
   },
   {
     "url": "https://arstechnica.com/science/2026/09/contrary-to-some-reports-you-dont-have-two-brains/",
@@ -2342,7 +2342,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,668語・23段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及5箇所を確認。",
     "status": "accepted",
-    "catalog_number": 3
+    "catalog_number": 8
   },
   {
     "url": "https://arstechnica.com/features/2026/09/the-ai-data-center-boom-is-causing-new-accountability-problems/",
@@ -2378,7 +2378,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,193語・41段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及48箇所を確認。",
     "status": "accepted",
-    "catalog_number": 6
+    "catalog_number": 17
   },
   {
     "url": "https://arstechnica.com/science/2026/08/the-worlds-biggest-solar-telescope-caught-vortexes-on-the-suns-surface/",
@@ -2413,7 +2413,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,564語・26段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及18箇所を確認。",
     "status": "accepted",
-    "catalog_number": 10
+    "catalog_number": 25
   },
   {
     "url": "https://arstechnica.com/science/2026/09/brain-of-a-male-fly-completely-mapped-joins-earlier-map-of-a-female-brain/",
@@ -2449,7 +2449,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,126語・32段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及25箇所を確認。",
     "status": "accepted",
-    "catalog_number": 7
+    "catalog_number": 19
   },
   {
     "url": "https://arstechnica.com/science/2026/05/rip-social-media-what-comes-next-is-messy/",
@@ -2486,7 +2486,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,970語・26段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及25箇所を確認。",
     "status": "accepted",
-    "catalog_number": 19
+    "catalog_number": 42
   },
   {
     "url": "https://arstechnica.com/science/2026/04/researchers-try-to-cut-the-genetic-code-from-20-to-19-amino-acids/",
@@ -2521,7 +2521,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,852語・29段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及13箇所を確認。",
     "status": "accepted",
-    "catalog_number": 20
+    "catalog_number": 46
   },
   {
     "url": "https://arstechnica.com/science/2026/07/if-a-quantum-computer-outperforms-normal-ones-can-you-tell-if-its-right/",
@@ -2556,7 +2556,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,761語・28段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及12箇所を確認。",
     "status": "accepted",
-    "catalog_number": 12
+    "catalog_number": 27
   },
   {
     "url": "https://arstechnica.com/science/2026/08/large-genome-models-used-to-design-new-viruses/",
@@ -2591,7 +2591,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,759語・27段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及10箇所を確認。",
     "status": "accepted",
-    "catalog_number": 11
+    "catalog_number": 26
   },
   {
     "url": "https://arstechnica.com/features/2026/01/has-gemini-surpassed-chatgpt-we-put-the-ai-models-to-the-test/",
@@ -2626,7 +2626,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,076語・46段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及7箇所を確認。",
     "status": "accepted",
-    "catalog_number": 30
+    "catalog_number": 58
   },
   {
     "url": "https://arstechnica.com/science/2026/03/large-genome-model-open-source-ai-trained-on-trillions-of-bases/",
@@ -2662,7 +2662,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,847語・28段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及12箇所を確認。",
     "status": "accepted",
-    "catalog_number": 25
+    "catalog_number": 53
   },
   {
     "url": "https://arstechnica.com/science/2026/04/to-teach-in-the-time-of-chatgpt-is-to-know-pain/",
@@ -2698,7 +2698,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,156語・37段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及5箇所を確認。",
     "status": "accepted",
-    "catalog_number": 22
+    "catalog_number": 50
   },
   {
     "url": "https://arstechnica.com/science/2025/10/do-ai-designed-proteins-create-a-biosecurity-vulnerability/",
@@ -2734,7 +2734,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,645語・23段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及7箇所を確認。",
     "status": "accepted",
-    "catalog_number": 41
+    "catalog_number": 69
   },
   {
     "url": "https://arstechnica.com/science/2025/10/how-easter-islands-giant-statues-walked-to-their-final-platforms/",
@@ -2769,7 +2769,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,122語・25段落を実測。事業モデル・経済・生産性を中心に、取材・研究・データへの言及9箇所を確認。",
     "status": "accepted",
-    "catalog_number": 40
+    "catalog_number": 68
   },
   {
     "url": "https://arstechnica.com/science/2025/10/google-claims-to-have-quantum-advantage-with-a-potentially-useful-algorithm/",
@@ -2804,7 +2804,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,865語・27段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及11箇所を確認。",
     "status": "accepted",
-    "catalog_number": 38
+    "catalog_number": 66
   },
   {
     "url": "https://arstechnica.com/features/2025/10/we-let-openais-agent-mode-surf-the-web-for-us-heres-what-happened/",
@@ -2841,7 +2841,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,507語・49段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及7箇所を確認。",
     "status": "accepted",
-    "catalog_number": 37
+    "catalog_number": 65
   },
   {
     "url": "https://arstechnica.com/science/2025/08/study-social-media-probably-cant-be-fixed/",
@@ -2878,7 +2878,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文3,440語・47段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及11箇所を確認。",
     "status": "accepted",
-    "catalog_number": 46
+    "catalog_number": 74
   },
   {
     "url": "https://arstechnica.com/science/2025/03/research-roundup-2400-year-old-clay-puppets-this-is-your-brain-on-klingon/",
@@ -2913,7 +2913,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,872語・26段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及25箇所を確認。",
     "status": "accepted",
-    "catalog_number": 61
+    "catalog_number": 89
   },
   {
     "url": "https://arstechnica.com/science/2025/04/3d-digital-twin-of-titanic-wreck-yields-fresh-insights/",
@@ -2948,7 +2948,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,837語・23段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及11箇所を確認。",
     "status": "accepted",
-    "catalog_number": 60
+    "catalog_number": 88
   },
   {
     "url": "https://arstechnica.com/science/2025/05/research-roundup-ping-pong-bots-the-genetic-key-for-ginger-cats-and-more/",
@@ -2984,7 +2984,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,947語・31段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及23箇所を確認。",
     "status": "accepted",
-    "catalog_number": 56
+    "catalog_number": 84
   },
   {
     "url": "https://arstechnica.com/science/2025/06/ibm-is-now-detailing-what-its-first-quantum-compute-system-will-look-like/",
@@ -3019,7 +3019,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,701語・22段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及14箇所を確認。",
     "status": "accepted",
-    "catalog_number": 54
+    "catalog_number": 82
   },
   {
     "url": "https://arstechnica.com/science/2025/01/fund-or-cancel-robots-or-humans-nasa-punts-on-mars-sample-return-decision/",
@@ -3055,7 +3055,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,014語・46段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及37箇所を確認。",
     "status": "accepted",
-    "catalog_number": 71
+    "catalog_number": 99
   },
   {
     "url": "https://arstechnica.com/science/2025/01/two-lunar-landers-are-on-the-way-to-the-moon-after-spacexs-double-moonshot/",
@@ -3090,7 +3090,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,583語・36段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及16箇所を確認。",
     "status": "accepted",
-    "catalog_number": 70
+    "catalog_number": 98
   },
   {
     "url": "https://arstechnica.com/science/2025/02/the-moons-next-robotic-visitor-is-lining-up-for-landing-this-weekend/",
@@ -3125,7 +3125,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,275語・40段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及20箇所を確認。",
     "status": "accepted",
-    "catalog_number": 66
+    "catalog_number": 94
   },
   {
     "url": "https://arstechnica.com/science/2025/02/rocket-report-starship-will-soon-fly-again-gilmour-has-a-launch-date/",
@@ -3160,7 +3160,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,424語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及15箇所を確認。",
     "status": "accepted",
-    "catalog_number": 65
+    "catalog_number": 93
   },
   {
     "url": "https://arstechnica.com/science/2025/03/ai-versus-the-brain-and-the-race-for-general-intelligence/",
@@ -3196,7 +3196,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文3,222語・48段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及14箇所を確認。",
     "status": "accepted",
-    "catalog_number": 64
+    "catalog_number": 92
   },
   {
     "url": "https://arstechnica.com/science/2025/03/d-wave-quantum-annealers-solve-problems-classical-algorithms-struggle-with/",
@@ -3232,7 +3232,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,518語・23段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及7箇所を確認。",
     "status": "accepted",
-    "catalog_number": 63
+    "catalog_number": 91
   },
   {
     "url": "https://arstechnica.com/science/2025/03/rocket-report-ula-confirms-cause-of-booster-anomaly-crew-10-launch-on-tap/",
@@ -3269,7 +3269,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,354語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及13箇所を確認。",
     "status": "accepted",
-    "catalog_number": 62
+    "catalog_number": 90
   },
   {
     "url": "https://arstechnica.com/science/2024/10/spacexs-next-starship-launch-and-first-catch-could-happen-this-weekend/",
@@ -3304,7 +3304,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,561語・33段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及8箇所を確認。",
     "status": "accepted",
-    "catalog_number": 81
+    "catalog_number": 109
   },
   {
     "url": "https://arstechnica.com/science/2024/07/genetic-cloaking-of-healthy-cells-opens-door-to-universal-blood-cancer-therapy/",
@@ -3339,7 +3339,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,818語・37段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及50箇所を確認。",
     "status": "accepted",
-    "catalog_number": 87
+    "catalog_number": 115
   },
   {
     "url": "https://arstechnica.com/science/2024/07/will-space-based-solar-power-ever-make-sense/",
@@ -3375,7 +3375,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,558語・34段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及30箇所を確認。",
     "status": "accepted",
-    "catalog_number": 88
+    "catalog_number": 116
   },
   {
     "url": "https://arstechnica.com/science/2024/07/were-building-thermonuclear-spaceships-again-this-time-for-real/",
@@ -3412,7 +3412,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文3,624語・60段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及37箇所を確認。",
     "status": "accepted",
-    "catalog_number": 85
+    "catalog_number": 113
   },
   {
     "url": "https://arstechnica.com/science/2024/04/dark-energy-might-not-be-constant-after-all/",
@@ -3447,7 +3447,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文1,964語・23段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及25箇所を確認。",
     "status": "accepted",
-    "catalog_number": 95
+    "catalog_number": 123
   },
   {
     "url": "https://arstechnica.com/space/2026/09/some-satellite-companies-still-have-an-appetite-for-boutique-launch-services/",
@@ -3482,6 +3482,1010 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "Ars Technicaの署名記事。本文2,686語・32段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及5箇所を確認。",
     "status": "accepted",
+    "catalog_number": 15
+  },
+  {
+    "url": "https://arstechnica.com/tech-policy/2026/09/nvidia-may-sell-more-chips-in-china-as-jensen-huangs-influence-over-trump-grows/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/ai/",
+    "checked_at": "2026-10-02T13:18:57.285135+00:00",
+    "title": "Experts worry about Nvidia's AI chip sales in China and influence over Trump",
+    "word_count": 1857,
+    "paragraph_count": 38,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-4faa6b89e6d8bbb0f000",
+    "canonical_url": "https://arstechnica.com/tech-policy/2026/09/nvidia-may-sell-more-chips-in-china-as-jensen-huangs-influence-over-trump-grows/",
+    "authors": [
+      "Ashley Belanger"
+    ],
+    "published_at": "2026-09-28",
+    "topics": [
+      "AI・計算・半導体",
+      "技術と社会・教育・制度"
+    ],
+    "reading_minutes": 10,
+    "screening_score": 80.9,
+    "attribution_signals": 27,
+    "quote_signals": 39,
+    "numeric_signals": 7,
+    "body_sha256": "7ea4facb076032f0f31485d73acb11b571e45eb9d12e9437bbb058418e8cc1f3",
+    "title_key": "expertsworryaboutnvidiasaichipsalesinchinaandinfluenceovertrump",
+    "publisher_excerpt": "China is reportedly mulling letting ByteDance, Alibaba buy banned Nvidia chips.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,857語・38段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及27箇所を確認。",
+    "status": "accepted",
     "catalog_number": 5
+  },
+  {
+    "url": "https://arstechnica.com/tech-policy/2026/09/microsoft-goes-quiet-after-church-groups-ask-for-1-of-data-center-costs/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/ai/",
+    "checked_at": "2026-10-02T13:18:57.285576+00:00",
+    "title": "Microsoft goes quiet after church groups ask for 1% of data center costs",
+    "word_count": 2728,
+    "paragraph_count": 55,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-af2be13b22cc899b2375",
+    "canonical_url": "https://arstechnica.com/tech-policy/2026/09/microsoft-goes-quiet-after-church-groups-ask-for-1-of-data-center-costs/",
+    "authors": [
+      "Ashley Belanger"
+    ],
+    "published_at": "2026-09-28",
+    "topics": [
+      "AI・計算・半導体",
+      "事業モデル・経済・生産性",
+      "生命科学・医療技術・材料"
+    ],
+    "reading_minutes": 14,
+    "screening_score": 87.8,
+    "attribution_signals": 65,
+    "quote_signals": 51,
+    "numeric_signals": 28,
+    "body_sha256": "708098c29d6a942419812ce01d61db8340ef2f3aa2a1b6b1788cebf3a86b1870",
+    "title_key": "microsoftgoesquietafterchurchgroupsaskfor1ofdatacentercosts",
+    "publisher_excerpt": "“Microsoft claims to want to be a good neighbor, but the jury",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文2,728語・55段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及65箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 3
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/09/there-are-now-17000-satellites-in-orbit-and-growing-should-we-be-concerned/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/features/",
+    "checked_at": "2026-10-02T13:19:00.510779+00:00",
+    "title": "A new report from Europe raises serious alarms about orbital collisions",
+    "word_count": 1557,
+    "paragraph_count": 33,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-9b5eb49e18496d424045",
+    "canonical_url": "https://arstechnica.com/space/2026/09/there-are-now-17000-satellites-in-orbit-and-growing-should-we-be-concerned/",
+    "authors": [
+      "Eric Berger"
+    ],
+    "published_at": "2026-09-23",
+    "topics": [
+      "ロボット・産業・宇宙",
+      "AI・計算・半導体",
+      "技術と社会・教育・制度"
+    ],
+    "reading_minutes": 8,
+    "screening_score": 84.2,
+    "attribution_signals": 20,
+    "quote_signals": 10,
+    "numeric_signals": 24,
+    "body_sha256": "baa17fd324a837c7adbd0a16f28bd004e8448297957ced16aab48625c406390a",
+    "title_key": "anewreportfromeuroperaisesseriousalarmsaboutorbitalcollisions",
+    "publisher_excerpt": "I think we are going to lose the ability to use certain orbits.\"",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,557語・33段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及20箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 7
+  },
+  {
+    "url": "https://arstechnica.com/tech-policy/2026/09/man-told-chatgpt-he-was-feeling-delusional-chatgpt-insisted-he-was-jesus/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/features/",
+    "checked_at": "2026-10-02T13:19:00.510901+00:00",
+    "title": "Man told ChatGPT he was feeling delusional. ChatGPT insisted he was Jesus.",
+    "word_count": 3200,
+    "paragraph_count": 61,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-716ba068c7ce8da87ad0",
+    "canonical_url": "https://arstechnica.com/tech-policy/2026/09/man-told-chatgpt-he-was-feeling-delusional-chatgpt-insisted-he-was-jesus/",
+    "authors": [
+      "Ashley Belanger"
+    ],
+    "published_at": "2026-09-09",
+    "topics": [
+      "AI・計算・半導体",
+      "技術と社会・教育・制度"
+    ],
+    "reading_minutes": 16,
+    "screening_score": 99.1,
+    "attribution_signals": 69,
+    "quote_signals": 76,
+    "numeric_signals": 15,
+    "body_sha256": "c804b2ac5e2210a9f8e41871210d1bfdb6470fafb92eab98082d35874d92ecb5",
+    "title_key": "mantoldchatgpthewasfeelingdelusionalchatgptinsistedhewasjesus",
+    "publisher_excerpt": "Man with bipolar disorder sued OpenAI after surviving ChatGPT-linked suicide attempt.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文3,200語・61段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及69箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 16
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/08/rocket-report-rocket-lab-shows-off-its-flexibility-blue-origins-two-pad-plan/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap122.xml",
+    "checked_at": "2026-10-02T13:19:10.985662+00:00",
+    "title": "Rocket Report: Rocket Lab shows off its flexibility; Blue Origin's two-pad plan",
+    "word_count": 2001,
+    "paragraph_count": 28,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-9b5bff2aaa96ad50f73a",
+    "canonical_url": "https://arstechnica.com/space/2026/08/rocket-report-rocket-lab-shows-off-its-flexibility-blue-origins-two-pad-plan/",
+    "authors": [
+      "Eric Berger"
+    ],
+    "published_at": "2026-08-14",
+    "topics": [
+      "ロボット・産業・宇宙"
+    ],
+    "reading_minutes": 11,
+    "screening_score": 85.2,
+    "attribution_signals": 17,
+    "quote_signals": 19,
+    "numeric_signals": 51,
+    "body_sha256": "3860df252eaedca5427e391565279defa6a3202a3581a5c4618afc408004f32e",
+    "title_key": "rocketreportrocketlabshowsoffitsflexibilityblueoriginstwopadplan",
+    "publisher_excerpt": "We’ve never seen launch capacity so constrained.\"",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文2,001語・28段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及17箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 24
+  },
+  {
+    "url": "https://arstechnica.com/tech-policy/2026/08/ai-industry-says-trump-plans-to-tax-chips-in-the-single-dumbest-way-imaginable/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap122.xml",
+    "checked_at": "2026-10-02T13:19:17.746065+00:00",
+    "title": "AI industry says Trump plans to tax chips in the “single dumbest way imaginable”",
+    "word_count": 1566,
+    "paragraph_count": 29,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-90f25f2079aae4472595",
+    "canonical_url": "https://arstechnica.com/tech-policy/2026/08/ai-industry-says-trump-plans-to-tax-chips-in-the-single-dumbest-way-imaginable/",
+    "authors": [
+      "Ashley Belanger"
+    ],
+    "published_at": "2026-08-27",
+    "topics": [
+      "AI・計算・半導体",
+      "ロボット・産業・宇宙",
+      "事業モデル・経済・生産性"
+    ],
+    "reading_minutes": 8,
+    "screening_score": 84.2,
+    "attribution_signals": 30,
+    "quote_signals": 26,
+    "numeric_signals": 10,
+    "body_sha256": "e9eb1eea11805bf25515c3deabf62f64dee614bb05b2c14537b1ff5e5ca58acb",
+    "title_key": "aiindustrysaystrumpplanstotaxchipsinthesingledumbestwayimaginable",
+    "publisher_excerpt": "Tech industry is perplexed by Trump’s plan to win AI race",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,566語・29段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及30箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 22
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/09/rocket-report-china-debuts-yet-another-new-rocket-nasa-considers-bulk-buys/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap122.xml",
+    "checked_at": "2026-10-02T13:19:17.746779+00:00",
+    "title": "Rocket Report: Engines installed for Artemis III; Long March 6C breakup in LEO",
+    "word_count": 2193,
+    "paragraph_count": 26,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-8fa8744371d5c8c47620",
+    "canonical_url": "https://arstechnica.com/space/2026/09/rocket-report-china-debuts-yet-another-new-rocket-nasa-considers-bulk-buys/",
+    "authors": [
+      "Stephen Clark"
+    ],
+    "published_at": "2026-09-04",
+    "topics": [
+      "ロボット・産業・宇宙",
+      "エネルギー・環境・インフラ",
+      "技術と社会・教育・制度"
+    ],
+    "reading_minutes": 11,
+    "screening_score": 71.9,
+    "attribution_signals": 8,
+    "quote_signals": 4,
+    "numeric_signals": 93,
+    "body_sha256": "8743a2bd1a15bc4d468546662e63969cf23645d259b1f64820d7773a001b5097",
+    "title_key": "rocketreportenginesinstalledforartemisiiilongmarch6cbreakupinleo",
+    "publisher_excerpt": "Two of Europe's leading launch startups announced new fundraising this week.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文2,193語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及8箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 20
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/09/german-company-becomes-first-in-europe-to-launch-fully-commercial-orbital-rocket/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap122.xml",
+    "checked_at": "2026-10-02T13:19:21.280404+00:00",
+    "title": "German company becomes first in Europe to launch fully commercial orbital rocket",
+    "word_count": 2143,
+    "paragraph_count": 43,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-09d8173c4081c82bd34f",
+    "canonical_url": "https://arstechnica.com/space/2026/09/german-company-becomes-first-in-europe-to-launch-fully-commercial-orbital-rocket/",
+    "authors": [
+      "Stephen Clark"
+    ],
+    "published_at": "2026-09-06",
+    "topics": [
+      "ロボット・産業・宇宙",
+      "事業モデル・経済・生産性"
+    ],
+    "reading_minutes": 11,
+    "screening_score": 83.5,
+    "attribution_signals": 14,
+    "quote_signals": 27,
+    "numeric_signals": 35,
+    "body_sha256": "0fa303f4a1eb68ae00a361be7991f0873ff0837499a547ab7bc583a0f4fcf153",
+    "title_key": "germancompanybecomesfirstineuropetolaunchfullycommercialorbitalrocket",
+    "publisher_excerpt": "We achieved within a few years what had taken the European space industry",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文2,143語・43段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及14箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 18
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/09/rocket-report-europe-joins-the-commercial-launch-club-a-ravn-x-sighting/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap122.xml",
+    "checked_at": "2026-10-02T13:19:21.281912+00:00",
+    "title": "Rocket Report: Europe joins the commercial launch club; a Ravn X sighting?",
+    "word_count": 1848,
+    "paragraph_count": 26,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-794483a0c834a615f9a8",
+    "canonical_url": "https://arstechnica.com/space/2026/09/rocket-report-europe-joins-the-commercial-launch-club-a-ravn-x-sighting/",
+    "authors": [
+      "Eric Berger"
+    ],
+    "published_at": "2026-09-11",
+    "topics": [
+      "ロボット・産業・宇宙",
+      "事業モデル・経済・生産性"
+    ],
+    "reading_minutes": 10,
+    "screening_score": 83.8,
+    "attribution_signals": 17,
+    "quote_signals": 16,
+    "numeric_signals": 63,
+    "body_sha256": "676dcc1665a05317805e91ff20036a3178dfb737e0c56eb3744b220b89a7c155",
+    "title_key": "rocketreporteuropejoinsthecommerciallaunchclubaravnxsighting",
+    "publisher_excerpt": "We felt like now is the time to pour gas on that fire.\"",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,848語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及17箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 13
+  },
+  {
+    "url": "https://arstechnica.com/tech-policy/2026/09/chatgpt-using-lawyer-punished-for-citing-fake-testimony-from-made-up-witnesses/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap122.xml",
+    "checked_at": "2026-10-02T13:19:21.282020+00:00",
+    "title": "ChatGPT-using lawyer punished for citing fake testimony from made-up witnesses",
+    "word_count": 1794,
+    "paragraph_count": 34,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-2bba04b4abfea3378ccc",
+    "canonical_url": "https://arstechnica.com/tech-policy/2026/09/chatgpt-using-lawyer-punished-for-citing-fake-testimony-from-made-up-witnesses/",
+    "authors": [
+      "Jon Brodkin"
+    ],
+    "published_at": "2026-09-11",
+    "topics": [
+      "AI・計算・半導体"
+    ],
+    "reading_minutes": 9,
+    "screening_score": 80.3,
+    "attribution_signals": 31,
+    "quote_signals": 38,
+    "numeric_signals": 11,
+    "body_sha256": "4a2a643a614b51d27f0a79dba367cc7a1e58b78d76b9c64fbd23d5f81cd38600",
+    "title_key": "chatgptusinglawyerpunishedforcitingfaketestimonyfrommadeupwitnesses",
+    "publisher_excerpt": "I didn't know that AI could hallucinate facts,\" New Mexico defense lawyer says.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,794語・34段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及31箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 14
+  },
+  {
+    "url": "https://arstechnica.com/gadgets/2026/09/offensively-cheap-solar-power-is-looking-up/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap122.xml",
+    "checked_at": "2026-10-02T13:19:24.881978+00:00",
+    "title": "\"Offensively cheap\": Solar power is looking up",
+    "word_count": 2328,
+    "paragraph_count": 51,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-40c0b1163aaa05ad9212",
+    "canonical_url": "https://arstechnica.com/gadgets/2026/09/offensively-cheap-solar-power-is-looking-up/",
+    "authors": [
+      "Financial Times"
+    ],
+    "published_at": "2026-09-14",
+    "topics": [
+      "エネルギー・環境・インフラ"
+    ],
+    "reading_minutes": 12,
+    "screening_score": 91.2,
+    "attribution_signals": 36,
+    "quote_signals": 33,
+    "numeric_signals": 26,
+    "body_sha256": "087c2b4c224b5703db5d39be96934c093048b08872ac903a9a91ccdc75533ee6",
+    "title_key": "offensivelycheapsolarpowerislookingup",
+    "publisher_excerpt": "Chinese-made panels on rooftops across the world are changing the facts of life for big utilities.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文2,328語・51段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及36箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 11
+  },
+  {
+    "url": "https://arstechnica.com/tech-policy/2026/09/online-hate-researcher-keeps-hammering-x-despite-deportation-threat/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap122.xml",
+    "checked_at": "2026-10-02T13:19:24.882172+00:00",
+    "title": "Online hate researcher keeps hammering X despite deportation threat",
+    "word_count": 1739,
+    "paragraph_count": 36,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-dffdee575d5fc857af06",
+    "canonical_url": "https://arstechnica.com/tech-policy/2026/09/online-hate-researcher-keeps-hammering-x-despite-deportation-threat/",
+    "authors": [
+      "Ashley Belanger"
+    ],
+    "published_at": "2026-09-14",
+    "topics": [
+      "技術と社会・教育・制度",
+      "事業モデル・経済・生産性"
+    ],
+    "reading_minutes": 9,
+    "screening_score": 79.8,
+    "attribution_signals": 29,
+    "quote_signals": 41,
+    "numeric_signals": 4,
+    "body_sha256": "07c8aab720c1f703c03e0e6573433339b630d8ff57ab1b67796f72433551c263",
+    "title_key": "onlinehateresearcherkeepshammeringxdespitedeportationthreat",
+    "publisher_excerpt": "US won’t back down from fight to deport technology researchers.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,739語・36段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及29箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 12
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/09/rocket-report-ula-flies-into-uncertain-future-falcon-9-family-hits-700-launches/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap122.xml",
+    "checked_at": "2026-10-02T13:19:28.073757+00:00",
+    "title": "Rocket Report: China wants a Raptor 3 engine; SpaceX set for big Starship test",
+    "word_count": 1849,
+    "paragraph_count": 28,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-adc74777b2449a973cae",
+    "canonical_url": "https://arstechnica.com/space/2026/09/rocket-report-ula-flies-into-uncertain-future-falcon-9-family-hits-700-launches/",
+    "authors": [
+      "Eric Berger"
+    ],
+    "published_at": "2026-09-18",
+    "topics": [
+      "ロボット・産業・宇宙",
+      "事業モデル・経済・生産性",
+      "技術と社会・教育・制度"
+    ],
+    "reading_minutes": 10,
+    "screening_score": 86.8,
+    "attribution_signals": 20,
+    "quote_signals": 12,
+    "numeric_signals": 66,
+    "body_sha256": "694767340e9c9097ce179323f26ec1b26b207d546e3056267f9e9607d633fbcc",
+    "title_key": "rocketreportchinawantsaraptor3enginespacexsetforbigstarshiptest",
+    "publisher_excerpt": "“I can tell you SpaceX has already gone captive.\"",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,849語・28段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及20箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 10
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/09/rocket-report-era-of-cheap-launch-is-over-astra-sets-early-2027-target-for-return/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap122.xml",
+    "checked_at": "2026-10-02T13:19:31.650630+00:00",
+    "title": "Rocket Report: Era of cheap launch is over? Astra sets early 2027 target for return",
+    "word_count": 1631,
+    "paragraph_count": 24,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-548329a9ced2dbc0ace9",
+    "canonical_url": "https://arstechnica.com/space/2026/09/rocket-report-era-of-cheap-launch-is-over-astra-sets-early-2027-target-for-return/",
+    "authors": [
+      "Eric Berger"
+    ],
+    "published_at": "2026-09-25",
+    "topics": [
+      "ロボット・産業・宇宙"
+    ],
+    "reading_minutes": 9,
+    "screening_score": 84.8,
+    "attribution_signals": 23,
+    "quote_signals": 14,
+    "numeric_signals": 63,
+    "body_sha256": "ab08b156fea293c1f950970627296647daa0a5d7393f8f324ea805791cda8c71",
+    "title_key": "rocketreporteraofcheaplaunchisoverastrasetsearly2027targetforreturn",
+    "publisher_excerpt": "The customer got comfortable with a high reliability and a",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,631語・24段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及23箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 6
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/09/starships-first-orbital-launch-gives-lift-to-spacexs-next-gen-starlinks/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap122.xml",
+    "checked_at": "2026-10-02T13:19:31.650973+00:00",
+    "title": "SpaceX's Starship goes orbital, deploying first next-gen Starlinks",
+    "word_count": 2358,
+    "paragraph_count": 42,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-89800a7340644b7b4150",
+    "canonical_url": "https://arstechnica.com/space/2026/09/starships-first-orbital-launch-gives-lift-to-spacexs-next-gen-starlinks/",
+    "authors": [
+      "Stephen Clark"
+    ],
+    "published_at": "2026-09-28",
+    "topics": [
+      "ロボット・産業・宇宙"
+    ],
+    "reading_minutes": 12,
+    "screening_score": 84.4,
+    "attribution_signals": 13,
+    "quote_signals": 17,
+    "numeric_signals": 47,
+    "body_sha256": "57afc8d4acf807722675deedab64c1b5b6c6a421a7c6f2e942c69c5e05a73c54",
+    "title_key": "spacexsstarshipgoesorbitaldeployingfirstnextgenstarlinks",
+    "publisher_excerpt": "Starship had already flown 99 percent of the way to low-Earth orbit. Monday's flight added the last",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文2,358語・42段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及13箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 4
+  },
+  {
+    "url": "https://arstechnica.com/gadgets/2026/04/no-fly-zones-around-moving-ice-vehicles-this-drone-pilot-fought-back-and-won/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:34.873199+00:00",
+    "title": "Drone pilot makes US rescind no-fly zones around unmarked, moving ICE vehicles",
+    "word_count": 1835,
+    "paragraph_count": 40,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-20854de907d34884dae9",
+    "canonical_url": "https://arstechnica.com/gadgets/2026/04/no-fly-zones-around-moving-ice-vehicles-this-drone-pilot-fought-back-and-won/",
+    "authors": [
+      "Jeremy Hsu"
+    ],
+    "published_at": "2026-04-28",
+    "topics": [
+      "ロボット・産業・宇宙"
+    ],
+    "reading_minutes": 10,
+    "screening_score": 79.7,
+    "attribution_signals": 18,
+    "quote_signals": 38,
+    "numeric_signals": 30,
+    "body_sha256": "2a043203ec6869fc7c340c3c4040f2d992f3cc8825a9d468958f10f94ed6d849",
+    "title_key": "dronepilotmakesusrescindnoflyzonesaroundunmarkedmovingicevehicles",
+    "publisher_excerpt": "Civil liberty concerns spur FAA to revise drone no-fly zones near ICE vehicles.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,835語・40段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及18箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 49
+  },
+  {
+    "url": "https://arstechnica.com/ai/2026/04/googles-privacy-maze-how-gemini-traps-you-and-your-data/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:34.873902+00:00",
+    "title": "The hidden cost of Google's AI defaults and the illusion of choice",
+    "word_count": 1735,
+    "paragraph_count": 27,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-67a71188c666e7cff177",
+    "canonical_url": "https://arstechnica.com/ai/2026/04/googles-privacy-maze-how-gemini-traps-you-and-your-data/",
+    "authors": [
+      "Ryan Whitwam"
+    ],
+    "published_at": "2026-04-30",
+    "topics": [
+      "技術と社会・教育・制度",
+      "AI・計算・半導体"
+    ],
+    "reading_minutes": 9,
+    "screening_score": 74.8,
+    "attribution_signals": 30,
+    "quote_signals": 17,
+    "numeric_signals": 5,
+    "body_sha256": "bc8b24f3794b1ad91b836baebc4d1892668b522c781ffac16d19ca302dc87f2a",
+    "title_key": "thehiddencostofgooglesaidefaultsandtheillusionofchoice",
+    "publisher_excerpt": "Google says it respects user privacy in AI, but the reality is not",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,735語・27段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及30箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 45
+  },
+  {
+    "url": "https://arstechnica.com/tech-policy/2026/04/elon-musks-7-biggest-stumbles-on-the-stand-at-openai-trial/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:34.874114+00:00",
+    "title": "Elon Musk's 7 biggest stumbles on the stand at OpenAI trial",
+    "word_count": 2043,
+    "paragraph_count": 43,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-e35d849a5bf07fbee19e",
+    "canonical_url": "https://arstechnica.com/tech-policy/2026/04/elon-musks-7-biggest-stumbles-on-the-stand-at-openai-trial/",
+    "authors": [
+      "Ashley Belanger"
+    ],
+    "published_at": "2026-04-30",
+    "topics": [
+      "AI・計算・半導体"
+    ],
+    "reading_minutes": 11,
+    "screening_score": 68.6,
+    "attribution_signals": 7,
+    "quote_signals": 45,
+    "numeric_signals": 12,
+    "body_sha256": "aed96cf805902f43e9ce99d2c4a07c48672f02c401754370769b76815ae6a4ec",
+    "title_key": "elonmusks7biggeststumblesonthestandatopenaitrial",
+    "publisher_excerpt": "Elon Musk spent three days testifying as the first witness in his trial against",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文2,043語・43段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及7箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 47
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/05/rocket-report-falcon-heavy-is-back-russias-soyuz-5-finally-debuts/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:38.512475+00:00",
+    "title": "Rocket Report: Falcon Heavy is back; Russia's Soyuz-5 finally debuts",
+    "word_count": 2713,
+    "paragraph_count": 28,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-dbb366493719afe29247",
+    "canonical_url": "https://arstechnica.com/space/2026/05/rocket-report-falcon-heavy-is-back-russias-soyuz-5-finally-debuts/",
+    "authors": [
+      "Stephen Clark"
+    ],
+    "published_at": "2026-05-01",
+    "topics": [
+      "ロボット・産業・宇宙",
+      "技術と社会・教育・制度"
+    ],
+    "reading_minutes": 14,
+    "screening_score": 82.7,
+    "attribution_signals": 10,
+    "quote_signals": 8,
+    "numeric_signals": 99,
+    "body_sha256": "dbd831046526c4811c1d9cb3d3271ade1007331d8b833f49cdea0b4aa0fb9ade",
+    "title_key": "rocketreportfalconheavyisbackrussiassoyuz5finallydebuts",
+    "publisher_excerpt": "Two launches this week delivered 61 more satellites to orbit for the Amazon Leo broadband",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文2,713語・28段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及10箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 44
+  },
+  {
+    "url": "https://arstechnica.com/tech-policy/2026/05/openai-president-explains-to-jury-why-his-diary-entries-sound-greedy/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:38.514145+00:00",
+    "title": "OpenAI president forced to read his personal diary entries to jury",
+    "word_count": 1654,
+    "paragraph_count": 36,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-dbbb79d79be2fa7b1ad3",
+    "canonical_url": "https://arstechnica.com/tech-policy/2026/05/openai-president-explains-to-jury-why-his-diary-entries-sound-greedy/",
+    "authors": [
+      "Ashley Belanger"
+    ],
+    "published_at": "2026-05-05",
+    "topics": [
+      "AI・計算・半導体"
+    ],
+    "reading_minutes": 9,
+    "screening_score": 74.0,
+    "attribution_signals": 14,
+    "quote_signals": 18,
+    "numeric_signals": 14,
+    "body_sha256": "6a2fa32b538b605ab7c5804441ea560c3327adfedbe87f5d7d8da568c74f1e95",
+    "title_key": "openaipresidentforcedtoreadhispersonaldiaryentriestojury",
+    "publisher_excerpt": "Elon Musk argued the journals show the moment when OpenAI abandoned its mission.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,654語・36段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及14箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 43
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/05/rocket-report-flying-past-peak-falcon-9-rocket-lab-revenue-soars/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:42.095047+00:00",
+    "title": "Rocket Report: Alpha Block 2 coming this summer; Falcon sets booster landing mark",
+    "word_count": 1772,
+    "paragraph_count": 26,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-2f59ce6d5909ff10e072",
+    "canonical_url": "https://arstechnica.com/space/2026/05/rocket-report-flying-past-peak-falcon-9-rocket-lab-revenue-soars/",
+    "authors": [
+      "Eric Berger"
+    ],
+    "published_at": "2026-05-08",
+    "topics": [
+      "ロボット・産業・宇宙"
+    ],
+    "reading_minutes": 9,
+    "screening_score": 73.1,
+    "attribution_signals": 12,
+    "quote_signals": 5,
+    "numeric_signals": 74,
+    "body_sha256": "075b2d684d5335947481f94d8037cdc4ef05a2b1d9f5208920d08288f5a24b4a",
+    "title_key": "rocketreportalphablock2comingthissummerfalconsetsboosterlandingmark",
+    "publisher_excerpt": "The deciding factor was what we felt like was the team’s impact",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,772語・26段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及12箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 41
+  },
+  {
+    "url": "https://arstechnica.com/tech-policy/2026/05/sonys-failed-war-against-internet-piracy-may-doom-other-copyright-lawsuits/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:45.682681+00:00",
+    "title": "Sony's failed war against Internet piracy may doom other copyright lawsuits",
+    "word_count": 3962,
+    "paragraph_count": 69,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-6653862f3ec2fecaa487",
+    "canonical_url": "https://arstechnica.com/tech-policy/2026/05/sonys-failed-war-against-internet-piracy-may-doom-other-copyright-lawsuits/",
+    "authors": [
+      "Jon Brodkin"
+    ],
+    "published_at": "2026-05-11",
+    "topics": [
+      "技術と社会・教育・制度",
+      "事業モデル・経済・生産性",
+      "生命科学・医療技術・材料"
+    ],
+    "reading_minutes": 20,
+    "screening_score": 100,
+    "attribution_signals": 66,
+    "quote_signals": 83,
+    "numeric_signals": 20,
+    "body_sha256": "629f2ec6cfb82a0718d4f604efb35d42dce8c73a60a4a6fea24c01aa5d8338a0",
+    "title_key": "sonysfailedwaragainstinternetpiracymaydoomothercopyrightlawsuits",
+    "publisher_excerpt": "Cable firm Cox's Supreme Court win may help all tech providers, not just ISPs.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文3,962語・69段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及66箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 40
+  },
+  {
+    "url": "https://arstechnica.com/tech-policy/2026/05/will-i-be-ok-teen-died-after-chatgpt-pushed-deadly-mix-of-drugs-lawsuit-says/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:45.683315+00:00",
+    "title": "“Will I be OK?” Teen died after ChatGPT pushed deadly mix of drugs, lawsuit says",
+    "word_count": 1502,
+    "paragraph_count": 33,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-182880c0df1b43717ad0",
+    "canonical_url": "https://arstechnica.com/tech-policy/2026/05/will-i-be-ok-teen-died-after-chatgpt-pushed-deadly-mix-of-drugs-lawsuit-says/",
+    "authors": [
+      "Ashley Belanger"
+    ],
+    "published_at": "2026-05-12",
+    "topics": [
+      "AI・計算・半導体",
+      "技術と社会・教育・制度"
+    ],
+    "reading_minutes": 8,
+    "screening_score": 66.7,
+    "attribution_signals": 11,
+    "quote_signals": 44,
+    "numeric_signals": 2,
+    "body_sha256": "8f906dcf4aac6f1c32501f8bcf5bf61b25c0adcc39e439e73016e2be1779f109",
+    "title_key": "willibeokteendiedafterchatgptpusheddeadlymixofdrugslawsuitsays",
+    "publisher_excerpt": "Teen trusted ChatGPT to help him “safely” experiment with drugs,",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,502語・33段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及11箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 39
+  },
+  {
+    "url": "https://arstechnica.com/tech-policy/2026/05/altman-forced-to-confront-claims-at-openai-trial-that-hes-a-prolific-liar/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:48.939820+00:00",
+    "title": "Altman forced to confront claims at OpenAI trial that he's a prolific liar",
+    "word_count": 2029,
+    "paragraph_count": 44,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-f3b6dff6cef7ffd2c274",
+    "canonical_url": "https://arstechnica.com/tech-policy/2026/05/altman-forced-to-confront-claims-at-openai-trial-that-hes-a-prolific-liar/",
+    "authors": [
+      "Ashley Belanger"
+    ],
+    "published_at": "2026-05-13",
+    "topics": [
+      "AI・計算・半導体"
+    ],
+    "reading_minutes": 11,
+    "screening_score": 73.4,
+    "attribution_signals": 16,
+    "quote_signals": 29,
+    "numeric_signals": 5,
+    "body_sha256": "d834021559d457ad409bd70e02967ac1e15fad79dd886029c883d019918509ac",
+    "title_key": "altmanforcedtoconfrontclaimsatopenaitrialthathesaprolificliar",
+    "publisher_excerpt": "Very painful\": Altman relives his Muskian reaction to losing control over OpenAI.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文2,029語・44段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及16箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 38
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/05/rocket-report-russia-claims-success-with-new-icbm-spaceplane-deja-vu-in-europe/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:48.941187+00:00",
+    "title": "Rocket Report: Cowboy up for data centers in LEO; Russia's new ICBM actually works",
+    "word_count": 2343,
+    "paragraph_count": 35,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-ee2c137f489e5572a473",
+    "canonical_url": "https://arstechnica.com/space/2026/05/rocket-report-russia-claims-success-with-new-icbm-spaceplane-deja-vu-in-europe/",
+    "authors": [
+      "Stephen Clark"
+    ],
+    "published_at": "2026-05-15",
+    "topics": [
+      "ロボット・産業・宇宙",
+      "AI・計算・半導体",
+      "事業モデル・経済・生産性"
+    ],
+    "reading_minutes": 12,
+    "screening_score": 84.3,
+    "attribution_signals": 19,
+    "quote_signals": 4,
+    "numeric_signals": 76,
+    "body_sha256": "fb93435f83a5879bd30c188c4f21c70bf0a95f99bbdc98f990f48d96d0420d09",
+    "title_key": "rocketreportcowboyupfordatacentersinleorussiasnewicbmactuallyworks",
+    "publisher_excerpt": "SpaceX's upgraded Starship is set to launch on its first test",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文2,343語・35段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及19箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 37
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/05/ill-buy-10-of-those-nasa-science-chief-yearns-for-mass-produced-satellites/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:52.684437+00:00",
+    "title": "\"I'll buy 10 of those\"—NASA science chief yearns for mass-produced satellites",
+    "word_count": 1922,
+    "paragraph_count": 31,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-aa51bf009fa41b29b90e",
+    "canonical_url": "https://arstechnica.com/space/2026/05/ill-buy-10-of-those-nasa-science-chief-yearns-for-mass-produced-satellites/",
+    "authors": [
+      "Stephen Clark"
+    ],
+    "published_at": "2026-05-19",
+    "topics": [
+      "ロボット・産業・宇宙",
+      "エネルギー・環境・インフラ"
+    ],
+    "reading_minutes": 10,
+    "screening_score": 84.5,
+    "attribution_signals": 17,
+    "quote_signals": 22,
+    "numeric_signals": 28,
+    "body_sha256": "e7cb730c6e76733c72309be2c10a8b1217dff15bcf1056b987d9d6bb8e15862e",
+    "title_key": "illbuy10ofthosenasasciencechiefyearnsformassproducedsatellites",
+    "publisher_excerpt": "How in the hell do I get more science into space? That is my",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,922語・31段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及17箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 36
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/05/rocket-report-starship-launch-delayed-german-launch-company-may-aid-canada/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:19:56.233726+00:00",
+    "title": "Rocket Report: Starship launch delayed, German launch company may aid Canada",
+    "word_count": 1698,
+    "paragraph_count": 24,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-42d2fb17f7f67e76fcef",
+    "canonical_url": "https://arstechnica.com/space/2026/05/rocket-report-starship-launch-delayed-german-launch-company-may-aid-canada/",
+    "authors": [
+      "Eric Berger"
+    ],
+    "published_at": "2026-05-22",
+    "topics": [
+      "ロボット・産業・宇宙",
+      "技術と社会・教育・制度"
+    ],
+    "reading_minutes": 9,
+    "screening_score": 70.4,
+    "attribution_signals": 13,
+    "quote_signals": 2,
+    "numeric_signals": 56,
+    "body_sha256": "c9f949c91fa0b782813c4e7a02e6ee9357b0a586867ca80281c2e138093942cc",
+    "title_key": "rocketreportstarshiplaunchdelayedgermanlaunchcompanymayaidcanada",
+    "publisher_excerpt": "All eyes on South Texas for the latest Starship test flight.",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,698語・24段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及13箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 35
+  },
+  {
+    "url": "https://arstechnica.com/space/2026/06/how-long-will-it-take-to-rebuild-blue-origins-launch-pad-we-asked-some-spacex-vets/",
+    "publisher": "Ars Technica",
+    "publisher_id": "ars",
+    "discovery_url": "https://arstechnica.com/post-sitemap121.xml",
+    "checked_at": "2026-10-02T13:20:02.956853+00:00",
+    "title": "How long will it take to rebuild Blue Origin's launch pad? We asked some SpaceX vets.",
+    "word_count": 1564,
+    "paragraph_count": 32,
+    "extraction_method": "semantic_article_paragraphs",
+    "id": "frontier-dcee68b071b14954c37d",
+    "canonical_url": "https://arstechnica.com/space/2026/06/how-long-will-it-take-to-rebuild-blue-origins-launch-pad-we-asked-some-spacex-vets/",
+    "authors": [
+      "Eric Berger"
+    ],
+    "published_at": "2026-06-03",
+    "topics": [
+      "ロボット・産業・宇宙"
+    ],
+    "reading_minutes": 8,
+    "screening_score": 78.2,
+    "attribution_signals": 14,
+    "quote_signals": 14,
+    "numeric_signals": 41,
+    "body_sha256": "89fe63f133f9151f69af439274bcdfe194f6f78a01166834a8d84853b44927f2",
+    "title_key": "howlongwillittaketorebuildblueoriginslaunchpadweaskedsomespacexvets",
+    "publisher_excerpt": "Everyone is in a place where it’s no fun",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "Ars Technicaの署名記事。本文1,564語・32段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及14箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 33
   }
 ]
