@@ -1,7 +1,9 @@
 # FRONTIER
 
 海外のフロンティア記事を日本語で読み、根拠のある知見を蓄積する個人用Webアプリ。
-React / Vite / Hono / Cloudflare Workers / D1 / R2 / Workflows。mainが本番正本。今回の初期実装はドラフトPRで確認する。
+React / Vite / Hono / Cloudflare Workers / D1 / R2 / Workflows。mainが本番正本。初期実装はドラフトPRで確認する。
+
+2026-10-02： https://frontier.mashstock.workers.dev/ へデプロイ済み。Worker全体を既存本人アカウントのCloudflare Accessで保護。AI・日次処理は停止中、実記事は未登録。認証後UIは未検証。自作記事の画面は `/demo`。詳細は docs/verification.md。
 
 ## この実装で動くこと
 
@@ -15,7 +17,7 @@ React / Vite / Hono / Cloudflare Workers / D1 / R2 / Workflows。mainが本番�
 - 保存済み日本語版のブラウザ読み上げ。端末内の日本語音声のみを使い、速度・段落移動・一時停止・版ごとの位置保存に対応。
 - 9媒体の候補台帳。全媒体は利用条件未確認または禁止のため初期無効。RSS / Atomで記事を発見し、設定済みの公開HTML本文・配信字幕を取り込める。URLから画像・音声・動画・PDFも共通の原資料へ変換する。
 
-保存・日本語化・横断接続・日次Editionまでfixtureで検証済み。**実媒体の許諾と公式フィード設定、実APIの品質・原価、実Cron・Access・本番デプロイは未確認。** 未設定の媒体や課金処理を自動で有効化しない。
+保存・日本語化・横断接続・日次Editionまでfixtureで検証済み。**実媒体の許諾と公式フィード設定、実APIの品質・原価、実Cron・認証後の本番UIは未確認。** 未設定の媒体や課金処理を自動で有効化しない。
 
 2026-10-02にTechCrunchの実RSSでDNSチェック・解析・隔離DB保存を確認し、公開IPv4の誤拒否を修正。TechCrunchのRSSは89〜268文字の抜粋だったが、Not Boringの実RSSは20件中17件に本文上限内のテキストを含み、公開記事HAAから55段落・17,363文字を抽出できた。実APIで日本語化まで確認した段階ではない。通信transportや本番設定の制約は[確認範囲](docs/verification.md)を参照。
 
