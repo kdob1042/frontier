@@ -36,6 +36,13 @@ test('signed owner JWT requires the correct issuer, audience, lifetime and owner
   const req = (jwt: string) =>
     new Request('https://private.example.com', { headers: { 'cf-access-jwt-assertion': jwt } });
   assert.equal(await authorize(req(await token(env.OWNER_EMAIL)), env, key), true);
+  const cookieReq = (jwt: string) =>
+    new Request('https://private.example.com', {
+      headers: { cookie: `other=value; CF_Authorization=${jwt}` },
+    });
+  assert.equal(await authorize(cookieReq(await token(env.OWNER_EMAIL)), env, key), true);
+  assert.equal(await authorize(cookieReq(await token('another@example.com')), env, key), false);
+  assert.equal(await authorize(cookieReq('forged'), env, key), false);
   assert.equal(await authorize(req(await token('another@example.com')), env, key), false);
   assert.equal(
     await authorize(req(await token(env.OWNER_EMAIL, 'another-audience')), env, key),
