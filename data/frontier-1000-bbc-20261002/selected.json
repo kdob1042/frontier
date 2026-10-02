@@ -322,6 +322,41 @@
     "catalog_number": 9
   },
   {
+    "url": "https://www.bbc.com/future/article/20260526-its-not-just-you-dating-apps-have-a-burnout-problem",
+    "publisher": "BBC Future / Innovation / Worklife",
+    "publisher_id": "bbc",
+    "discovery_url": "https://www.bbc.com/future/article/20260924-what-really-helps-save-a-relationship",
+    "checked_at": "2026-10-02T13:18:51.503908+00:00",
+    "title": "Are you stuck in the dating app burnout cycle?",
+    "word_count": 1988,
+    "paragraph_count": 38,
+    "extraction_method": "trafilatura_precision",
+    "id": "frontier-d4afc79fbf33c1ed4e35",
+    "canonical_url": "https://www.bbc.com/future/article/20260526-its-not-just-you-dating-apps-have-a-burnout-problem",
+    "authors": [
+      "Thomas Germain"
+    ],
+    "published_at": "2026-05-27",
+    "topics": [
+      "技術と社会・教育・制度"
+    ],
+    "reading_minutes": 10,
+    "screening_score": 81.1,
+    "attribution_signals": 35,
+    "quote_signals": 32,
+    "numeric_signals": 7,
+    "body_sha256": "1ae867d53569037a8e211ec01a159bfd17c58aa5c2b0a9fcf38a114964e0c6dc",
+    "title_key": "areyoustuckinthedatingappburnoutcycle",
+    "publisher_excerpt": "Download, burnout, delete, repeat. Science says dating app users follow a predictable and dangerous pattern. These",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,988語・38段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及35箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 10
+  },
+  {
     "url": "https://www.bbc.com/future/article/20260513-your-car-is-spying-on-you-its-about-to-get-worse",
     "publisher": "BBC Future / Innovation / Worklife",
     "publisher_id": "bbc",
@@ -355,7 +390,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,978語・36段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及56箇所を確認。",
     "status": "accepted",
-    "catalog_number": 10
+    "catalog_number": 11
   },
   {
     "url": "https://www.bbc.com/future/article/20260505-how-to-use-ai-without-turning-your-brain-to-mush",
@@ -392,7 +427,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,622語・34段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及31箇所を確認。",
     "status": "accepted",
-    "catalog_number": 11
+    "catalog_number": 12
   },
   {
     "url": "https://www.bbc.com/future/article/20260501-nature-vs-nurture-how-much-of-our-personalities-are-determined-at-birth",
@@ -427,7 +462,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,027語・43段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及47箇所を確認。",
     "status": "accepted",
-    "catalog_number": 12
+    "catalog_number": 13
   },
   {
     "url": "https://www.bbc.com/future/article/20260428-ai-companies-want-you-to-be-afraid-of-them",
@@ -464,7 +499,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,815語・32段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及32箇所を確認。",
     "status": "accepted",
-    "catalog_number": 13
+    "catalog_number": 14
   },
   {
     "url": "https://www.bbc.com/future/article/20260424-chernobyl-wildlife-forty-years-on",
@@ -500,7 +535,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,701語・32段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及23箇所を確認。",
     "status": "accepted",
-    "catalog_number": 14
+    "catalog_number": 15
   },
   {
     "url": "https://www.bbc.com/future/article/20260421-can-we-predict-the-next-crisis",
@@ -536,7 +571,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,091語・43段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及39箇所を確認。",
     "status": "accepted",
-    "catalog_number": 15
+    "catalog_number": 16
   },
   {
     "url": "https://www.bbc.com/future/article/20260417-ai-chatbots-could-be-making-you-stupider",
@@ -573,7 +608,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,545語・32段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及41箇所を確認。",
     "status": "accepted",
-    "catalog_number": 16
+    "catalog_number": 17
   },
   {
     "url": "https://www.bbc.com/future/article/20260414-the-monkey-selfie-that-predicted-the-ai-age",
@@ -608,7 +643,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,715語・31段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及12箇所を確認。",
     "status": "accepted",
-    "catalog_number": 17
+    "catalog_number": 18
   },
   {
     "url": "https://www.bbc.com/future/article/20260324-i-tried-to-prove-im-not-an-ai-deepfake",
@@ -644,7 +679,42 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,733語・29段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及30箇所を確認。",
     "status": "accepted",
-    "catalog_number": 18
+    "catalog_number": 19
+  },
+  {
+    "url": "https://www.bbc.com/future/article/20260306-the-wake-up-tricks-people-used-before-alarm-clocks",
+    "publisher": "BBC Future / Innovation / Worklife",
+    "publisher_id": "bbc",
+    "discovery_url": "https://www.bbc.com/future/article/20260409-want-a-better-nights-sleep-go-camping",
+    "checked_at": "2026-10-02T13:19:08.566521+00:00",
+    "title": "Knocker uppers and candle clocks: How people woke up before alarm clocks",
+    "word_count": 1888,
+    "paragraph_count": 38,
+    "extraction_method": "trafilatura_precision",
+    "id": "frontier-8cdf003e2d16a696b30d",
+    "canonical_url": "https://www.bbc.com/future/article/20260306-the-wake-up-tricks-people-used-before-alarm-clocks",
+    "authors": [
+      "Jocelyn Timperley"
+    ],
+    "published_at": "2026-03-07",
+    "topics": [
+      "ロボット・産業・宇宙"
+    ],
+    "reading_minutes": 10,
+    "screening_score": 74.2,
+    "attribution_signals": 38,
+    "quote_signals": 30,
+    "numeric_signals": 4,
+    "body_sha256": "e39a176c5c1fe3aa0e0e480afddda9596eea22faee5e0cc7e50de0a6640c59fa",
+    "title_key": "knockeruppersandcandleclockshowpeoplewokeupbeforealarmclocks",
+    "publisher_excerpt": "From candles that drop metal nails to the knocker uppers of industrial Britain,",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,888語・38段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及38箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 20
   },
   {
     "url": "https://www.bbc.com/future/article/20260227-can-friction-maxxing-fix-your-focus",
@@ -681,7 +751,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,820語・35段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及43箇所を確認。",
     "status": "accepted",
-    "catalog_number": 19
+    "catalog_number": 21
   },
   {
     "url": "https://www.bbc.com/future/article/20260226-how-ai-can-read-your-thoughts",
@@ -718,7 +788,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,275語・44段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及46箇所を確認。",
     "status": "accepted",
-    "catalog_number": 20
+    "catalog_number": 22
   },
   {
     "url": "https://www.bbc.com/travel/article/20260219-the-six-most-anticipated-museum-openings-of-2026",
@@ -753,7 +823,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,624語・33段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及8箇所を確認。",
     "status": "accepted",
-    "catalog_number": 21
+    "catalog_number": 23
   },
   {
     "url": "https://www.bbc.com/future/article/20260218-i-hacked-chatgpt-and-googles-ai-and-it-only-took-20-minutes",
@@ -789,7 +859,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,891語・33段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及29箇所を確認。",
     "status": "accepted",
-    "catalog_number": 22
+    "catalog_number": 24
   },
   {
     "url": "https://www.bbc.com/future/article/20260210-tiktok-is-tracking-you-even-if-you-dont-use-the-app-heres-how-to-stop-it",
@@ -825,7 +895,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,688語・34段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及55箇所を確認。",
     "status": "accepted",
-    "catalog_number": 23
+    "catalog_number": 25
   },
   {
     "url": "https://www.bbc.com/future/article/20260209-can-a-machine-ever-love-you",
@@ -861,7 +931,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,579語・32段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及25箇所を確認。",
     "status": "accepted",
-    "catalog_number": 24
+    "catalog_number": 26
   },
   {
     "url": "https://www.bbc.com/future/article/20260206-is-our-identity-affected-by-where-we-live",
@@ -896,7 +966,42 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,944語・36段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及38箇所を確認。",
     "status": "accepted",
-    "catalog_number": 25
+    "catalog_number": 27
+  },
+  {
+    "url": "https://www.bbc.com/future/article/20260130-is-it-really-possible-to-bank-sleep-for-later",
+    "publisher": "BBC Future / Innovation / Worklife",
+    "publisher_id": "bbc",
+    "discovery_url": "https://www.bbc.com/future/article/20260306-the-wake-up-tricks-people-used-before-alarm-clocks",
+    "checked_at": "2026-10-02T13:19:21.361552+00:00",
+    "title": "Is it really possible to 'bank' sleep for later?",
+    "word_count": 1574,
+    "paragraph_count": 29,
+    "extraction_method": "trafilatura_precision",
+    "id": "frontier-2f4a7f029a651240fe75",
+    "canonical_url": "https://www.bbc.com/future/article/20260130-is-it-really-possible-to-bank-sleep-for-later",
+    "authors": [
+      "Katie Wright"
+    ],
+    "published_at": "2026-02-01",
+    "topics": [
+      "生命科学・医療技術・材料"
+    ],
+    "reading_minutes": 8,
+    "screening_score": 78.3,
+    "attribution_signals": 27,
+    "quote_signals": 23,
+    "numeric_signals": 10,
+    "body_sha256": "3d503a9a2afc09a32dcae064f2c608c42519065308bf3329471afad0811bcc52",
+    "title_key": "isitreallypossibletobanksleepforlater",
+    "publisher_excerpt": "From helping you to focus more to improving sports performance, some scientists believe 'depositing' sleep for",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,574語・29段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及27箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 28
   },
   {
     "url": "https://www.bbc.com/future/article/20260126-ai-mirrors-are-changing-the-way-blind-people-see-themselves",
@@ -932,7 +1037,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,223語・41段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及17箇所を確認。",
     "status": "accepted",
-    "catalog_number": 26
+    "catalog_number": 29
   },
   {
     "url": "https://www.bbc.com/future/article/20260116-what-we-get-wrong-about-dopamine",
@@ -967,7 +1072,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,835語・49段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及7箇所を確認。",
     "status": "accepted",
-    "catalog_number": 27
+    "catalog_number": 30
   },
   {
     "url": "https://www.bbc.com/future/article/20260108-how-ai-solved-the-mystery-of-a-missing-mountaineer",
@@ -1004,7 +1109,42 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,746語・38段落を実測。AI・計算・半導体を中心に、取材・研究・データへの言及16箇所を確認。",
     "status": "accepted",
-    "catalog_number": 28
+    "catalog_number": 31
+  },
+  {
+    "url": "https://www.bbc.com/future/article/20260106-the-health-dangers-of-heading-the-ball-in-sport",
+    "publisher": "BBC Future / Innovation / Worklife",
+    "publisher_id": "bbc",
+    "discovery_url": "https://www.bbc.com/future/article/20260212-the-lifelong-benefits-of-making-music",
+    "checked_at": "2026-10-02T13:18:50.437408+00:00",
+    "title": "Why sports stars who head the ball are much more likely to die of Alzheimer's, Parkinson's and motor neurone disease",
+    "word_count": 1804,
+    "paragraph_count": 44,
+    "extraction_method": "trafilatura_precision",
+    "id": "frontier-0943aa11da8c57ebf867",
+    "canonical_url": "https://www.bbc.com/future/article/20260106-the-health-dangers-of-heading-the-ball-in-sport",
+    "authors": [
+      "Jasmin Fox-Skelly"
+    ],
+    "published_at": "2026-01-07",
+    "topics": [
+      "生命科学・医療技術・材料"
+    ],
+    "reading_minutes": 10,
+    "screening_score": 86.4,
+    "attribution_signals": 23,
+    "quote_signals": 22,
+    "numeric_signals": 23,
+    "body_sha256": "26ad99205334186745fe54812f679d720c3e2d1419387539d7ecec7c6b0619ac",
+    "title_key": "whysportsstarswhoheadtheballaremuchmorelikelytodieofalzheimersparkinsonsandmotorneuronedisease",
+    "publisher_excerpt": "Professional soccer players and American",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,804語・44段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及23箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 32
   },
   {
     "url": "https://www.bbc.com/future/article/20260105-how-to-help-your-body-detox-itself",
@@ -1039,7 +1179,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,561語・30段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及20箇所を確認。",
     "status": "accepted",
-    "catalog_number": 29
+    "catalog_number": 33
   },
   {
     "url": "https://www.bbc.com/future/article/20260102-five-lifestyle-tweaks-to-help-you-live-well-for-longer",
@@ -1074,7 +1214,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,065語・38段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及17箇所を確認。",
     "status": "accepted",
-    "catalog_number": 30
+    "catalog_number": 34
   },
   {
     "url": "https://www.bbc.com/future/article/20251231-nine-simple-steps-to-feeling-better-in-2026",
@@ -1109,7 +1249,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,741語・38段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及14箇所を確認。",
     "status": "accepted",
-    "catalog_number": 31
+    "catalog_number": 35
   },
   {
     "url": "https://www.bbc.com/future/article/20251118-the-words-you-cant-say-on-the-internet",
@@ -1146,7 +1286,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,238語・46段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及43箇所を確認。",
     "status": "accepted",
-    "catalog_number": 32
+    "catalog_number": 36
   },
   {
     "url": "https://www.bbc.com/future/article/20251015-perovskite-the-wonder-material-that-could-transform-solar-energy",
@@ -1183,7 +1323,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,930語・38段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及29箇所を確認。",
     "status": "accepted",
-    "catalog_number": 33
+    "catalog_number": 37
   },
   {
     "url": "https://www.bbc.com/future/article/20250611-ai-mode-is-google-about-to-change-the-internet-forever",
@@ -1220,7 +1360,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文3,301語・59段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及70箇所を確認。",
     "status": "accepted",
-    "catalog_number": 34
+    "catalog_number": 38
   },
   {
     "url": "https://www.bbc.com/future/article/20250609-can-your-walking-speed-reveal-your-brains-rate-of-ageing",
@@ -1255,7 +1395,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,596語・35段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及25箇所を確認。",
     "status": "accepted",
-    "catalog_number": 35
+    "catalog_number": 39
   },
   {
     "url": "https://www.bbc.com/future/article/20250530-how-electric-scooters-are-driving-chinas-salt-battery-push",
@@ -1292,7 +1432,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,787語・60段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及60箇所を確認。",
     "status": "accepted",
-    "catalog_number": 36
+    "catalog_number": 40
   },
   {
     "url": "https://www.bbc.com/future/article/20250506-renewable-energys-trouble-with-wind-theft",
@@ -1327,7 +1467,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,659語・27段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及31箇所を確認。",
     "status": "accepted",
-    "catalog_number": 37
+    "catalog_number": 41
   },
   {
     "url": "https://www.bbc.com/future/article/20250506-are-chinas-swap-stations-the-future-of-electric-cars",
@@ -1364,7 +1504,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,579語・44段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及27箇所を確認。",
     "status": "accepted",
-    "catalog_number": 38
+    "catalog_number": 42
   },
   {
     "url": "https://www.bbc.com/future/article/20250213-youtube-at-20-a-computer-that-drunk-dials-online-videos-reveals-statistics-that-google-doesnt-want-you-to-know",
@@ -1401,7 +1541,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,060語・34段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及32箇所を確認。",
     "status": "accepted",
-    "catalog_number": 39
+    "catalog_number": 43
   },
   {
     "url": "https://www.bbc.com/future/article/20250408-choline-the-underappreciated-nutrient-thats-vital-for-our-brains",
@@ -1436,7 +1576,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,547語・41段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及39箇所を確認。",
     "status": "accepted",
-    "catalog_number": 40
+    "catalog_number": 44
   },
   {
     "url": "https://www.bbc.com/future/article/20250404-where-ev-batteries-go-to-die-and-be-reborn",
@@ -1473,7 +1613,42 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,017語・41段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及21箇所を確認。",
     "status": "accepted",
-    "catalog_number": 41
+    "catalog_number": 45
+  },
+  {
+    "url": "https://www.bbc.com/future/article/20250212-how-much-protein-do-you-really-need-to-get-strong",
+    "publisher": "BBC Future / Innovation / Worklife",
+    "publisher_id": "bbc",
+    "discovery_url": "https://www.bbc.com/future/article/20250408-choline-the-underappreciated-nutrient-thats-vital-for-our-brains",
+    "checked_at": "2026-10-02T13:18:21.937378+00:00",
+    "title": "How much protein do you really need to get strong?",
+    "word_count": 2022,
+    "paragraph_count": 41,
+    "extraction_method": "trafilatura_precision",
+    "id": "frontier-c45a854dd1f19840b62b",
+    "canonical_url": "https://www.bbc.com/future/article/20250212-how-much-protein-do-you-really-need-to-get-strong",
+    "authors": [
+      "Kamala Thiagarajan"
+    ],
+    "published_at": "2025-02-13",
+    "topics": [
+      "生命科学・医療技術・材料"
+    ],
+    "reading_minutes": 11,
+    "screening_score": 81.4,
+    "attribution_signals": 32,
+    "quote_signals": 26,
+    "numeric_signals": 42,
+    "body_sha256": "0368fa5eeb70545edbc85a7e9ea3a3a93718251e2993fee21cc8b1c3bef2968f",
+    "title_key": "howmuchproteindoyoureallyneedtogetstrong",
+    "publisher_excerpt": "From raw eggs to protein shakes, those hoping to expand their brawn are often encouraged",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,022語・41段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及32箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 46
   },
   {
     "url": "https://www.bbc.com/future/article/20250207-sky-skimmers-the-race-to-send-satellites-into-very-low-earth-orbits",
@@ -1509,7 +1684,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,068語・33段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及24箇所を確認。",
     "status": "accepted",
-    "catalog_number": 42
+    "catalog_number": 47
   },
   {
     "url": "https://www.bbc.com/future/article/20250124-how-yoga-can-rewire-your-brain-and-improve-your-mental-health",
@@ -1544,7 +1719,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,872語・36段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及33箇所を確認。",
     "status": "accepted",
-    "catalog_number": 43
+    "catalog_number": 48
   },
   {
     "url": "https://www.bbc.com/future/article/20240426-the-ghosts-of-indias-tiktok-social-media-ban",
@@ -1580,7 +1755,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,727語・34段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及15箇所を確認。",
     "status": "accepted",
-    "catalog_number": 44
+    "catalog_number": 49
   },
   {
     "url": "https://www.bbc.com/future/article/20241113-will-chinas-ultra-high-voltage-grid-pay-off-for-renewable-power",
@@ -1617,7 +1792,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,671語・50段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及33箇所を確認。",
     "status": "accepted",
-    "catalog_number": 45
+    "catalog_number": 50
   },
   {
     "url": "https://www.bbc.com/future/article/20240524-the-satellites-using-radar-to-peer-at-earth-in-minute-detail",
@@ -1654,7 +1829,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,807語・38段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及28箇所を確認。",
     "status": "accepted",
-    "catalog_number": 46
+    "catalog_number": 51
   },
   {
     "url": "https://www.bbc.com/future/article/20240524-how-googles-new-algorithm-will-shape-your-internet",
@@ -1690,7 +1865,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,487語・42段落を実測。技術と社会・教育・制度を中心に、取材・研究・データへの言及46箇所を確認。",
     "status": "accepted",
-    "catalog_number": 47
+    "catalog_number": 52
   },
   {
     "url": "https://www.bbc.com/future/article/20240422-philosopher-daniel-dennett-artificial-intelligence-consciousness-counterfeit-people",
@@ -1727,7 +1902,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,845語・35段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及14箇所を確認。",
     "status": "accepted",
-    "catalog_number": 48
+    "catalog_number": 53
   },
   {
     "url": "https://www.bbc.com/future/article/20240326-how-hydroelectric-dams-are-a-hidden-source-of-carbon-emissions",
@@ -1764,7 +1939,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,945語・38段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及14箇所を確認。",
     "status": "accepted",
-    "catalog_number": 49
+    "catalog_number": 54
   },
   {
     "url": "https://www.bbc.com/future/article/20231206-climate-change-how-chinas-electric-vehicle-revolution-began-with-buses",
@@ -1801,7 +1976,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文3,280語・61段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及35箇所を確認。",
     "status": "accepted",
-    "catalog_number": 50
+    "catalog_number": 55
   },
   {
     "url": "https://www.bbc.com/future/article/20231108-batteries-of-the-future-how-cotton-and-seawater-might-power-our-devices",
@@ -1838,7 +2013,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,649語・35段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及17箇所を確認。",
     "status": "accepted",
-    "catalog_number": 51
+    "catalog_number": 56
   },
   {
     "url": "https://www.bbc.com/future/article/20230912-how-i-hacked-my-brain",
@@ -1873,7 +2048,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,046語・35段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及17箇所を確認。",
     "status": "accepted",
-    "catalog_number": 52
+    "catalog_number": 57
   },
   {
     "url": "https://www.bbc.com/future/article/20221215-the-batteries-made-from-wood",
@@ -1910,7 +2085,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,562語・35段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及18箇所を確認。",
     "status": "accepted",
-    "catalog_number": 53
+    "catalog_number": 58
   },
   {
     "url": "https://www.bbc.com/future/article/20221110-how-australia-became-the-worlds-greatest-lithium-supplier",
@@ -1947,7 +2122,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,571語・45段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及23箇所を確認。",
     "status": "accepted",
-    "catalog_number": 54
+    "catalog_number": 59
   },
   {
     "url": "https://www.bbc.com/future/article/20220804-the-lost-nuclear-bombs-that-no-one-can-find",
@@ -1982,7 +2157,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文4,261語・74段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及26箇所を確認。",
     "status": "accepted",
-    "catalog_number": 55
+    "catalog_number": 60
   },
   {
     "url": "https://www.bbc.com/future/article/20220105-lithium-batteries-big-unanswered-question",
@@ -2019,7 +2194,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,144語・37段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及20箇所を確認。",
     "status": "accepted",
-    "catalog_number": 56
+    "catalog_number": 61
   },
   {
     "url": "https://www.bbc.com/future/article/20211207-the-legal-battle-against-climate-change",
@@ -2054,7 +2229,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,038語・33段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及26箇所を確認。",
     "status": "accepted",
-    "catalog_number": 57
+    "catalog_number": 62
   },
   {
     "url": "https://www.bbc.com/future/article/20201217-renewable-power-the-worlds-largest-battery",
@@ -2090,7 +2265,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,594語・23段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及23箇所を確認。",
     "status": "accepted",
-    "catalog_number": 58
+    "catalog_number": 63
   },
   {
     "url": "https://www.bbc.com/future/article/20201204-climate-change-how-chemicals-in-your-fridge-warm-the-planet",
@@ -2126,7 +2301,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,400語・50段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及26箇所を確認。",
     "status": "accepted",
-    "catalog_number": 59
+    "catalog_number": 64
   },
   {
     "url": "https://www.bbc.com/future/article/20201127-how-hydrogen-fuel-could-decarbonise-shipping",
@@ -2162,7 +2337,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,244語・38段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及24箇所を確認。",
     "status": "accepted",
-    "catalog_number": 60
+    "catalog_number": 65
   },
   {
     "url": "https://www.bbc.com/future/article/20201124-how-geothermal-lithium-could-revolutionise-green-energy",
@@ -2199,7 +2374,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,003語・34段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及25箇所を確認。",
     "status": "accepted",
-    "catalog_number": 61
+    "catalog_number": 66
   },
   {
     "url": "https://www.bbc.com/future/article/20201116-climate-change-how-to-cut-the-carbon-emissions-from-heating",
@@ -2235,7 +2410,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,572語・55段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及26箇所を確認。",
     "status": "accepted",
-    "catalog_number": 62
+    "catalog_number": 67
   },
   {
     "url": "https://www.bbc.com/future/article/20201112-the-green-hydrogen-revolution-in-renewable-energy",
@@ -2272,7 +2447,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,741語・28段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及12箇所を確認。",
     "status": "accepted",
-    "catalog_number": 63
+    "catalog_number": 68
   },
   {
     "url": "https://www.bbc.com/future/article/20201002-would-the-world-cope-without-gps-satellite-navigation",
@@ -2308,7 +2483,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,824語・39段落を実測。ロボット・産業・宇宙を中心に、取材・研究・データへの言及9箇所を確認。",
     "status": "accepted",
-    "catalog_number": 64
+    "catalog_number": 69
   },
   {
     "url": "https://www.bbc.com/future/article/20200807-the-nuclear-mistakes-that-could-have-ended-civilisation",
@@ -2344,7 +2519,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,588語・48段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及17箇所を確認。",
     "status": "accepted",
-    "catalog_number": 65
+    "catalog_number": 70
   },
   {
     "url": "https://www.bbc.com/future/article/20200804-can-nuclear-war-ever-be-morally-justified",
@@ -2379,7 +2554,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文3,317語・51段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及29箇所を確認。",
     "status": "accepted",
-    "catalog_number": 66
+    "catalog_number": 71
   },
   {
     "url": "https://www.bbc.com/future/article/20200724-the-battery-made-from-diamonds-that-could-last-1000-years",
@@ -2416,7 +2591,43 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,613語・40段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及16箇所を確認。",
     "status": "accepted",
-    "catalog_number": 67
+    "catalog_number": 72
+  },
+  {
+    "url": "https://www.bbc.com/future/article/20200702-the-helmets-that-can-keep-your-brain-safe",
+    "publisher": "BBC Future / Innovation / Worklife",
+    "publisher_id": "bbc",
+    "discovery_url": "https://www.bbc.com/future/article/20260106-the-health-dangers-of-heading-the-ball-in-sport",
+    "checked_at": "2026-10-02T13:18:53.177689+00:00",
+    "title": "How to keep your delicate brain safe",
+    "word_count": 2497,
+    "paragraph_count": 49,
+    "extraction_method": "trafilatura_precision",
+    "id": "frontier-09a53a693c2e36403b76",
+    "canonical_url": "https://www.bbc.com/future/article/20200702-the-helmets-that-can-keep-your-brain-safe",
+    "authors": [
+      "David Hambling"
+    ],
+    "published_at": "2020-07-03",
+    "topics": [
+      "生命科学・医療技術・材料",
+      "エネルギー・環境・インフラ"
+    ],
+    "reading_minutes": 13,
+    "screening_score": 92.7,
+    "attribution_signals": 20,
+    "quote_signals": 19,
+    "numeric_signals": 13,
+    "body_sha256": "d635e4c8e482acfe006acdfd8c192f49fd87f6ca393e2f7c74a06a86b64db244",
+    "title_key": "howtokeepyourdelicatebrainsafe",
+    "publisher_excerpt": "Head injuries and concussion can have devastating, lifelong consequences, so can we afford to not keep searching for",
+    "access": "public_body_verified_at_collection",
+    "review_status": "per_article_automated_screen_pass",
+    "translation_status": "not_translated",
+    "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
+    "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,497語・49段落を実測。生命科学・医療技術・材料を中心に、取材・研究・データへの言及20箇所を確認。",
+    "status": "accepted",
+    "catalog_number": 73
   },
   {
     "url": "https://www.bbc.com/future/article/20200521-planting-trees-doesnt-always-help-with-climate-change",
@@ -2451,7 +2662,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,994語・38段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及33箇所を確認。",
     "status": "accepted",
-    "catalog_number": 68
+    "catalog_number": 74
   },
   {
     "url": "https://www.bbc.com/future/article/20200304-the-electric-vehicles-cutting-delhis-air-pollution-problem",
@@ -2488,7 +2699,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,547語・23段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及16箇所を確認。",
     "status": "accepted",
-    "catalog_number": 69
+    "catalog_number": 75
   },
   {
     "url": "https://www.bbc.com/future/article/20200227-how-hydrogen-powered-trains-can-tackle-climate-change",
@@ -2524,7 +2735,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,773語・27段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及15箇所を確認。",
     "status": "accepted",
-    "catalog_number": 70
+    "catalog_number": 76
   },
   {
     "url": "https://www.bbc.com/future/article/20200219-the-solar-farms-fighting-climate-change-in-alaska",
@@ -2559,7 +2770,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,714語・27段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及17箇所を確認。",
     "status": "accepted",
-    "catalog_number": 71
+    "catalog_number": 77
   },
   {
     "url": "https://www.bbc.com/future/article/20200109-is-it-wrong-to-be-hopeful-about-climate-change",
@@ -2595,7 +2806,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,916語・39段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及16箇所を確認。",
     "status": "accepted",
-    "catalog_number": 72
+    "catalog_number": 78
   },
   {
     "url": "https://www.bbc.com/future/article/20190327-the-tiny-islands-leading-the-way-in-hydrogen-power",
@@ -2632,7 +2843,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文2,207語・41段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及18箇所を確認。",
     "status": "accepted",
-    "catalog_number": 73
+    "catalog_number": 79
   },
   {
     "url": "https://www.bbc.com/future/article/20181102-what-can-i-do-about-climate-change",
@@ -2667,7 +2878,7 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,928語・48段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及21箇所を確認。",
     "status": "accepted",
-    "catalog_number": 74
+    "catalog_number": 80
   },
   {
     "url": "https://www.bbc.com/future/article/20180822-why-china-is-transforming-the-worlds-solar-energy",
@@ -2704,6 +2915,6 @@
     "copyright_status": "metadata_and_link_only_no_republication_permission_asserted",
     "reason_ja": "BBC Future / Innovation / Worklifeの署名記事。本文1,536語・34段落を実測。エネルギー・環境・インフラを中心に、取材・研究・データへの言及13箇所を確認。",
     "status": "accepted",
-    "catalog_number": 75
+    "catalog_number": 81
   }
 ]
