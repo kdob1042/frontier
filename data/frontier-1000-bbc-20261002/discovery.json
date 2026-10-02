@@ -1,34 +1,27 @@
 [
   {
-    "publisher": "BBC Future / Innovation / Worklife",
-    "remaining_urls": 1652,
-    "visited": 2089,
-    "log": [
-      {
-        "url": "https://www.bbc.com/sitemaps/https-index-com-archive.xml",
-        "children": [
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-1.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-2.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-3.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-4.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-5.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-6.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-7.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-8.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-9.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-10.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-11.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-12.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-13.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-14.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-15.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-16.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-17.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-18.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-19.xml",
-          "https://www.bbc.com/sitemaps/https-sitemap-com-archive-20.xml"
-        ]
-      }
+    "url": "https://www.bbc.com/sitemaps/https-index-com-archive.xml",
+    "children": [
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-1.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-2.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-3.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-4.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-5.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-6.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-7.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-8.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-9.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-10.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-11.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-12.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-13.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-14.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-15.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-16.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-17.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-18.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-19.xml",
+      "https://www.bbc.com/sitemaps/https-sitemap-com-archive-20.xml"
     ]
   }
 ]
