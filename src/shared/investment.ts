@@ -36,7 +36,7 @@ export type InvestmentArticle = {
   publishedAt: string;
   mode: string;
   scope: string;
-  paragraphs: { id: string; text: string }[];
+  paragraphs: { id: string; text: string; basis?: 'source_text' | 'ai_summary' }[];
 };
 export type InvestmentState = {
   eligible: number;
@@ -47,6 +47,7 @@ export type InvestmentState = {
   run: null | {
     id: string;
     status: string;
+    execution: 'api' | 'chatgpt_import';
     error: string | null;
     createdAt: string;
     stale: boolean;
