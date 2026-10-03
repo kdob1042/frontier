@@ -15,6 +15,7 @@ export async function investmentArticles(env: Env) {
       `SELECT s.slug,r.id AS revision,r.capture_id FROM sources s
     JOIN renderings r ON r.id=s.current_revision JOIN captures c ON c.id=r.capture_id
     WHERE s.hidden=0 AND s.deleted_at IS NULL AND c.mode<>'link_only'
+    AND NOT EXISTS(SELECT 1 FROM investment_used_revisions u WHERE u.revision=r.id)
     ORDER BY r.created_at DESC,r.id DESC LIMIT 100`,
     ).all<{ slug: string; revision: string; capture_id: string }>()
   ).results;
@@ -54,7 +55,17 @@ export async function investmentArticles(env: Env) {
   const total = await env.DB.prepare(
     'SELECT COUNT(*) AS n FROM sources WHERE hidden=0 AND deleted_at IS NULL',
   ).first<{ n: number }>();
-  return { articles, eligible, excluded: Math.max(0, (total?.n || 0) - eligible) };
+  const used = await env.DB.prepare(
+    `SELECT COUNT(*) AS n FROM sources s
+    JOIN investment_used_revisions u ON u.revision=s.current_revision
+    WHERE s.hidden=0 AND s.deleted_at IS NULL`,
+  ).first<{ n: number }>();
+  return {
+    articles,
+    eligible,
+    used: used?.n || 0,
+    excluded: Math.max(0, (total?.n || 0) - eligible - (used?.n || 0)),
+  };
 }
 export function investmentPayload(articles: InvestmentArticle[], model: string) {
   return {
@@ -165,6 +176,7 @@ export async function investmentState(env: Env) {
     eligible: selected.eligible,
     selected: selected.articles.length,
     excluded: selected.excluded,
+    used: selected.used,
     aiConfigured: configured,
     run,
   };
@@ -279,6 +291,11 @@ export async function extractInvestment(env: Env, input: unknown, send: typeof f
       env.DB.prepare(
         "UPDATE jobs SET status='completed',updated_at=? WHERE id=? AND status='received'",
       ).bind(new Date().toISOString(), id),
+      ...snapshot.map((item) =>
+        env.DB.prepare(
+          "INSERT INTO investment_used_revisions(revision,used_at) SELECT ?,? WHERE EXISTS(SELECT 1 FROM jobs WHERE id=? AND status='completed') ON CONFLICT DO NOTHING",
+        ).bind(item.revision, new Date().toISOString(), id),
+      ),
       ...snapshot.map((item) =>
         env.DB.prepare('DELETE FROM write_guards WHERE id=?').bind(`${guardId}-${item.slug}`),
       ),
