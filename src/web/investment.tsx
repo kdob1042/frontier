@@ -75,7 +75,10 @@ export function Investment() {
       {state?.run && (
         <>
           <p>
-            実行状態：{state.run.status}
+            {state.run.execution === 'chatgpt_import'
+              ? 'ChatGPTで抽出・取り込み'
+              : 'アプリのAIで抽出'}{' '}
+            ／実行状態：{state.run.status}
             {state.run.error ? ` (${state.run.error})` : ''}
           </p>
           <button disabled={busy} onClick={() => refresh().catch((e) => setError(e.message))}>
@@ -125,7 +128,12 @@ export function Investment() {
                               <p>
                                 {a.publisher} ／ {a.mode} ／ {a.scope}
                               </p>
-                              <p>{p?.text}</p>
+                              <p>
+                                {p?.basis === 'ai_summary' && (
+                                  <strong>保存済みAI要約（原文未検証）／</strong>
+                                )}
+                                {p?.text}
+                              </p>
                               <a href={a.url} target="_blank" rel="noreferrer">
                                 原典へ
                               </a>
