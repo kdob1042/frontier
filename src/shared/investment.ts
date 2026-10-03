@@ -42,6 +42,7 @@ export type InvestmentState = {
   eligible: number;
   selected: number;
   excluded: number;
+  used: number;
   aiConfigured: boolean;
   run: null | {
     id: string;
