@@ -224,6 +224,8 @@ export async function stopJob(env: Env, id: string) {
   return { status: row.status };
 }
 export async function retryJob(env: Env, id: string) {
+  if (await env.DB.prepare('SELECT job_id FROM investment_runs WHERE job_id=?').bind(id).first())
+    throw new StoreError('investment_retry_requires_new_confirmation', 400);
   aiConfig(env);
   const row = await env.DB.prepare(
     'SELECT capture_id,status,result_json,reserved_micro_usd,actual_micro_usd,attempts,expected_revision,budget_day FROM jobs WHERE id=?',

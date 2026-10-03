@@ -11,6 +11,8 @@ export function sqliteRuntime() {
     '0006_view_proposals_and_visibility.sql',
     '0007_listening_progress.sql',
     '0008_media_intake.sql',
+    '0009_investment_theses.sql',
+    '0010_investment_used_revisions.sql',
   ])
     sqlite.exec(readFileSync(new URL(`../migrations/${name}`, import.meta.url), 'utf8'));
   class Statement {

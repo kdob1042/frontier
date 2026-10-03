@@ -1,3 +1,4 @@
+import { Investment } from './investment';
 import React, { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { demoStory } from '../shared/demo';
@@ -1145,6 +1146,8 @@ function App() {
           <Reader slug={match[1]} />
         ) : path === '/archive' ? (
           <Archive />
+        ) : path === '/investment' && !demo ? (
+          <Investment />
         ) : path === '/admin' && !demo ? (
           <Admin />
         ) : path === '/' ? (
@@ -1160,6 +1163,7 @@ function App() {
         <a href={path === '/archive' ? base || '/' : `${base}/archive`}>
           {path === '/archive' ? 'ホーム' : '記録'}
         </a>
+        {!demo && <a href="/investment">投資論点</a>}
         {!demo && <a href="/admin">管理</a>}
       </footer>
     </div>
