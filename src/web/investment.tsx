@@ -39,11 +39,13 @@ export function Investment() {
   return (
     <>
       <h1>投資論点</h1>
-      <p>登録済みの記事から、利益への影響と反証条件を持つ仮説を最大10本抽出します。</p>
+      <p>
+        未使用の記事から、利益への影響と反証条件を持つ仮説を最大10本抽出します。抽出成功時に使った記事は次回から除外します。
+      </p>
       {state && (
         <p>
-          対象 {state.selected} 記事（分析可能 {state.eligible} ／根拠・処理許可なし{' '}
-          {state.excluded}）
+          対象 {state.selected} 記事（分析可能 {state.eligible} ／使用済み {state.used}{' '}
+          ／その他対象外 {state.excluded}）
         </p>
       )}
       <button
@@ -55,7 +57,7 @@ export function Investment() {
       {!state?.aiConfigured && state && <p>AIのモデル・キー・予算設定が必要です。</p>}
       {state && state.selected === 0 && (
         <p>
-          本文または取得範囲とAI処理許可のある記事が必要です。原文リンクだけの記事は対象になりません。
+          未使用の記事がありません。使用済みの記事は除外しています。本文の根拠とAI処理許可がある新しい記事を追加してください。
         </p>
       )}
       {confirm && (
