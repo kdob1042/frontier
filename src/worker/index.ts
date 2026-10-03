@@ -1,4 +1,4 @@
-import { investmentState, extractInvestment } from './investment';
+import { investmentState, extractInvestment, importInvestment } from './investment';
 import { makeSpeechPlan } from '../shared/speech';
 import { Hono } from 'hono';
 import { z } from 'zod';
@@ -72,6 +72,9 @@ async function body(request: Request, limit = 256000): Promise<unknown> {
   }
   return JSON.parse(new TextDecoder().decode(all));
 }
+app.post('/api/investment/import', async (c) =>
+  c.json(await importInvestment(c.env, await body(c.req.raw))),
+);
 app.get('/api/investment', async (c) => c.json(await investmentState(c.env)));
 app.post('/api/investment', async (c) =>
   c.json(await extractInvestment(c.env, await body(c.req.raw))),
