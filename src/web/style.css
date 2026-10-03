@@ -1,0 +1,453 @@
+:root {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  color: #222522;
+  background: #f9f8f4;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.8;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration-color: #a5aaa3;
+  text-underline-offset: 5px;
+}
+a:hover {
+  color: #35604a;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button {
+  background: #244d3b;
+  color: #fff;
+  border: 0;
+  border-radius: 3px;
+  min-height: 44px;
+  padding: 10px 22px;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #477660;
+  outline-offset: 5px;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  color: inherit;
+  background: transparent;
+  border: 1px solid #a0a79e;
+  border-radius: 3px;
+  padding: 12px;
+  min-height: 48px;
+}
+textarea {
+  font: 14px/1.5 monospace;
+  resize: vertical;
+}
+.shell {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 54px;
+}
+header {
+  padding: 44px 0 36px;
+  border-bottom: 1px solid #d8dcd3;
+}
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 750;
+  letter-spacing: 4px;
+}
+.brand span {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 12px;
+  color: #5d665d;
+}
+main {
+  padding: 56px 0 40px;
+  min-height: 65vh;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #47604b;
+  margin: 0 0 26px;
+}
+.cover {
+  display: block;
+  text-decoration: none;
+  max-width: 760px;
+  padding-bottom: 35px;
+}
+.cover h1,
+h1 {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  margin: 0 0 28px;
+  overflow-wrap: anywhere;
+}
+.intro,
+.lede {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #515c50;
+  max-width: 630px;
+  margin: 0 0 28px;
+}
+.metadata,
+.source-line {
+  font-size: 12px;
+  color: #596258;
+  line-height: 1.8;
+  margin: 10px 0;
+}
+.metadata span {
+  margin: 0 10px;
+  color: #acb1a8;
+}
+.read {
+  display: inline-block;
+  margin-top: 22px;
+  font-size: 14px;
+  color: #254e3b;
+  border-bottom: 1px solid #315642;
+  padding: 8px 0;
+  min-height: 44px;
+}
+.read span {
+  margin-left: 18px;
+}
+.recent {
+  border-top: 1px solid #d8dcd3;
+  padding-top: 30px;
+  margin-top: 36px;
+}
+.recent h2 {
+  font-size: 13px;
+  font-weight: 500;
+}
+.record-row {
+  display: block;
+  padding: 24px 0;
+  text-decoration: none;
+  border-bottom: 1px solid #d8dcd3;
+  min-height: 60px;
+}
+.record-row span {
+  display: block;
+  font-size: 20px;
+  font-family: 'Yu Mincho', Georgia, serif;
+  line-height: 1.6;
+}
+.record-row small {
+  display: block;
+  color: #60695e;
+  font-size: 12px;
+  margin-top: 6px;
+}
+.reader {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.reader h1 {
+  font-size: clamp(30px, 4.5vw, 44px);
+}
+.reader .lede {
+  font-size: 16px;
+}
+.scope {
+  font-size: 12px;
+  line-height: 1.9;
+  border-left: 2px solid #b5c5b1;
+  padding-left: 15px;
+  color: #576451;
+  margin: 26px 0 44px;
+}
+.prose p {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 18px;
+  line-height: 2.15;
+  margin: 0 0 28px;
+}
+.harvest {
+  margin-top: 48px;
+  padding-top: 34px;
+  border-top: 1px solid #d8dcd3;
+}
+.harvest .eyebrow {
+  margin-bottom: 10px;
+}
+.harvest h2 {
+  font-size: 19px;
+  font-weight: 500;
+  margin: 0 0 20px;
+}
+.harvest p {
+  font-size: 15px;
+  line-height: 1.95;
+}
+.insight {
+  margin-bottom: 24px;
+}
+.insight p {
+  margin: 0 0 8px;
+}
+.insight small {
+  font-size: 11px;
+  color: #5c675a;
+}
+.insight .caveat {
+  font-size: 12px;
+  color: #5c675a;
+}
+.evidence {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: 11px/1.2 monospace;
+  min-width: 36px;
+  min-height: 44px;
+  margin-left: 5px;
+  color: #375b45;
+}
+.quiet {
+  font-size: 12px !important;
+  color: #5c6657;
+}
+.adopted {
+  border-left: 2px solid #60745d;
+  padding-left: 16px;
+}
+.adopted small {
+  color: #5c675a;
+  font-size: 12px;
+}
+.original {
+  margin-top: 44px;
+  border-top: 1px solid #d8dcd3;
+}
+.original summary {
+  font-size: 12px;
+}
+details {
+  border-bottom: 1px solid #d8dcd3;
+}
+summary {
+  padding: 18px 0;
+  min-height: 48px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.detail-body {
+  padding: 5px 0 24px;
+}
+.source-paragraph {
+  font-size: 14px;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+  scroll-margin-top: 28px;
+}
+.source-paragraph small {
+  color: #586e55;
+  font-family: monospace;
+}
+.small-title {
+  font-size: 36px;
+}
+.search {
+  display: block;
+  max-width: 600px;
+  font-size: 12px;
+  color: #54604f;
+  margin: 28px 0;
+}
+.search input {
+  display: block;
+  margin-top: 10px;
+}
+.records {
+  margin-top: 25px;
+}
+.state {
+  padding: 35px 0;
+  color: #576451;
+  font-size: 14px;
+}
+.empty p {
+  color: #576451;
+  font-size: 15px;
+  line-height: 2;
+}
+.empty a {
+  display: inline-block;
+  margin-top: 22px;
+  min-height: 44px;
+  font-size: 14px;
+}
+.demo-note {
+  font-size: 11px;
+  color: #59674f;
+  padding-top: 18px;
+}
+.view-draft summary {
+  font-size: 15px;
+}
+footer {
+  margin: 28px 0 0;
+  padding: 28px 0 40px;
+  border-top: 1px solid #d8dcd3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 5px;
+}
+form label {
+  font-size: 12px;
+}
+form button {
+  margin-top: 16px;
+}
+label textarea {
+  display: block;
+  margin-top: 8px;
+}
+::selection {
+  background: #d5e2c9;
+}
+@media (max-width: 600px) {
+  .shell {
+    padding: 0 24px;
+  }
+  header {
+    padding: 26px 0 24px;
+  }
+  .brand {
+    font-size: 22px;
+  }
+  .brand span {
+    font-size: 10px;
+    margin-top: 8px;
+  }
+  main {
+    padding: 36px 0 24px;
+  }
+  .eyebrow {
+    margin-bottom: 22px;
+  }
+  .intro {
+    font-size: 15px;
+  }
+  .cover h1 {
+    font-size: 34px;
+    margin-bottom: 22px;
+  }
+  .metadata {
+    font-size: 11px;
+  }
+  .metadata span {
+    margin: 0 5px;
+  }
+  .prose p {
+    font-size: 17px;
+    line-height: 2.05;
+  }
+  .reader h1 {
+    font-size: 31px;
+  }
+  .lede {
+    font-size: 15px !important;
+  }
+  .recent {
+    margin-top: 26px;
+  }
+  .record-row span {
+    font-size: 18px;
+  }
+  .scope {
+    margin-bottom: 32px;
+  }
+  .harvest {
+    margin-top: 36px;
+    padding-top: 28px;
+  }
+  .small-title {
+    font-size: 30px;
+  }
+  .demo-note {
+    line-height: 1.8;
+  }
+}
+.listen {
+  margin: 16px 0;
+}
+.listen-trigger {
+  color: #375b45;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.listen-controls {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.listen-controls details {
+  flex: 1;
+  min-width: 0;
+}
+.listen-controls summary {
+  padding: 10px 0;
+  min-height: 44px;
+  font-size: 13px;
+}
+.listen label {
+  display: block;
+  font-size: 12px;
+  margin: 14px 0;
+}
+.listen select {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+}

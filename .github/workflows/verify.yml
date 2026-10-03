@@ -1,0 +1,39 @@
+name: Verify
+on:
+  pull_request:
+  push:
+    branches: [main, dev]
+permissions:
+  contents: read
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      WRANGLER_SEND_METRICS: false
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npm run test:integration
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
+      - run: npm run test:media-browser
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: synthetic-browser-evidence
+          path: artifacts/*.png
+          if-no-files-found: ignore
+          retention-days: 14
