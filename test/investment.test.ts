@@ -172,3 +172,45 @@ test('concurrent identical requests send once; revoked permissions exclude evide
   );
   assert.equal(calls, 1);
 });
+
+test('successful analysis consumes every selected revision, including zero-thesis results; new versions remain eligible', async () => {
+  const { env, db } = await setup();
+  const { articles } = await investmentArticles(env);
+  const a = articles[0];
+  await extractInvestment(env, { confirmed: true, requestId: crypto.randomUUID() }, async () =>
+    response({ theses: [], limitations: '十分な投資論点がなかった' }),
+  );
+  assert.equal((await investmentArticles(env)).articles.length, 0);
+  assert.equal((await investmentState(env)).used, 1);
+  assert.equal((await investmentState(env)).run?.result?.theses.length, 0);
+  await assert.rejects(
+    extractInvestment(env, { confirmed: true, requestId: crypto.randomUUID() }, async () => {
+      throw new Error('must not send');
+    }),
+    /no_investment_evidence/,
+  );
+  const updated = structuredClone(demoBundle);
+  updated.capture.paragraphs[0].text += ' Additional newly captured evidence.';
+  await importBundle(db, updated, a.revision);
+  assert.equal((await investmentArticles(env)).articles.length, 1);
+  assert.equal((await investmentState(env)).used, 0);
+});
+test('failed analysis does not consume evidence and used IDs survive source deletion', async () => {
+  const { env, db } = await setup();
+  const { articles } = await investmentArticles(env);
+  const a = articles[0];
+  await extractInvestment(env, { confirmed: true, requestId: crypto.randomUUID() }, async () =>
+    response(output(a.revision, 'invented')),
+  );
+  assert.equal((await investmentArticles(env)).articles.length, 1);
+  await extractInvestment(env, { confirmed: true, requestId: crypto.randomUUID() }, async () =>
+    response(output(a.revision, a.paragraphs[0].id)),
+  );
+  await deleteSource(db, a.slug, a.revision);
+  assert.ok(
+    await db
+      .prepare('SELECT revision FROM investment_used_revisions WHERE revision=?')
+      .bind(a.revision)
+      .first(),
+  );
+});
