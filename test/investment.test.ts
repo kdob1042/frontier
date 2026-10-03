@@ -5,6 +5,7 @@ import { importBundle, deleteSource } from '../src/worker/storage';
 import {
   extractInvestment,
   investmentArticles,
+  importInvestment,
   investmentState,
   validateTheses,
 } from '../src/worker/investment';
@@ -212,5 +213,54 @@ test('failed analysis does not consume evidence and used IDs survive source dele
       .prepare('SELECT revision FROM investment_used_revisions WHERE revision=?')
       .bind(a.revision)
       .first(),
+  );
+});
+test('ChatGPT trial import works with API disabled and preserves evidence and used tracking', async () => {
+  const { env, db } = await setup();
+  env.AI_ENABLED = 'false';
+  const { articles } = await investmentArticles(env);
+  const a = articles[0];
+  const input = {
+    confirmed: true,
+    requestId: crypto.randomUUID(),
+    revisions: [{ slug: a.slug, revision: a.revision }],
+    result: output(a.revision, a.paragraphs[0].id),
+  };
+  const { id } = await importInvestment(env, input);
+  assert.deepEqual(await importInvestment(env, input), { id });
+  const state = await investmentState(env);
+  assert.equal(state.run?.execution, 'chatgpt_import');
+  assert.equal(state.run?.result?.theses.length, 1);
+  assert.equal(state.used, 1);
+  assert.equal(state.aiConfigured, false);
+  assert.equal(
+    (
+      await db
+        .prepare('SELECT actual_micro_usd FROM jobs WHERE id=?')
+        .bind(id)
+        .first<{ actual_micro_usd: number }>()
+    )?.actual_micro_usd,
+    0,
+  );
+  await assert.rejects(importInvestment(env, { ...input, requestId: crypto.randomUUID() }));
+});
+test('summary evidence is explicitly labelled AI-derived and may be cited without posing as original text', async () => {
+  const { env, db } = sqliteRuntime();
+  const summary = structuredClone(demoBundle);
+  summary.capture.mode = 'summary';
+  const imported = await importBundle(db, summary);
+  const { articles } = await investmentArticles(env);
+  const a = articles[0];
+  assert.equal(a.paragraphs.find((p) => p.id === 'summary-1')?.basis, 'ai_summary');
+  await importInvestment(env, {
+    confirmed: true,
+    requestId: crypto.randomUUID(),
+    revisions: [{ slug: a.slug, revision: imported.revision }],
+    result: output(a.revision, 'summary-1'),
+  });
+  assert.equal(
+    (await investmentState(env)).run?.articles[0].paragraphs.find((p) => p.id === 'summary-1')
+      ?.basis,
+    'ai_summary',
   );
 });
